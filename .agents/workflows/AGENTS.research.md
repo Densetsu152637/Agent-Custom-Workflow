@@ -1,8 +1,16 @@
-# Agent instructions: research workflow
+# Agent Instructions: Research Workflow
+
+## Specialized capability ceiling
+
+| Selected preset | Maximum research tier |
+| --------------- | --------------------- |
+| light           | Specialist            |
+| balanced        | Frontier              |
+| heavy           | Frontier              |
 
 ## Research-specific routing
 
-Read [AGENTS.override.md](AGENTS.md) first and inherit its shared policy in full. This file adds research-specific methods without changing the general capability ceiling.
+This file adds research-specific methods without changing the general capability ceiling.
 
 - Reserve highly capable reasoning agents for difficult interpretation, competing explanations, and critique. For consequential or complex conclusions, select a critic with sufficient reasoning capability within the active ceiling and use deeper effort when supported and warranted.
 - Split research programs by answerable subquestions and evidence types. Keep source gathering, domain analysis, synthesis, and independent critique as distinct responsibilities when this improves coverage or reduces bias.
