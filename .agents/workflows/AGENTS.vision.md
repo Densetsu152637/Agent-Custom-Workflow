@@ -1,8 +1,8 @@
-# Agent instructions: vision workflow
+# Agent Instructions: Vision Workflow
 
 ## Specialized capability ceiling
 
-Read [AGENTS.override.md](AGENTS.md) first and inherit its shared policy in full. This file contains only vision-specific additions and the scoped capability exception below.
+This file contains only vision-specific additions and the scoped capability exception below.
 
 Only assignments that inspect actual visual inputs receive this enhanced ceiling, using the base policy's tier definitions:
 
@@ -12,6 +12,7 @@ Only assignments that inspect actual visual inputs receive this enhanced ceiling
 | balanced        | Frontier with verified vision capability   |
 | heavy           | Frontier with verified vision capability   |
 
+- Resolve this ceiling before selecting or dispatching the vision worker. It replaces the inherited general ceiling for the visual assignment. Under balanced, the effective vision ceiling is Frontier even when the immediate manager's general ceiling is Specialist; do not take the minimum of these two ceilings. Record both ceilings and the worker's effective ceiling in the delegation brief, and configure the actual worker model and any host per-worker cap accordingly. Explicit visual, user-wide, or subtree vision restrictions still apply.
 - Verify both visual capability and access to the image inputs; a text-only summary does not constitute image QA.
 - The user can override the visual cap separately: `use light preset with vision ceiling heavy` permits frontier vision workers alongside economy general workers. `vision ceiling light`, `balanced`, and `heavy` use the base policy's economy, specialist, and frontier ceilings respectively, each requiring verified vision support. The explicit visual cap replaces the table's visual default and persists for the task until changed.
 - A user-wide cap such as `all agents at most economy tier` also constrains vision workers unless the user explicitly exempts them.
