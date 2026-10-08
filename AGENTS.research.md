@@ -2,7 +2,7 @@
 
 ## Research-specific routing
 
-Read [AGENTS.md](AGENTS.md) first and inherit its shared policy in full. This file adds research-specific methods without changing the general capability ceiling.
+Read [AGENTS.override.md](AGENTS.md) first and inherit its shared policy in full. This file adds research-specific methods without changing the general capability ceiling.
 
 - Reserve highly capable reasoning agents for difficult interpretation, competing explanations, and critique. For consequential or complex conclusions, select a critic with sufficient reasoning capability within the active ceiling and use deeper effort when supported and warranted.
 - Split research programs by answerable subquestions and evidence types. Keep source gathering, domain analysis, synthesis, and independent critique as distinct responsibilities when this improves coverage or reduces bias.
@@ -25,7 +25,7 @@ Read [AGENTS.md](AGENTS.md) first and inherit its shared policy in full. This fi
 
 ## Synthesis and independent critique
 
-1. Assign synthesis to an agent with the exact evidence-ledger and source paths. Separate observations, inferences, assumptions, and recommendations. Represent disagreements and gaps instead of forcing consensus.
+1. Perform simple synthesis directly under the shared delegation criteria; when delegating, give the assigned agent the exact evidence-ledger and source paths. Separate observations, inferences, assumptions, and recommendations. Represent disagreements and gaps instead of forcing consensus.
 2. For material uncertainty or consequential conclusions, assign a separate critic a bounded review question, acceptance criteria, source paths, and draft path. For simple factual lookups, a direct source check is sufficient; avoid ceremonial review.
 3. Where useful, have the critic assess core evidence before reading the proposed conclusion to reduce anchoring. Then challenge source quality, selection bias, missing alternatives, confounding, numerical errors, extrapolation, citation support, and whether recommendations follow from the evidence.
 4. The critic must substantiate objections with locatable evidence or a precise missing check. Return finding, impact on the conclusion, confidence, and the smallest verification step that could resolve it. Reasoning strength does not replace source access or expertise.

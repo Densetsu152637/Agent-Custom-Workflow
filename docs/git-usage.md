@@ -2,7 +2,7 @@
 
 ## Scope and preflight
 
-Follow applicable `AGENTS.md` instructions and explicit user constraints. These rules govern Git operations; they do not authorize publishing, merging, or contacting reviewers outside the task's authorized scope.
+These rules govern Git operations; they do not authorize publishing, merging, or contacting reviewers outside the task's authorized scope.
 
 Before edits or Git mutations:
 

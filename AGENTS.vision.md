@@ -2,7 +2,7 @@
 
 ## Specialized capability ceiling
 
-Read [AGENTS.md](AGENTS.md) first and inherit its shared policy in full. This file contains only vision-specific additions and the scoped capability exception below.
+Read [AGENTS.override.md](AGENTS.md) first and inherit its shared policy in full. This file contains only vision-specific additions and the scoped capability exception below.
 
 Only assignments that inspect actual visual inputs receive this enhanced ceiling, using the base policy's tier definitions:
 
@@ -27,7 +27,7 @@ Only assignments that inspect actual visual inputs receive this enhanced ceiling
 
 1. Inspect the actual pixels against the brief. Check relevant anatomy/geometry, text accuracy, clipping, blur, lighting, style consistency, layout, contrast, alignment, and rendering defects. For interactive UI, combine visual inspection with functional checks; screenshots alone cannot prove behavior.
 2. Return a per-artifact verdict: pass, fail, or unable to verify. For defects, include location, severity, observable evidence, and a specific correction. Separate measured findings from subjective preferences and uncertain interpretations.
-3. The immediate manager sends defects and exact affected paths to the assigned editing worker. That worker adjusts source, prompt, assets, or supported rendering/generation settings and produces a new stable revision.
+3. The immediate manager may make a simple correction directly under the shared delegation criteria; otherwise send defects and exact affected paths to the assigned editing worker. The editor adjusts source, prompt, assets, or supported rendering/generation settings and produces a new stable revision. Direct execution retains the general capability ceiling and file-ownership requirements.
 4. Reinspect changed assets and dependent areas. Record which revision passed; approval of an earlier render does not approve later edits.
 5. Allow at most three repair/recheck retries after the initial failure. Stop earlier when blocked or the same defect repeats without progress. Preserve the best output and report remaining defects and the next useful decision through the immediate manager. This repair limit is unrelated to delegation depth.
 

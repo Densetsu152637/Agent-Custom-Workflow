@@ -2,20 +2,22 @@
 
 ## Apply these rules
 
-- Read applicable `AGENTS.md` instructions, relevant `docs/` READMEs, nearby code/tests, and formatter/linter/build configuration before editing.
 - Follow established project and framework conventions. The language defaults below guide new code where no stronger local convention exists; do not rewrite working code into a different paradigm without task justification.
 - Make the smallest cohesive change that satisfies the requirements. Favor clarity and explicit contracts over fewest lines, speculative abstractions, or broad cleanup.
 
 ## Language defaults
 
-FP = functional programming; OOP/OOD = object-oriented programming/design. Languages may combine paradigms; choose idiomatic constructs for the problem.
+FP = functional programming
+OOP = object-oriented programming
+DOD = data-oriented design
+Languages may combine paradigms; choose idiomatic constructs for the problem.
 
 | Language                | Default paradigm and emphasis                                                                             |
 | ----------------------- | --------------------------------------------------------------------------------------------------------- |
 | Haskell                 | FP; pure transformations, algebraic data types, explicit effects                                          |
-| C++                     | OOP/OOD with value semantics, RAII, composition, and generic algorithms                                   |
-| C                       | Procedural/structured; explicit data ownership, lifetimes, and cleanup                                    |
-| C# / Java               | OOP/OOD; cohesive types, interfaces at boundaries, composition                                            |
+| C++                     | OOP/DOD with value semantics, RAII, composition, and generic algorithms and templates                     |
+| C                       | DOD; Procedural/structured; explicit data ownership, lifetimes, and cleanup                               |
+| C# / Java               | OOP; cohesive types, interfaces at boundaries, composition                                                |
 | TypeScript / JavaScript | Functional composition for transformations; modules/components; classes for meaningful state or lifecycle |
 | Python                  | Procedural/functional core; classes for domain state and behavior; idiomatic iteration                    |
 | Rust                    | Ownership-oriented, data-oriented design; structs/enums/traits and functional iterators                   |
