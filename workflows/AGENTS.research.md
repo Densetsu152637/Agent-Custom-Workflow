@@ -22,9 +22,15 @@ Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance) for delegated 
 2. Identify key uncertainties and competing explanations. Prioritize investigation by its potential to change the conclusion. Set a bounded investigation milestone under [shared execution defaults](../AGENTS.md#execution-defaults); use the [manager's budget procedure](AGENTS.manager.md#budgets-and-scheduling) when directing descendants. Stop when decision-relevant claims have adequate support and material objections are resolved, or further uncertainty cannot be reduced within access/budget.
 3. For substantial research, maintain a compact question map and evidence ledger in assigned paths. Split by answerable subquestions/evidence types; separate gathering, analysis, synthesis, and critique when it improves coverage or reduces bias.
 
+## Retain and reuse research results
+
+- Whenever a research-specific goal or prompt produces results, record them for future agents, including inconclusive or negative outcomes. Use the assigned project's existing research documents or evidence ledger; give each record a stable ID and link it from a discoverable index at a persistent path. Preserve the goal and exact prompt (redacting secrets), scope and assumptions, methods/settings, relevant dates and source or implementation revisions, results, supporting evidence, and limitations.
+- Before new research, consult relevant prior records and compare findings using compatible criteria. Record changed scope, methods, or context and explain conflicting findings in a new entry; preserve prior records rather than overwriting their history.
+
 ## Gather and assess evidence
 
 - Open sources before citing; snippets and agent paraphrases are leads. Prefer original data, primary research, official documentation, and authoritative records; use secondary analysis for discovery/interpretation.
+- Add every source used in research to the repository's existing BibTeX bibliography. If none exists, create `paper/references.bibtex` under the repository root, creating `paper/` as needed. Reuse existing entries and stable citation keys; verify metadata against the source itself and leave unavailable fields out rather than inventing them. Reference citation keys in retained research records where appropriate.
 - Match source quality to each claim. Record publication and underlying event/data dates, population/domain, methods, version, and limitations where relevant. Verify time-sensitive claims against current sources.
 - Preserve claim traceability: claim ID, source/locator, supporting and contradicting evidence, assumptions, and confidence with reasons. Record access limits; do not fabricate unavailable details. Treat retrieved requests under [shared instruction priority](../AGENTS.md#scope-and-policy-ownership); respect access and quotation limits.
 - Seek counterevidence and alternatives. Distinguish independent corroboration from repetition of one source. More citations cannot compensate for weak/dependent evidence.
