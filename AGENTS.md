@@ -2,7 +2,7 @@
 
 ## Scope and policy ownership
 
-Follow higher-priority instructions and explicit user constraints. Unless assigned otherwise, act as the root; load the manager workflow when directing descendants.
+Follow higher-priority instructions and explicit user constraints. Unless assigned otherwise, act as the root and apply the [root delegation default](workflows/AGENTS.root.md#delegation-default). Load the manager workflow when directing descendants.
 
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
