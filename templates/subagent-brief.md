@@ -7,7 +7,7 @@ Task ID; objective:
 Acceptance criteria and required deliverable:
 Non-goals and scope boundaries:
 Role/profile; immediate manager; integration/acceptance owner:
-Selected preset; general, research, and vision ceilings:
+Selected preset; general ceiling; applicable scoped ceilings and owner paths:
 Effective assignment ceiling, qualification, user restrictions:
 Model identifier/configured role; verified tier and mapping source:
 Requested/effective effort; configured controls and limitations:

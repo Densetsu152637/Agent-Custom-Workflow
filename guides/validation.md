@@ -1,6 +1,6 @@
 # Validation
 
-This guide owns common validation evidence and the Compose check sequence. Domain-specific checks remain in their workflows; command semantics and container identity remain in [container usage](container-usage.md).
+This guide owns common validation evidence and the Compose check sequence. Discover and load domain-specific procedures from the [workflow index](../AGENTS.md#workflows); command semantics and container identity remain in [container usage](container-usage.md).
 
 ## Shared validation rules
 
@@ -8,7 +8,7 @@ This guide owns common validation evidence and the Compose check sequence. Domai
 - Check the actual returned artifact/revision. Capture command/procedure, exit status where applicable, tested revision, and decisive evidence/log locator using the [result schema](../templates/subagent-result.md). Non-code review must also identify the artifact checked.
 - Distinguish passed, failed, and unrun checks. Inaccessible inputs, unavailable checks, stale evidence, or insufficient coverage are unverified, not passed. Retain acceptance criteria; route changes to scope through the manager rather than weakening a check to obtain success.
 - Validate the integrated result; isolated passing branches/workstreams cannot establish their combination passes. Rerun affected checks after relevant input/output changes, and do not repeat unaffected passing checks without a reason. Earlier approval does not approve later revisions.
-- Report material limitations and unresolved failures; do not claim completion from evidence that does not establish the required behavior. Functional acceptance needs observed behavior; visual/research methods are owned by their specialist workflows.
+- Report material limitations and unresolved failures; do not claim completion from evidence that does not establish the required behavior. Functional acceptance needs observed behavior; domain methods and their coverage requirements remain in the applicable workflows.
 
 ## Readiness
 

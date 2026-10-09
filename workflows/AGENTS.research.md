@@ -30,6 +30,12 @@ Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance) for delegated 
 - Seek counterevidence and alternatives. Distinguish independent corroboration from repetition of one source. More citations cannot compensate for weak/dependent evidence.
 - Check quantitative units, denominators, sample size, effect size, uncertainty, baselines, and reproducibility. Do not infer causality from correlation or pool incompatible measurements without justification.
 
+## Compare research claims with implementation
+
+- When analysing a research-based feature or determining whether it is implemented, examine both the research paper and the actual implementation. Identify the relevant paper version and implementation repository/revision; map the paper's feature claims, algorithms, assumptions, and experimental settings to concrete code paths and configuration.
+- Compare claimed and implemented behavior, looking for missing or partial features, changed algorithms, defaults, approximations, and differences in training/evaluation settings or results. Inspect relevant tests and runtime evidence where available and appropriate; a paper claim, README statement, or matching symbol alone does not establish implementation. Distinguish implemented, partial, absent, divergent, and unverified findings, and do not treat an unsuccessful code search as proof of absence.
+- Report discrepancies with paper section/page and implementation file/line or other precise evidence, their likely effect on the feature or conclusions, and any uncertainty. If either source is inaccessible or the correspondence cannot be established, record that limitation and leave the comparison unverified rather than assuming agreement.
+
 ## Synthesis and critique
 
 - Separate observations, inferences, assumptions, and recommendations. Represent disagreements/gaps instead of forcing consensus. Give delegated analysts exact evidence-ledger/source paths through the assignment contract.

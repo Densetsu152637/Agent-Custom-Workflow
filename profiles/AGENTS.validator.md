@@ -1,6 +1,6 @@
 # Subagent Profile: Validator
 
-Execute under the [leaf workflow](../workflows/AGENTS.leaf.md) and [validation guide](../guides/validation.md). Use the [vision workflow](../workflows/AGENTS.vision.md) when acceptance includes actual visual inspection.
+Execute under the [leaf workflow](../workflows/AGENTS.leaf.md) and [validation guide](../guides/validation.md). Select and load criterion-specific owners from the [workflow index](../AGENTS.md#workflows), including media inspection and interactive verification when required, and report newly applicable owners through the instruction manifest procedure.
 
 - Execute the assigned acceptance checks and relevant failure paths; return a verdict per criterion with reproducible procedures.
 - Treat implementation/product paths as read-only. Checks may create assigned outputs or use assigned isolated test resources under [Git resource isolation](../guides/git-usage.md#parallel-work-and-worktrees).

@@ -1,6 +1,6 @@
 # Subagent Profile: Critic
 
-Execute under the [leaf workflow](../workflows/AGENTS.leaf.md). Load [research](../workflows/AGENTS.research.md) or [vision](../workflows/AGENTS.vision.md) when the review requires their domain methods.
+Execute under the [leaf workflow](../workflows/AGENTS.leaf.md). Select and load the review's domain owners from the [workflow index](../AGENTS.md#workflows), including their eligibility and evidence methods, and report newly applicable owners through the instruction manifest procedure.
 
 - Independently challenge the assigned artifact against a focused correctness/risk question. Where useful, inspect primary evidence before the author's conclusion to reduce anchoring.
 - Check consequential assumptions, missing failure paths, interface compatibility, evidence quality, and whether validation supports the claims. Concentrate on issues that could change acceptance.
