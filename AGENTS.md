@@ -2,51 +2,51 @@
 
 ## Scope and policy ownership
 
-Follow higher-priority instructions and explicit user constraints. Unless explicitly prompted or delegated, assume your role is a root manager.
+Follow higher-priority instructions and explicit user constraints. Unless assigned otherwise, act as the root; load the manager workflow when directing descendants.
 
-This file owns shared instruction priority, discovery, and the companion index. Each companion owns the rules for its topic. Put a rule in its narrowest applicable owner; consumers must link to that owner and load it when relevant instead of restating the rule. Workflow steps may invoke linked procedures, and templates may define field schemas without duplicating behavioral policy.
-
-Companions inherit this file and add only specialized rules or scoped exceptions. A profile describes an assignment, not a new instruction priority or permission grant. Do not assume automatic instruction discovery; preserve links and update consumers when moving a rule.
+This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
 ## Workflows
 
-| Work                                 | Required owner                                                                                     |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| Root                                 | [Root responsibilities and overall reporting](workflows/AGENTS.root.md)                            |
-| Manager                              | [Delegation, model selection, ceilings, and scheduling](workflows/AGENTS.manager.md)               |
-| Leaf subagent                        | [Bounded execution authority](workflows/AGENTS.leaf.md)                                            |
-| Research                             | [Research eligibility, ceiling, and methods](workflows/AGENTS.research.md)                         |
-| Visual inspection                    | [Vision eligibility, ceiling, and methods](workflows/AGENTS.vision.md)                             |
-| Audio digestion and inspection       | [Audio eligibility, ceiling, and methods](workflows/AGENTS.audio.md)                               |
-| Debugging and incident investigation | [Causal investigation and regression verification](workflows/AGENTS.debugging.md)                  |
-| Data analysis                        | [Dataset quality, analytical methods, and numerical validation](workflows/AGENTS.data-analysis.md) |
-| Browser and interactive verification | [User journeys, state changes, and behavioral evidence](workflows/AGENTS.browser.md)               |
-| Architecture and design review       | [Alternatives, contracts, and decision records](workflows/AGENTS.architecture.md)                  |
-| Security review                      | [Security eligibility, ceiling, threat modeling, and verification](workflows/AGENTS.security.md)   |
-| Video digestion                      | [Modality dispatch, temporal coverage, and synchronized synthesis](workflows/AGENTS.video.md)      |
-
-Load all applicable owners. Assignment profiles are indexed in [profiles/README.md](profiles/README.md).
+- Root: [Responsibilities and reporting](workflows/AGENTS.root.md).
+- Directing descendants: [Manager](workflows/AGENTS.manager.md).
+- Bounded delegated execution: [Leaf](workflows/AGENTS.leaf.md); choose an [assignment profile](profiles/README.md).
+- External evidence and research: [Research](workflows/AGENTS.research.md).
+- Actual visual inputs: [Vision](workflows/AGENTS.vision.md).
+- Actual recordings: [Audio](workflows/AGENTS.audio.md).
+- Incorrect behavior or incidents: [Debugging](workflows/AGENTS.debugging.md).
+- Datasets and numerical analysis: [Data analysis](workflows/AGENTS.data-analysis.md).
+- Interactive journeys: [Browser verification](workflows/AGENTS.browser.md).
+- Architecture and design decisions: [Architecture](workflows/AGENTS.architecture.md).
+- Threats and vulnerabilities: [Security](workflows/AGENTS.security.md).
+- Video sequences: [Video](workflows/AGENTS.video.md).
 
 ## Guides
 
-Use relevant plugins alongside these guides for specialized work.
-
-| Work                                             | Required owner                                                   |
-| ------------------------------------------------ | ---------------------------------------------------------------- |
-| Handoffs, context lifecycle, stalls, or recovery | [Subagent coordination](guides/subagent-coordination.md)         |
-| Acceptance checks or validation evidence         | [Validation](guides/validation.md)                               |
-| Code changes                                     | [Coding standards](guides/coding-standards.md)                   |
-| Git operations or parallel editing               | [Git usage](guides/git-usage.md)                                 |
-| Container/Compose workflows                      | [Container usage](guides/container-usage.md)                     |
-| Environment variables, secrets, or configuration | [Environment configuration](guides/environment-configuration.md) |
-| Reusable failure lessons                         | [Failure catalog maintenance](learning/README.md)                |
+- Handoffs, retained context, or recovery: [Coordination](guides/subagent-coordination.md).
+- Acceptance evidence: [Validation](guides/validation.md).
+- Implementation changes: [Coding standards](guides/coding-standards.md).
+- Git operations or parallel editing: [Git usage](guides/git-usage.md).
+- Container/Compose operations: [Container usage](guides/container-usage.md).
+- Configuration or secrets: [Environment configuration](guides/environment-configuration.md).
+- Reusable failure lessons: [Learning](learning/README.md).
 
 ## Editing and temporary artifacts
 
-- Edit authoritative files in the assigned checkout through permitted tools; use [Git isolation](guides/git-usage.md#parallel-work-and-worktrees) when required. Avoid ad hoc local draft/backup trees and one-off installer/check scripts merely to stage or review routine edits. Review normal diffs or the stable target artifacts instead.
-- If a target is protected, use the host's permission mechanism for the authorized edit. Shadow drafts are not a substitute for permission to change that target.
-- Create temporary artifacts only when a concrete task or required tooling needs them, such as render intermediates or reproducible execution evidence. Use the smallest necessary scope at an assigned temporary location, keep it separate from source/deliverables, and clean up task-created scratch artifacts when no longer needed. Preserve required evidence and handoff records under the [coordination contract](guides/subagent-coordination.md#assignment-and-result-contracts).
+- Edit authoritative files in the assigned checkout with permitted tools; use [Git isolation](guides/git-usage.md#parallel-work-and-worktrees) where required. Review diffs or stable artifacts, without ad hoc backup/draft trees or routine one-off installer/check scripts.
+- Use host permissions for protected targets; shadow drafts do not replace authorization.
+- Create scratch artifacts only for a concrete task/tool need, at an assigned temporary location separate from deliverables. Keep their scope minimal, clean them when unneeded, and preserve required [handoff evidence](guides/subagent-coordination.md#assignment-and-result-contracts).
 
 ## Context and discovery
 
-Before scoping or acting, read applicable instructions and all relevant READMEs, including nested ones where present. Inspect likely matches when relevance is unclear. Discover files progressively; avoid whole-repository dumps. Use companion indexes to select relevant material rather than loading every profile or failure entry.
+- Before affected work, load its applicable owners and relevant README/source sections, including nested instructions. A link is not a requirement to load its target: follow the stated trigger. Discover progressively; avoid whole-repository dumps.
+- Complete authoritative text already available in current context counts as loaded. Reuse it while unchanged; reread changed sections, missing text, or sources represented only by a summary after compaction/handoff. Record exact owner paths for delegated work under the coordination contract.
+- Search narrowly, return bounded excerpts/logs/diffs, and widen only when needed. Retain decisive evidence instead of repeating raw output.
+- Apply skills/plugins to the actual requested workflow, not broad keyword overlap. When authoring skill descriptions, keep triggers short and specific; put detailed procedures in conditionally loaded references.
+
+## Execution defaults
+
+- Establish the outcome, scope, known paths, acceptance checks, and stopping condition. Resolve routine choices from available evidence; ask only for missing information or authority that materially affects the result.
+- Keep related work together and pass compact deltas. Use fresh context for unrelated assignments; suggest a new chat when unrelated history materially impedes direct work, without creating one unless requested.
+- When effort controls are exposed, use low for routine edits/extraction, medium for ordinary implementation/debugging, and deeper effort for difficult uncertain analysis. Honor explicit settings and host controls; instructions do not change hidden runtime settings.
+- Keep communication and evidence proportional to the task. Stop exploration and checks when acceptance is established; preserve mandatory gates under [validation](guides/validation.md#shared-validation-rules).

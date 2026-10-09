@@ -4,7 +4,7 @@
 
 Use this workflow for incorrect behavior, regressions, exceptions, intermittent failures, or incidents. It owns causal investigation; [coding standards](../guides/coding-standards.md) own implementation and the [validation guide](../guides/validation.md) owns shared evidence requirements.
 
-Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf investigators, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf investigators, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 
 - Establish expected and observed behavior, impact, affected versions/environments, reproduction inputs, and the first known failing and last known working states. Separate supplied reports from reproduced observations.
 - Read relevant entry points, contracts, recent changes, tests, and logs. Record the runtime/configuration and source revision; handle sensitive evidence under [environment configuration](../guides/environment-configuration.md#configuration-output).
@@ -16,7 +16,7 @@ Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf wor
 2. Maintain a compact hypothesis ledger: candidate cause, supporting/contradicting evidence, discriminating check, and result. Follow the causal path from inputs through state changes to the failure; do not infer causation from the newest change or a suspicious log alone.
 3. Prioritize experiments that distinguish competing explanations. Change one relevant factor at a time where practical; use controlled comparisons, targeted instrumentation, or revision bisection when suitable. Preserve the failing evidence before changes and isolate mutable test resources under [Git usage](../guides/git-usage.md#parallel-work-and-worktrees).
 4. For timing or concurrency failures, examine ordering, cancellation, resource ownership, and external dependencies. Measure frequencies and timing when those support a claim; a single successful rerun does not establish an intermittent fix.
-5. Stop at the [manager's checkpoint](AGENTS.manager.md#budgets-and-scheduling) when the causal chain is supported, remaining hypotheses cannot change the repair, or access/budget prevents further discrimination. Use [recovery](../guides/subagent-coordination.md#stalls-and-recovery) for failed milestones; ordinary hypothesis experiments are not recovery retries.
+5. Use a bounded checkpoint under [shared execution defaults](../AGENTS.md#execution-defaults), or [manager scheduling](AGENTS.manager.md#budgets-and-scheduling) when directing descendants. Stop when the causal chain is supported, remaining hypotheses cannot change the repair, or access/budget prevents further discrimination. Use [recovery](../guides/subagent-coordination.md#stalls-and-recovery) for failed milestones; ordinary hypothesis experiments are not recovery retries.
 
 ## Repair and validation
 

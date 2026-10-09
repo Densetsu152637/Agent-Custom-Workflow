@@ -19,7 +19,7 @@ Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [mode
 Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance) for delegated research, the [leaf workflow](AGENTS.leaf.md) for leaf execution, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
 
 1. Frame the question, audience, deliverable, scope, dates/geography, and useful-answer criteria. State reasonable assumptions without unnecessary interruption. Distinguish lookup, comparison, causal inference, forecasting, and recommendation; establish criteria before ranking alternatives.
-2. Identify key uncertainties and competing explanations. Prioritize investigation by its potential to change the conclusion. Use the [manager's budget procedure](AGENTS.manager.md#budgets-and-scheduling); stop when decision-relevant claims have adequate support and material objections are resolved, or further uncertainty cannot be reduced within access/budget.
+2. Identify key uncertainties and competing explanations. Prioritize investigation by its potential to change the conclusion. Set a bounded investigation milestone under [shared execution defaults](../AGENTS.md#execution-defaults); use the [manager's budget procedure](AGENTS.manager.md#budgets-and-scheduling) when directing descendants. Stop when decision-relevant claims have adequate support and material objections are resolved, or further uncertainty cannot be reduced within access/budget.
 3. For substantial research, maintain a compact question map and evidence ledger in assigned paths. Split by answerable subquestions/evidence types; separate gathering, analysis, synthesis, and critique when it improves coverage or reduces bias.
 
 ## Gather and assess evidence
@@ -35,6 +35,12 @@ Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance) for delegated 
 - When analysing a research-based feature or determining whether it is implemented, examine both the research paper and the actual implementation. Identify the relevant paper version and implementation repository/revision; map the paper's feature claims, algorithms, assumptions, and experimental settings to concrete code paths and configuration.
 - Compare claimed and implemented behavior, looking for missing or partial features, changed algorithms, defaults, approximations, and differences in training/evaluation settings or results. Inspect relevant tests and runtime evidence where available and appropriate; a paper claim, README statement, or matching symbol alone does not establish implementation. Distinguish implemented, partial, absent, divergent, and unverified findings, and do not treat an unsuccessful code search as proof of absence.
 - Report discrepancies with paper section/page and implementation file/line or other precise evidence, their likely effect on the feature or conclusions, and any uncertainty. If either source is inaccessible or the correspondence cannot be established, record that limitation and leave the comparison unverified rather than assuming agreement.
+
+## Update the paper after a refactor
+
+- When refactoring a research implementation, update the project's maintained research paper to reflect the final implementation under [documentation alignment](../guides/coding-standards.md#documentation-alignment). Map the code changes to the affected paper content before editing.
+- Update only the parts affected by the refactor, including directly dependent claims, equations, algorithm descriptions, implementation details, figures, tables, or cross-references where needed for consistency. Preserve unaffected content and structure; do not rewrite the whole paper or make unrelated editorial changes.
+- Check each changed passage against the final code and available validation evidence, and report the affected paper sections and corresponding implementation changes. If the refactor invalidates reported results, identify them as needing revalidation and update measurements only from actual rerun evidence; do not invent results. Record inaccessible paper sources or unresolved discrepancies as documentation gaps.
 
 ## Synthesis and critique
 

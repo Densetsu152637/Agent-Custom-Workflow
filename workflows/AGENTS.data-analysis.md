@@ -4,7 +4,7 @@
 
 Use this workflow for quantitative analysis, dataset transformations, statistical interpretation, or numerical conclusions. It owns analytical methods; use relevant spreadsheet, database, plotting, or other artifact skills for implementation and presentation.
 
-Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf analysts, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Load [research](AGENTS.research.md) when external source assessment or qualifying research interpretation is also required; its exception applies only to assignments meeting its eligibility.
+For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf analysts, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Load [research](AGENTS.research.md) when external source assessment or qualifying research interpretation is also required; its exception applies only to assignments meeting its eligibility.
 
 - Define the question, intended decision, population, observation unit, time range, metrics, denominators, and useful-answer criteria before selecting methods. Distinguish exploratory analysis from a prespecified test.
 - Identify authoritative datasets, revisions, schemas, collection methods, joins/keys, units, timezone conventions, and access limits. Preserve source data; write transformations and outputs only to assigned paths/resources.
@@ -23,4 +23,4 @@ Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf wor
 - Check decisive computations independently where practical. Verify join/count invariants, units, denominators, and reconciliation to source totals; use small known cases or an alternative calculation for material numerical risk.
 - Validate the actual delivered tables, formulas, charts, and conclusions under [shared validation](../guides/validation.md#shared-validation-rules). Load [vision](AGENTS.vision.md) for rendered visual acceptance; visual appearance alone cannot establish numerical correctness.
 - Deliver the answer, reproducible calculation paths, dataset revisions, consequential transformations, uncertainty, and material quality/access limitations. Charts must expose meaningful labels, scales, and units, and conclusions must trace to their calculations.
-- Distinguish confirmed results from assumptions and analyses left unrun. Stop at the [manager's checkpoint](AGENTS.manager.md#budgets-and-scheduling) when additional analysis cannot change the decision within the assigned scope.
+- Distinguish confirmed results from assumptions and analyses left unrun. Set a bounded checkpoint under [shared execution defaults](../AGENTS.md#execution-defaults), or [manager scheduling](AGENTS.manager.md#budgets-and-scheduling) for delegated work. Stop when additional analysis cannot change the decision within the assigned scope.

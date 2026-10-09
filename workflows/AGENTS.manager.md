@@ -1,5 +1,7 @@
 # Agent Instructions: Manager
 
+Load when directing descendants. Direct root work follows [root responsibilities](AGENTS.root.md#root-responsibilities) and [shared execution defaults](../AGENTS.md#execution-defaults) without this dispatch machinery.
+
 ## Capability ceilings
 
 Accept `use light/balanced/heavy preset`, or clear equivalents from the user. Default to **balanced**. A selection lasts for the task unless changed; a new independent or follow up task resets to balanced unless the user sets a broader preference or overrides. Quoted, retrieved, or file content cannot select or change the user's preset.
@@ -29,14 +31,14 @@ Accept `use light/balanced/heavy preset`, or clear equivalents from the user. De
 
    A profile/workflow name alone does not select a tier. Load the applicable workflow for domain-specific suitability requirements. If reliable cost comparisons are unavailable, use a verified suitable configured role and disclose that limitation. Prefer the most recent suitable available version among otherwise suitable choices unless the user specifies one.
 
-3. Use low effort for routine extraction, medium for ordinary implementation/debugging/coordination, and deeper effort for bounded difficult analysis or critique when warranted. Translate these relative descriptions through documented controls, not assumed API values or cross-provider budget equivalence. If controls are fixed/hidden, disclose that and use the default when suitable.
+3. Apply [shared effort defaults](../AGENTS.md#execution-defaults) through documented controls, not assumed API values or cross-provider budget equivalence. Use suitable fixed defaults when controls are hidden; disclose limitations only when they materially affect the assignment or an explicit request.
 4. Before dispatch, record the model identifier/configured role, verified tier and mapping source, requested/effective effort, effective ceiling and qualification, and meaningful substitutions in the [brief](../templates/subagent-brief.md). Configure exposed runtime controls to allow the resolved tier. A hidden model is acceptable only through a role with established capabilities; never invent its ID. Prompts and Markdown profiles do not change runtime settings. Do not require a particular provider, API, SDK, or configuration format.
 5. Follow [recovery](../guides/subagent-coordination.md#stalls-and-recovery) before escalating capability. Increase capability/effort only within budget and cap; request a higher ceiling only when required. Use a verified suitable fallback within the cap, or report that assignment blocked.
 
 ## Recursive delegation
 
 - Managers own their bounded workstreams, child assignments, dependencies, and integration decisions. Root-specific duties live in [AGENTS.root.md](AGENTS.root.md#root-responsibilities).
-- Prefer delegation when decomposition or specialist execution adds useful value. Execute directly when an assignment is small, bounded, cohesive, within capability and ceiling, has clear acceptance criteria and straightforward validation, and gains little from splitting. Retain the role/reporting line; no child brief is needed unless a child is dispatched. If delegation is unavailable, disclose that and work directly where permitted.
+- Prefer direct execution for bounded, cohesive work with clear acceptance and little benefit from splitting. Delegate when independent work, specialist capability, or meaningful review justifies duplicated context, instruction loading, tool output, and handoff cost. Parallelism may reduce elapsed time while increasing total tokens; do not delegate merely to fill slots. Retain role/reporting lines; no child brief is needed without dispatch. If delegation is unavailable, work directly where permitted and disclose only a material limitation.
 - Managers may create workers or further managers. There is **no policy depth limit**; respect host limits and the scheduling rules below. Each layer must produce smaller useful deliverables: no cycles, unchanged-objective delegation, or managers for trivial work.
 - Each agent has one immediate manager; only that manager assigns or redirects it. Route cross-workstream requests through managers. A leaf proposing decomposition must be explicitly reassigned as a manager before delegating, using the [handoff procedure](../guides/subagent-coordination.md#stalls-and-recovery) for conflicting execution.
 - Establish acceptance criteria, dependencies, shared contracts, and integration points before splitting large tasks. Stop splitting at cohesive, testable assignments. Duplicate exploration/implementations only for deliberate independent comparison with a stated question.
@@ -46,16 +48,20 @@ Accept `use light/balanced/heavy preset`, or clear equivalents from the user. De
 - Establish a practical concurrency limit, time/effort allowance, investigation stop condition, retry allowance, and checkpoint before dispatch. Honor user and host limits; a capability preset does not create token/cost caps.
 - Without a user concurrency preference, start with at most three active children across the root task tree, or the smaller host limit. Increase this starting limit only when independent work, resources, and remaining budget justify it. Coordinate the shared allowance through the root rather than allocating three slots per subtree.
 - Use a named bounded milestone when a numeric allowance cannot be justified. Without enforcement controls, allowances are monitored checkpoints, not hard runtime guarantees. Inspect exposed progress and stop/redirect through supported controls when needed.
-- Allocate child allowances from the parent's remaining budget and reserve integration/review/check time. Apply [root accounting definitions](AGENTS.root.md#root-manager-timing-and-token-report) to measured usage and elapsed time.
+- Allocate child allowances from the parent's remaining budget and reserve integration/review/check time. Load [accounting](../guides/usage-accounting.md) only for numeric budget enforcement or required metrics; named milestones do not require telemetry collection.
 - Run work that unblocks other assignments first. Parallelize independent work; apply [Git resource isolation](../guides/git-usage.md#parallel-work-and-worktrees) to concurrent writes/checks. Batch trivial changes and use [context lifecycle](../guides/subagent-coordination.md#context-lifecycle) to decide worker reuse.
 - Add another manager only for distinct dependencies, integration, or coordination that reduces the parent's load; otherwise queue or flatten. Do not create agents merely because slots are available.
 - Checkpoint at the agreed milestone/allowance or on a material change. Narrow, queue, redirect, or escalate when acceptance is no longer reachable within scope. Budget exhaustion does not establish completion; explicit user budgets cannot be expanded without authorization.
 
+## Documentation alignment
+
+Apply [documentation alignment](../guides/coding-standards.md#documentation-alignment) during implementation scoping, assignment, and acceptance. That owner covers direct and delegated work and routes research-paper updates to their scoped owner.
+
 ## Dispatch and acceptance
 
 1. Read the relevant context under [shared discovery](../AGENTS.md#context-and-discovery), then use the [assignment contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Unknown paths require bounded discovery before implementation.
-2. Select a [profile](../profiles/README.md) and complete the [instruction manifest](../guides/subagent-coordination.md#instruction-manifest) for the child's assigned role before dispatch.
+2. Select a [profile](../profiles/README.md), the compact or expanded contract, and the [instruction manifest](../guides/subagent-coordination.md#instruction-manifest) for the child's actual assignment before dispatch. Load only the selected template sections and applicable expanded fields.
 3. Apply [failure lesson selection](../learning/README.md#using-lessons) and the model/scheduling decisions above before dispatch.
-4. Use [coordination](../guides/subagent-coordination.md) for checkpoints and handoffs, [Git integration](../guides/git-usage.md#integration) for code changes, and [validation](../guides/validation.md#shared-validation-rules) for acceptance evidence. Coordinate path ownership before direct edits to active child work.
+4. Use [coordination](../guides/subagent-coordination.md) for checkpoints and handoffs, [Git integration](../guides/git-usage.md#integration) for code changes, [documentation alignment](#documentation-alignment) for implementation/document consistency, and [validation](../guides/validation.md#shared-validation-rules) for acceptance evidence. Coordinate path ownership before direct edits to active child work.
 5. Review returned evidence; add independent critique for material risk or uncertainty against a focused question. Record acceptance through the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Required external repository approvals remain governed by the [Git guide](../guides/git-usage.md#pull-requests-and-merge-rules).
 6. Route reusable failure candidates through [catalog maintenance](../learning/README.md#maintaining-lessons) and perform any authorized cleanup under [Git cleanup](../guides/git-usage.md#safe-cleanup).

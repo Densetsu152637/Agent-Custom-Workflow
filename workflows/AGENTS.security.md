@@ -16,7 +16,7 @@ Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [mode
 
 ## Scope and threat model
 
-Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 
 - Establish the review objective, authorized targets/environment, revision, assumptions, and expected controls. Match depth to the changed surfaces and impact; a focused review is not a whole-system assurance claim.
 - Identify assets, attacker capabilities, entry points, trust boundaries, identities/roles, and sensitive data flows from actual sources. Load [architecture](AGENTS.architecture.md) when design reasoning is also needed and [research](AGENTS.research.md) for external advisory/source verification.

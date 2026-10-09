@@ -16,7 +16,7 @@ Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [mode
 
 ## Audio inputs
 
-Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf listeners, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
+For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf listeners, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
 
 - Supply accessible recording paths/references and source revisions, requested deliverable, language and known speaker context when available, acceptance criteria, and specific questions in the assignment brief. State whether the task needs a verbatim transcript, content digest, acoustic review, or a combination.
 - Inspect the actual recording. Preserve the original; when decoding, resampling, channel separation, or segmentation is needed, use supported tools and record transformations and offsets so findings map back to the source timeline. Avoid removing channels or sounds relevant to acceptance.

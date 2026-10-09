@@ -16,7 +16,7 @@ Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [mode
 
 ## Visual inputs
 
-Use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
+For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
 
 - Supply current outputs and comparisons as accessible image paths/references, plus intended style, viewing scale, acceptance criteria, and specific questions in the assignment brief.
 - Inspect actual rendered pages/screens for PDFs, slides, or UI. Include a full view plus detail crops when useful; do not judge unseen regions or inaccessible/insufficient-resolution inputs.

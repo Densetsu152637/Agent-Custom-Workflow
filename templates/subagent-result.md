@@ -1,22 +1,25 @@
 # Subagent result record
 
-This file owns result fields and lifecycle values. Use them under the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
+This file owns result fields and lifecycle values under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
+
+## Lifecycle values
+
+`in progress | ready for review | accepted | blocked | cancelled`
+
+## Compact schema
 
 ```text
-Task ID; objective; role/profile; immediate manager:
-Status: in progress | ready for review | accepted | blocked | cancelled
-Result revision: commit plus scoped diff/patch, content hash, or artifact version:
-Workspace/worktree; branch; base/input revision:
-Instruction loading: exact paths read; gaps/newly applicable owners reported:
-Deliverable/change/patch paths; interface impacts; integration order:
-Acceptance criteria: satisfied, unsatisfied, or unverified, with evidence:
-Checks: command/procedure; passed/failed/unrun; exit status if applicable;
-  tested revision; evidence/log paths and decisive excerpts:
-Assumptions, uncertainty, limitations, and unresolved disagreements:
-Blockers; failed approaches; retry count and changed approach:
-Pending commands/processes/resources; ownership and whether writes stopped:
-Next action; responsible owner; requested integration/manager decision:
-Measured elapsed/usage: scope/checkpoint/source, or unavailable with reason:
-Reusable failure candidate: applicability/evidence, or none:
-Acceptance owner/decision/checkpoint: manager completes after review:
+Task ID; role; immediate manager; status:
+Stable result revision; workspace/worktree and branch; changed/deliverable paths:
+Applicable owner paths verified; loading gaps or newly applicable owners:
+Acceptance verdicts; check/procedure, exit status, revision and decisive evidence:
+Material uncertainty/blockers; pending processes/resources and write cessation:
+Worktree retirement/retention; path, branch, cleanup owner, reason/condition:
+Next action/owner; manager acceptance decision/checkpoint:
 ```
+
+Omit inapplicable optional fields and duplicate summaries. When no worktree is owned, its cleanup field may be omitted; retained owned worktrees require the complete retention record.
+
+## Expanded schema
+
+For expanded handoffs, also load [additional fields](subagent-result-expanded.md). Metrics are conditional under the coordination contract.
