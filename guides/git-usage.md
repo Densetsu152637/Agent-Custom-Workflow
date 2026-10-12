@@ -2,7 +2,7 @@
 
 ## Scope and preflight
 
-These rules govern Git operations; they do not authorize publishing, merging, or contacting reviewers outside the task's authorized scope.
+These rules govern Git operations, including the authorized [root session-end push](#root-session-end-push). Other publication, merging, and contacting reviewers require separate task authorization.
 
 Before edits or Git mutations:
 
@@ -52,12 +52,21 @@ git -C "<new-worktree-path>" status --short --branch
 
 Every agent, including root, managers, and leaves, must commit its intended task-owned repository changes before normal completion, termination, handoff, replacement, or cancellation when it controls that transition. This includes documentation and tests. Read-only work needs no commit; do not create empty commits. Explicit user instructions not to commit and higher-priority restrictions take precedence. Non-Git work follows [scope and preflight](#scope-and-preflight); do not initialize a repository to satisfy this rule.
 
-Authorization to work in an assigned checkout includes scoped local commits on its assigned branch. It does not authorize pushing, merging, or committing on an unrelated branch.
+Authorization to work in an assigned checkout includes scoped local commits on its assigned branch and root's [session-end push](#root-session-end-push). Non-root agents need explicit push authorization; merging and committing on unrelated branches remain separately authorized.
 
 1. Review the actual owned changes and run appropriate checks under [validation](validation.md#shared-validation-rules). Inspect existing staging and preserve others' changes. Stage only intended owned paths or hunks, never blanket-add files, secrets, or another contributor's work. If existing staging cannot be safely separated, stop the commit and report the ownership blocker.
 2. Inspect the complete staged diff and run `git diff --cached --check` before committing. Use a focused commit under [branches and commits](#branches-and-commits). Before a controlled interruption of incomplete work, make a recoverable checkpoint commit where possible; label it as incomplete and record validation limitations. A checkpoint does not establish acceptance or passing checks.
 3. Verify the resulting commit SHA and inspect status for remaining owned staged, unstaged, or untracked changes. Commit intended residual changes before ending work; report the SHA, validation evidence, and any residuals with their ownership and reason through the [result contract](subagent-coordination.md#assignment-and-result-contracts).
 4. If identity, hooks, permissions, conflicting ownership, or another real blocker prevents committing, preserve the work and report the concrete blocker and recovery owner. Do not bypass hooks or permissions, change Git configuration to force a commit, or claim that finalization succeeded. Abrupt forced shutdown may prevent a checkpoint; this rule applies wherever controls permit.
+
+## Root session-end push
+
+When finishing a session with repository work, root must push all commits reachable from the branch being worked on to the same branch on `origin`, including commits that predate the current task. This is the default push authorization; explicit user instructions not to push and higher-priority or host restrictions take precedence. Non-root agents return committed results for root to review and integrate unless explicitly assigned a push.
+
+1. Complete required integration, validation, reviews, task-owned commits, and worktree reconciliation. Confirm the active checkout, named branch, commit SHA, and `origin` URL under [scope and preflight](#scope-and-preflight). Do not choose another branch or remote if the intended destination is unclear.
+2. Push only that branch with an explicit destination, for example `git push origin "HEAD:refs/heads/<branch>"` after replacing `<branch>` with the confirmed branch name. If upstream tracking is missing, add `--set-upstream` to this same push. Never use `--all`, `--mirror`, tag pushes, or force options for this default; do not publish unrelated branches.
+3. Verify the push succeeded and the matching branch on `origin` contains the final local commit; report the branch, commit SHA, and push outcome. A rejected or unverified push does not establish completion of this step.
+4. If a missing remote, detached HEAD, authentication, permissions, non-fast-forward rejection, protection, explicit no-push instruction, or another concrete blocker prevents the push, preserve local commits and report the blocker, unpushed SHA(s), and recovery owner. Do not bypass restrictions, rewrite shared history, or silently substitute another destination.
 
 ## Integration
 
