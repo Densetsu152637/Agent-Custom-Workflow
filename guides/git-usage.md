@@ -69,6 +69,7 @@ Authorization to work in an assigned checkout includes scoped local commits on i
 
 ## Pull requests and merge rules
 
+- When creating or changing workflow files, load [GitHub Actions guidance](github-actions.md) for authoring, local verification, and hosted runtime controls.
 - Use the repository's PR template when present. Describe the problem, resulting behavior, relevant context, validation, and remaining limitations. If no template exists, use those fields directly.
 - Required CI/CD checks, including configured GitHub Actions, must pass for the revision being merged. Local checks do not replace required CI; unavailable checks are unverified, not passed.
 - Require at least one System Architect (SA) approval and any additional repository-mandated reviews. The author must not approve or merge their own PR. A subagent review is useful evidence but does not substitute for required repository approval.

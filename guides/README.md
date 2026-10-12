@@ -6,6 +6,7 @@
 - [Coding conventions](coding-conventions.md): conditional language/design/async defaults under the coding standards loading rule.
 - [Usage accounting](usage-accounting.md): requested/substantial-task metrics, aggregation, and numeric budgets.
 - [Git usage](git-usage.md): repository preflight, worktrees, branches, mandatory local commits before ending work, and safe cleanup.
+- [GitHub Actions](github-actions.md): workflow authoring, local checks with actionlint/pre-commit/act, and hosted runtime controls.
 - [Container usage](container-usage.md): Compose-first discovery and service lifecycle.
 - [Environment configuration](environment-configuration.md): environment files, variables, and secrets.
 - [Validation](validation.md): shared check evidence, readiness, and the Compose validation sequence.

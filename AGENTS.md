@@ -27,6 +27,7 @@ This file owns shared priority, discovery, execution defaults, and the companion
 - Acceptance evidence: [Validation](guides/validation.md).
 - Implementation changes: [Coding standards](guides/coding-standards.md).
 - Git operations or parallel editing: [Git usage](guides/git-usage.md).
+- Creating or changing GitHub Actions workflows: [GitHub Actions](guides/github-actions.md).
 - Container/Compose operations: [Container usage](guides/container-usage.md).
 - Configuration or secrets: [Environment configuration](guides/environment-configuration.md).
 - Reusable failure lessons: [Learning](learning/README.md).
