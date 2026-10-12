@@ -1,5 +1,6 @@
 # Shared guidance
 
+- [Root implementation planning](../workflows/AGENTS.root.md#implementation-planning): actionable plans for substantial initially vague prompts, followed by execution in the same turn.
 - [Subagent coordination](subagent-coordination.md): compact/expanded contracts, retained context, stalls, and recovery.
 - [Coding standards](coding-standards.md): core implementation, documentation alignment, and completion requirements.
 - [Coding conventions](coding-conventions.md): conditional language/design/async defaults under the coding standards loading rule.

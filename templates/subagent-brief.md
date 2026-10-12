@@ -13,6 +13,7 @@ Worktree creator/stream; cleanup owner, if applicable:
 Preset; general/scoped/effective ceilings and qualification; user restrictions:
 Configured model/role; verified tier/source; requested/effective effort:
 Instruction manifest: grouped exact owner paths with an absolute root:
+Relevant implementation plan excerpt/revision and assumptions, when applicable:
 Dependencies/decisions; check commands and expected outcomes:
 Bounded milestone; retry allowance; checkpoint; return channel/evidence paths:
 ```

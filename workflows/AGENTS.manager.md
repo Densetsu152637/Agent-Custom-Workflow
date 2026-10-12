@@ -59,7 +59,7 @@ Apply [documentation alignment](../guides/coding-standards.md#documentation-alig
 
 ## Dispatch and acceptance
 
-1. Read the relevant context under [shared discovery](../AGENTS.md#context-and-discovery), then use the [assignment contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Unknown paths require bounded discovery before implementation.
+1. Read the relevant context under [shared discovery](../AGENTS.md#context-and-discovery), then use the [assignment contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Unknown paths require bounded discovery before implementation. For substantial initially vague implementation work, apply the [root implementation plan](AGENTS.root.md#implementation-planning) before dispatching implementation; carry its relevant decisions and dependencies into child assignments.
 2. Select a [profile](../profiles/README.md), the compact or expanded contract, and the [instruction manifest](../guides/subagent-coordination.md#instruction-manifest) for the child's actual assignment before dispatch. Load only the selected template sections and applicable expanded fields.
 3. Apply [failure lesson selection](../learning/README.md#using-lessons) and the model/scheduling decisions above before dispatch.
 4. Use [coordination](../guides/subagent-coordination.md) for checkpoints and handoffs, [Git integration](../guides/git-usage.md#integration) for code changes, [documentation alignment](#documentation-alignment) for implementation/document consistency, and [validation](../guides/validation.md#shared-validation-rules) for acceptance evidence. Coordinate path ownership before direct edits to active child work.
