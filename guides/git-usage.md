@@ -46,11 +46,22 @@ git -C "<new-worktree-path>" status --short --branch
 - Use `<type>(<optional-scope>): <imperative summary>`, for example `fix(auth): reject expired tokens`. Mark breaking changes with `!` and describe their impact in the body.
 - Keep each commit focused on one coherent change with its relevant tests/docs. Avoid unrelated formatting and generated noise. Correct unpublished task-owned commits when needed; do not rewrite shared history without authorization.
 - Stage explicit owned paths or reviewed hunks. Inspect both `git diff` and `git diff --cached` as relevant, and run `git diff --cached --check` before committing. Never include someone else's staged changes, credentials, or unrelated files; avoid blanket staging in a dirty shared checkout.
-- Do not commit or push to someone else's branch without authorization. Do not force-push without explicit authorization; if authorized, use an appropriate lease and verify the expected remote state.
+- Commit only on the assigned authorized branch under [commit before ending work](#commit-before-ending-work); do not commit or push to an unrelated branch without authorization. Do not force-push without explicit authorization; if authorized, use an appropriate lease and verify the expected remote state.
+
+## Commit before ending work
+
+Every agent, including root, managers, and leaves, must commit its intended task-owned repository changes before normal completion, termination, handoff, replacement, or cancellation when it controls that transition. This includes documentation and tests. Read-only work needs no commit; do not create empty commits. Explicit user instructions not to commit and higher-priority restrictions take precedence. Non-Git work follows [scope and preflight](#scope-and-preflight); do not initialize a repository to satisfy this rule.
+
+Authorization to work in an assigned checkout includes scoped local commits on its assigned branch. It does not authorize pushing, merging, or committing on an unrelated branch.
+
+1. Review the actual owned changes and run appropriate checks under [validation](validation.md#shared-validation-rules). Inspect existing staging and preserve others' changes. Stage only intended owned paths or hunks, never blanket-add files, secrets, or another contributor's work. If existing staging cannot be safely separated, stop the commit and report the ownership blocker.
+2. Inspect the complete staged diff and run `git diff --cached --check` before committing. Use a focused commit under [branches and commits](#branches-and-commits). Before a controlled interruption of incomplete work, make a recoverable checkpoint commit where possible; label it as incomplete and record validation limitations. A checkpoint does not establish acceptance or passing checks.
+3. Verify the resulting commit SHA and inspect status for remaining owned staged, unstaged, or untracked changes. Commit intended residual changes before ending work; report the SHA, validation evidence, and any residuals with their ownership and reason through the [result contract](subagent-coordination.md#assignment-and-result-contracts).
+4. If identity, hooks, permissions, conflicting ownership, or another real blocker prevents committing, preserve the work and report the concrete blocker and recovery owner. Do not bypass hooks or permissions, change Git configuration to force a commit, or claim that finalization succeeded. Abrupt forced shutdown may prevent a checkpoint; this rule applies wherever controls permit.
 
 ## Integration
 
-1. Use the [coordination result contract](subagent-coordination.md#assignment-and-result-contracts) and [result schema](../templates/subagent-result.md) for worker handoffs; include the assigned Git checkout/branch and commit or scoped patch. Hand off only a stable result.
+1. Use the [coordination result contract](subagent-coordination.md#assignment-and-result-contracts) and [result schema](../templates/subagent-result.md) for worker handoffs; include the assigned Git checkout/branch and commit SHA under [commit before ending work](#commit-before-ending-work). A scoped patch is a recovery artifact when a disclosed blocker prevents committing. Hand off only a stable result.
 2. One integration owner applies results in dependency order in the assigned integration checkout. Use the repository's merge/cherry-pick convention; do not blindly apply both a branch merge and its commits.
 3. Resolve conflicts by understanding both changes and their contracts. Coordinate unclear intent with the responsible manager. Do not accept all of one side or discard unrelated edits to make conflicts disappear.
 4. Inspect the combined diff and apply [shared validation rules](validation.md#shared-validation-rules) to the integrated revision.

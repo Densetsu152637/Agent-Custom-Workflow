@@ -5,7 +5,7 @@
 - [Coding standards](coding-standards.md): core implementation, documentation alignment, and completion requirements.
 - [Coding conventions](coding-conventions.md): conditional language/design/async defaults under the coding standards loading rule.
 - [Usage accounting](usage-accounting.md): requested/substantial-task metrics, aggregation, and numeric budgets.
-- [Git usage](git-usage.md): repository preflight, worktrees, branches, and safe cleanup.
+- [Git usage](git-usage.md): repository preflight, worktrees, branches, mandatory local commits before ending work, and safe cleanup.
 - [Container usage](container-usage.md): Compose-first discovery and service lifecycle.
 - [Environment configuration](environment-configuration.md): environment files, variables, and secrets.
 - [Validation](validation.md): shared check evidence, readiness, and the Compose validation sequence.

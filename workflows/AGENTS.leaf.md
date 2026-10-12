@@ -12,4 +12,4 @@
 1. Carry out the assigned profile's work and use [context lifecycle](../guides/subagent-coordination.md#context-lifecycle) for checkpoints and retained state.
 2. Use [stalls and recovery](../guides/subagent-coordination.md#stalls-and-recovery) when progress or authority is insufficient; report through the immediate manager.
 3. Validate under [shared validation rules](../guides/validation.md#shared-validation-rules) and applicable domain procedures.
-4. Return through the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Route reusable lessons through [catalog maintenance](../learning/README.md#maintaining-lessons).
+4. Apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work), then return through the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Route reusable lessons through [catalog maintenance](../learning/README.md#maintaining-lessons).
