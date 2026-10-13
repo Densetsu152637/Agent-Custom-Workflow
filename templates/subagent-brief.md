@@ -11,7 +11,7 @@ Scope/non-goals; authoritative input paths/revisions; required source sections:
 Absolute workspace/worktree; branch/base; owned writes/resources:
 Worktree creator/stream; cleanup owner, if applicable:
 Preset; general/scoped/effective ceilings and qualification; user restrictions:
-Configured model/role; verified tier/source; requested/effective effort:
+Selected dispatch model/role; verified tier/source; requested effort; runtime model/effort observed or unavailable:
 Instruction manifest: grouped exact owner paths with an absolute root:
 Relevant implementation plan excerpt/revision and assumptions, when applicable:
 Dependencies/decisions; check commands and expected outcomes:
