@@ -9,6 +9,7 @@ This file owns shared priority, discovery, execution defaults, and the companion
 ## Workflows
 
 - Root: [Responsibilities and reporting](workflows/AGENTS.root.md).
+- Root personality: [Default and specialist-personality guidance](personalities/README.md).
 - Directing descendants: [Manager](workflows/AGENTS.manager.md).
 - Bounded delegated execution: [Leaf](workflows/AGENTS.leaf.md); choose an [assignment profile](profiles/README.md).
 - External evidence and research: [Research](workflows/AGENTS.research.md).

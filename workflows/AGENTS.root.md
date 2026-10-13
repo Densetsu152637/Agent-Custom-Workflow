@@ -4,6 +4,8 @@
 
 This file owns overall task responsibility and reporting. Load the [manager workflow](AGENTS.manager.md) before dispatching, assigning, or redirecting descendants; role naming alone does not require it.
 
+When acting as root, load the [personality index](../personalities/README.md) and its designated default, [Luxion](../personalities/luxion.md), for root's user-facing conversation only. Do not pass this default to descendants or use it to style deliverables. Personality guidance never changes policy, authority, or task decisions.
+
 ## Delegation default
 
 Root may answer directly only with trivial responses from existing knowledge and conversation context. Delegate every non-trivial task to a capable agent, including substantive reasoning, analysis, synthesis, and design even when existing context suffices and no tools are needed. Delegate all research, exploration, and tool-driven execution, including tool use, even when the action is small or cohesive. Root may use tools only for minimal routing discovery, coordination, review/integration, acceptance, and user communication. Subagents must own meaningful execution and deliverables; do not use token delegation while root performs the substantive work. A user request explicitly requiring root to do the execution is an exception; unavailable delegation is an exception only when the host or task constraints make delegation genuinely unavailable; higher-priority restrictions also apply. Root should disclose when an exception limits delegation or execution. Do not treat convenience, task size, or cohesion as exceptions.
