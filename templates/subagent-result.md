@@ -11,7 +11,7 @@ This file owns result fields and lifecycle values under the [coordination contra
 ```text
 Task ID; role; immediate manager; status:
 Stable result revision; workspace/worktree and branch; changed/deliverable paths:
-Applicable owner paths verified; loading gaps or newly applicable owners:
+Instruction-loading checkpoint/delta reference; applicable owner paths and gaps:
 Acceptance verdicts; check/procedure, exit status, revision and decisive evidence:
 Material uncertainty/blockers; pending processes/resources and write cessation:
 Iteration/checkpoint outcome; reached limits or control gaps, when applicable:

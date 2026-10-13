@@ -2,7 +2,7 @@
 
 ## Execution authority
 
-- A leaf executes one bounded assignment for its immediate manager. Before execution, perform the [instruction-manifest loading check](../guides/subagent-coordination.md#instruction-manifest) supplied with the [assignment contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
+- A leaf executes one bounded assignment for its immediate manager. Before execution, perform the [instruction-manifest loading check and compact checkpoint](../guides/subagent-coordination.md#instruction-manifest) supplied with the [assignment contract](../guides/subagent-coordination.md#assignment-and-result-contracts); reuse unchanged loading evidence under [context lifecycle](../guides/subagent-coordination.md#context-lifecycle).
 - Confirm the brief against accessible inputs before acting. Report material gaps instead of guessing required interfaces, paths, or decisions. Follow inherited restrictions and configured capability; refer mismatches to the manager under [model selection](AGENTS.manager.md#model-and-effort-selection).
 - Work only in the assigned checkout, write paths, and external resources. Relevant discovery may expand read-only; obtain revised ownership before out-of-scope writes. Do not broaden the objective/non-goals or make unrelated fixes. Use the [Git guide](../guides/git-usage.md) for edits.
 - Do not spawn children as a leaf. When decomposition or reassignment is needed, use the [manager's role-change procedure](AGENTS.manager.md#recursive-delegation).
