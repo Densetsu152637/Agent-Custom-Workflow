@@ -14,6 +14,7 @@ Stable result revision; workspace/worktree and branch; changed/deliverable paths
 Applicable owner paths verified; loading gaps or newly applicable owners:
 Acceptance verdicts; check/procedure, exit status, revision and decisive evidence:
 Material uncertainty/blockers; pending processes/resources and write cessation:
+Iteration/checkpoint outcome; reached limits or control gaps, when applicable:
 Worktree retirement/retention; path, branch, cleanup owner, reason/condition:
 Next action/owner; manager acceptance decision/checkpoint:
 ```
