@@ -2,7 +2,7 @@
 
 ## Scope and inputs
 
-Use this workflow for quantitative analysis, dataset transformations, statistical interpretation, or numerical conclusions. It owns analytical methods; use relevant spreadsheet, database, plotting, or other artifact skills for implementation and presentation.
+Use this workflow for quantitative analysis, dataset transformations, statistical interpretation, or numerical conclusions, including plans to assess a statistical claim when its dataset is missing. It owns analytical methods; use relevant spreadsheet, database, plotting, or other artifact skills for implementation and presentation.
 
 For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf analysts, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Load [research](AGENTS.research.md) when external source assessment or qualifying research interpretation is also required; its exception applies only to assignments meeting its eligibility.
 

@@ -2,7 +2,7 @@
 
 ## Scope and inputs
 
-Use this workflow for substantial technical design, interface boundaries, migrations, or review of consequential design choices. It owns design reasoning and decision records; [coding standards](../guides/coding-standards.md) own implementation conventions.
+Use this workflow for substantial technical design, interface boundaries, migrations, or review of consequential design choices, including comparison and migration plans before implementation. It owns design reasoning and decision records; [coding standards](../guides/coding-standards.md) own implementation conventions.
 
 For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf designers/reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 

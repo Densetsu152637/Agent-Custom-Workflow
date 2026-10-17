@@ -2,7 +2,7 @@
 
 ## Scope and inputs
 
-Use this workflow for incorrect behavior, regressions, exceptions, intermittent failures, or incidents. It owns causal investigation; [coding standards](../guides/coding-standards.md) own implementation and the [validation guide](../guides/validation.md) owns shared evidence requirements.
+Use this workflow for incorrect behavior, regressions, exceptions, intermittent failures, or incidents, including diagnosis plans for application, test, build, and container failures. It owns causal investigation; tool-specific guides supply command and environment procedures. [Coding standards](../guides/coding-standards.md) own implementation and the [validation guide](../guides/validation.md) owns shared evidence requirements.
 
 For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf investigators, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 

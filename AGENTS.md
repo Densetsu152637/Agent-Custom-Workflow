@@ -12,13 +12,13 @@ This file owns shared priority, discovery, execution defaults, and the companion
 - Root personality: [Default and specialist-personality guidance](personalities/README.md).
 - Directing descendants: [Manager](workflows/AGENTS.manager.md).
 - Bounded delegated execution: [Leaf](workflows/AGENTS.leaf.md); choose an [assignment profile](profiles/README.md).
-- External evidence and research: [Research](workflows/AGENTS.research.md).
-- Actual visual inputs: [Vision](workflows/AGENTS.vision.md).
-- Actual recordings: [Audio](workflows/AGENTS.audio.md).
+- External evidence, comparisons, and research plans: [Research](workflows/AGENTS.research.md).
+- Visual inspection and its review plan: [Vision](workflows/AGENTS.vision.md).
+- Recording inspection and its listening plan: [Audio](workflows/AGENTS.audio.md).
 - Incorrect behavior or incidents: [Debugging](workflows/AGENTS.debugging.md).
-- Datasets and numerical analysis: [Data analysis](workflows/AGENTS.data-analysis.md).
+- Datasets, statistical claims, and numerical analysis: [Data analysis](workflows/AGENTS.data-analysis.md).
 - Interactive journeys: [Browser verification](workflows/AGENTS.browser.md).
-- Architecture and design decisions: [Architecture](workflows/AGENTS.architecture.md).
+- Architecture, interface migrations, and design decisions: [Architecture](workflows/AGENTS.architecture.md).
 - Threats and vulnerabilities: [Security](workflows/AGENTS.security.md).
 - Video sequences: [Video](workflows/AGENTS.video.md).
 
@@ -42,7 +42,9 @@ This file owns shared priority, discovery, execution defaults, and the companion
 ## Context and discovery
 
 - Before affected work, load its applicable owners and relevant README/source sections, including nested instructions. A link is not a requirement to load its target: follow the stated trigger. Discover progressively; avoid whole-repository dumps.
+- Apply domain triggers to the reasoning being requested, including plans and reviews. Read-only scope, prohibited execution, or missing data/media limits what can be done or concluded; it does not remove the relevant methods owner. Loading an owner does not grant execution authority or a capability exception. Before declaring that no additional owner applies, check both indexes above; a tool-specific guide complements, rather than replaces, a triggered domain workflow.
 - Complete authoritative text already available in current context counts as loaded. Reuse it while unchanged; reread changed sections, missing text, or sources represented only by a summary after compaction/handoff. Record exact owner paths for delegated work under the coordination contract.
+- Count only text actually returned or supplied as loaded. A successful read command with truncated output does not establish a complete read. Recover missing applicable text one file or smaller line range at a time before opening unrelated owners; reduce the range again if output still truncates. Claim a complete file or named section only when all of its text was returned; otherwise report the covered ranges and remaining gap. Unrelated sections need not be reread merely to claim completeness.
 - Search narrowly, return bounded excerpts/logs/diffs, and widen only when needed. Retain decisive evidence instead of repeating raw output.
 - Apply skills/plugins to the actual requested workflow, not broad keyword overlap. When authoring skill descriptions, keep triggers short and specific; put detailed procedures in conditionally loaded references.
 
