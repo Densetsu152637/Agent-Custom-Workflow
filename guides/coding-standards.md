@@ -3,6 +3,7 @@
 ## Apply these rules
 
 - Follow project/framework conventions and existing helpers. Make the smallest cohesive change meeting requirements; avoid speculative abstractions or unrelated rewrites.
+- Refactors must adapt the affected system wherever the new design requires it, including relevant consumers, interfaces, integrations, tests, and documentation. Remove superseded pieces where relevant; do not add compatibility shims or parallel paths solely to preserve the old design. Keep this scope bounded to the affected system and follow explicit user instructions about preservation, compatibility, or scope.
 - Keep contracts, state, effects, ownership, and error paths clear. Validate untrusted input at boundaries; preserve failures, cancellation, and resource cleanup. Never expose secrets or report failure as success.
 - Use configured formatters/linters; keep changes focused. Comments explain constraints and non-obvious behavior, and public contracts document relevant units/invariants.
 - Load relevant [coding conventions](coding-conventions.md) when introducing a language/framework without established conventions, designing/reviewing API or state contracts, or changing error/cancellation/resource handling. Routine edits following existing patterns do not require that reference. Do not change working code's paradigm merely to follow defaults.
