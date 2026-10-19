@@ -13,7 +13,7 @@ Before edits or Git mutations:
 
 ## Parallel work and worktrees
 
-- Give each concurrent write stream its own branch and worktree. Reuse an existing suitable task-owned worktree when safe. Read-only reviewers may share a stable checkout. If worktrees are unavailable or prohibited, serialize writers rather than switching branches in a shared directory.
+- Give each concurrent write stream its own branch and worktree. Reuse an existing suitable task-owned worktree when safe. Read-only reviewers and planners may share a stable checkout; planners can return inline drafts to one integration writer. A single-writer restriction serializes writes, not independent read-only planning. If worktrees are unavailable or prohibited, serialize writers rather than switching branches in a shared directory.
 - The coordinating manager assigns integration and cleanup owners and records each stream's owner, absolute worktree path, branch, base commit, owned files, dependencies, and required checks. Pass this record in each agent's brief; apply [worktree cleanup ownership](#safe-cleanup) throughout the task.
 - Prefer the host's managed-worktree tools when available and follow their lifecycle rules. Otherwise use Git worktrees. Each worker runs commands with an explicit working directory or `git -C` pointing to its assigned worktree.
 - Worktrees isolate files and indexes, but share repository metadata and refs. Never check out the same branch in multiple worktrees with force options. Coordinate branch/ref mutations and repository-wide configuration or maintenance through one owner. Avoid global Git configuration changes.
