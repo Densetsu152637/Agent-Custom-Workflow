@@ -5,7 +5,7 @@ This file owns assignment fields under the [coordination contract](../guides/sub
 ## Compact schema
 
 ```text
-Task ID; role/profile; immediate manager and acceptance owner:
+Task ID; role (manager or leaf); execution profile if applicable; immediate manager and acceptance owner:
 Deliverable; scope/non-goals; checks/expected outcomes; stopping milestone:
 Absolute workspace; inputs/revisions/sections; owned writes/resources (or read-only):
 Selected model/effort; preset and applicable ceilings/qualifications; user restrictions:
@@ -14,6 +14,8 @@ Return format/location; actionable limits/checkpoint, if beyond the milestone:
 ```
 
 When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; branch/base and worktree creator/cleanup owner; iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
+
+For a manager, include the [manager assignment requirements](../workflows/AGENTS.manager.md#manager-or-leaf-selection): delegated authority, likely child deliverables, coordination responsibility and allocated limits/ownership. Do not include leaf-only authority.
 
 ## Expanded schema
 

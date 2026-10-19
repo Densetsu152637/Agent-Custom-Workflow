@@ -1,6 +1,6 @@
 # Subagent profiles
 
-Profiles own role-specific focus and deliverables. Loading, capability, and role assignment are governed by [manager dispatch](../workflows/AGENTS.manager.md#dispatch-and-acceptance); execution and reporting are governed by the [leaf workflow](../workflows/AGENTS.leaf.md).
+Profiles describe execution focus and deliverables, not delegation authority. Choose [manager or leaf](../workflows/AGENTS.manager.md#manager-or-leaf-selection) before choosing a profile. A manager loads the manager workflow and owns descendant coordination/integration; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
 
 | Assignment | Profile | Expected result |
 | ---------- | ------- | --------------- |
