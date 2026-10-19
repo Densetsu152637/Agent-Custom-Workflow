@@ -4,8 +4,8 @@ Extends the [compact brief](subagent-brief.md#compact-schema); selection is gove
 
 ```text
 Detailed criteria, interfaces/contracts and cross-stream dependencies/owners:
-Ceiling owner paths; model substitutions; runtime controls and limitations:
-Instruction manifest: purpose/sections per owner; reasons for empty extra groups:
+Child-relevant ceiling owner paths, substitutions and control limitations:
+Instruction manifest: purpose/sections where applicability is ambiguous:
 Required source symbols/ranges and purpose; accepted decisions/completed work:
 Concurrency allocation; time/effort allowance and integration reserve:
 Stop/escalation triggers; persistent result/checkpoint and evidence/log paths:

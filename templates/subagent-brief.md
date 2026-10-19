@@ -1,24 +1,19 @@
 # Subagent assignment brief
 
-This file owns compact assignment fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Omit inapplicable optional fields instead of filling boilerplate; ownership, restrictions, applicable instructions, and acceptance remain explicit.
+This file owns assignment fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Combine fields in prose; omit inapplicable fields, not required constraints. A complete filled contract needs no separate template read by the recipient.
 
 ## Compact schema
 
 ```text
-Task ID; objective/deliverable; acceptance checks and stopping condition:
-Role/profile; immediate manager; integration/acceptance owner:
-Scope/non-goals; authoritative input paths/revisions; required source sections:
-Absolute workspace/worktree; branch/base; owned writes/resources:
-Worktree creator/stream; cleanup owner, if applicable:
-Preset; general/scoped/effective ceilings and qualification; user restrictions:
-Selected dispatch model/role; verified tier/source; requested effort; runtime model/effort observed or unavailable:
-Instruction manifest: grouped exact owner paths with an absolute root:
-Relevant implementation plan excerpt/revision and assumptions, when applicable:
-Dependencies/decisions; check commands and expected outcomes:
-Bounded milestone/iteration unit and allowance; retry allowance; checkpoint:
-Host/tool limits configured; monitored/unavailable controls; stop/cancel action:
-Return channel/evidence paths:
+Task ID; role/profile; immediate manager and acceptance owner:
+Deliverable; scope/non-goals; checks/expected outcomes; stopping milestone:
+Absolute workspace; inputs/revisions/sections; owned writes/resources (or read-only):
+Selected model/effort; preset and applicable ceilings/qualifications; user restrictions:
+Instruction manifest: exact owner paths/sections relative to an absolute root:
+Return format/location; actionable limits/checkpoint, if beyond the milestone:
 ```
+
+When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; branch/base and worktree creator/cleanup owner; iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
 
 ## Expanded schema
 
