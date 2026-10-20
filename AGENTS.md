@@ -6,6 +6,8 @@ Follow higher-priority and repository-level instructions and explicit user const
 
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
+An agent whose assigned checkout is already on `main` at task start may make scoped task commits and push validated work to `origin/main` without asking the user again. Follow the [Git guide's commit](guides/git-usage.md#commit-before-ending-work) and [starting-on-main authorization](guides/git-usage.md#starting-on-main-authorization) rules for procedure and limits, including explicit no-push instructions, required checks, branch protections, and host restrictions.
+
 ## Workflows
 
 - Root: [Responsibilities and reporting](workflows/AGENTS.root.md).
