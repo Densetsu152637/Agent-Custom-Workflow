@@ -8,7 +8,7 @@ This file owns assignment fields under the [coordination contract](../guides/sub
 Task ID; role (manager or leaf); execution profile if applicable; immediate manager and acceptance owner:
 Deliverable; scope/non-goals; checks/expected outcomes; stopping milestone:
 Absolute workspace; inputs/revisions/sections; owned writes/resources (or read-only):
-Selected model/effort; preset and applicable ceilings/qualifications; user restrictions:
+Selected model/effort; preset; general and applicable scoped ceilings/qualifications; resolved effective ceiling and eligibility/override basis; other caps, workflows, and user restrictions/exemptions:
 Instruction manifest: exact owner paths/sections relative to an absolute root:
 Return format/location; actionable limits/checkpoint, if beyond the milestone:
 ```
