@@ -1,6 +1,6 @@
 # Run GitHub Actions locally
 
-Load when considering or executing act rehearsal for supported jobs. Workflow authoring and hosted gates remain in [GitHub Actions](github-actions.md); local success does not establish hosted behavior.
+Load when considering or executing act rehearsal for supported jobs. Workflow authoring and hosted gates remain in [GitHub Actions](github-actions.md); local success does not establish hosted behavior. Tool-managed act runner containers alone do not require the [application container/Compose guide](container-usage.md); load it when managing application container or Compose services relevant to the rehearsal.
 
 ## Run workflows locally with act
 
