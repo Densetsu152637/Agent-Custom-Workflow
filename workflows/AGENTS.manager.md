@@ -1,6 +1,6 @@
 # Agent Instructions: Manager
 
-Load when directing descendants. At manager assignment intake, load [delegation and acceptance](manager-delegation.md); before dispatch also load [process controls](manager-controls.md). These routing requirements apply before substantive work. Research selection additionally requires the research-owned [dispatch policy](AGENTS.research-dispatch.md); other domain eligibility and selection remain in their workflow owners. Direct root work follows [root responsibilities](AGENTS.root.md#root-responsibilities) and [shared execution defaults](../AGENTS.md#execution-defaults) without this dispatch machinery.
+Load when directing descendants. At manager assignment intake, load the [delegation default](root-delegation.md#delegation-default) and [delegation and acceptance](manager-delegation.md); before dispatch also load [process controls](manager-controls.md). These routing requirements apply before substantive work. Research selection additionally requires the research-owned [dispatch policy](AGENTS.research-dispatch.md); other domain eligibility and selection remain in their workflow owners. Direct root work follows [root responsibilities](AGENTS.root.md#root-responsibilities) and [shared execution defaults](../AGENTS.md#execution-defaults) without this dispatch machinery.
 
 ## Capability ceilings
 

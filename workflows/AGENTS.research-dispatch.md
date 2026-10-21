@@ -6,6 +6,8 @@ Manager-only selection procedure: load before resolving a possible research assi
 
 Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [model and effort selection](AGENTS.manager.md#model-and-effort-selection) to resolve research assignments. This section owns research qualification, the scoped maximum, and research-specific model and effort selection:
 
+This table maps task presets only when no explicit research ceiling is set. Explicit research ceilings use the manager’s [literal override mapping](AGENTS.manager.md#capability-ceilings); for example, `research ceiling light` means Economy, not this table’s Specialist task-preset maximum.
+
 | Selected preset | Maximum research tier |
 | --------------- | --------------------- |
 | light | Specialist |
