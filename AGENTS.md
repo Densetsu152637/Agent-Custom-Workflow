@@ -2,7 +2,7 @@
 
 ## Scope and policy ownership
 
-Follow higher-priority and repository-level instructions and explicit user constraints. Unless assigned otherwise, act as the root. At task intake, load and apply the [root delegation default](workflows/AGENTS.root.md#delegation-default): automatically dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants.
+Follow higher-priority and repository-level instructions and explicit user constraints. Unless assigned otherwise, act as the root. At task intake, load and apply the [root delegation default](workflows/root-delegation.md#delegation-default): automatically dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. This intake route is for root/managers only; assigned leaves do not open root-delegation instructions.
 
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
@@ -31,7 +31,7 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 - Implementation changes: [Coding standards](guides/coding-standards.md).
 - Local edits/Git mutations: [Git usage](guides/git-usage.md); parallel writes/integration/cleanup: [Worktrees](guides/git-worktrees.md); pushes/PRs/merges: [Publication](guides/git-publication.md). Read-only work needs none of these mutation procedures.
 - Creating or changing GitHub Actions workflows: [GitHub Actions](guides/github-actions.md).
-- Container/Compose operations: [Container usage](guides/container-usage.md).
+- Managing application containers/Compose services: [Container usage](guides/container-usage.md); tools merely using their own containers do not trigger it.
 - Configuration or secrets: [Environment configuration](guides/environment-configuration.md).
 - Managers selecting or maintaining reusable failure lessons: [Learning](learning/README.md); workers load only assigned applicable lessons.
 
@@ -43,7 +43,7 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 
 ## Context and discovery
 
-- Decide applicability from the current indexes and assigned role/profile before opening owner bodies; then load triggered owners and relevant README/source sections, including nested instructions. Do not sample untriggered owners because they are linked or batch them with required reads. An assigned leaf/profile needs no root, manager or profile-catalogue confirmation read. For genuinely ambiguous applicability, state the reason and inspect only the narrow excerpt needed to decide. Discover progressively; avoid whole-repository dumps.
+- Decide applicability from index labels and the assigned role/profile before opening owner bodies; then load triggered owners and relevant README/source sections, including nested instructions. Do not sample untriggered owners because they are linked, batch them with required reads, or broadly search owner bodies to confirm non-applicability. An anchored instruction reference requires only its named section, not the whole file. An assigned leaf/profile needs no root, manager or profile-catalogue confirmation read. For genuinely ambiguous applicability, state the reason and inspect only the narrow excerpt needed to decide. Discover progressively; avoid whole-repository dumps.
 - Apply domain triggers to the reasoning being requested, including plans and reviews. Read-only scope, prohibited execution, or missing data/media limits actions and conclusions, not explicitly triggered role, procedure or methods instruction reads; loading them does not permit prohibited execution. Loading an owner does not grant execution authority or a capability exception. Before declaring that no additional owner applies, check both indexes above; a tool-specific guide complements, rather than replaces, a triggered domain workflow.
 - Complete authoritative text already available in current context counts as loaded. Reuse it while unchanged; reread changed sections, missing text, or sources represented only by a summary after compaction/handoff. Record exact owner paths for delegated work under the coordination contract.
 - On root recovery after compaction or handoff, follow the [root context-recovery contract](workflows/root-recovery.md#context-recovery) before substantive execution, dispatch, or publication.
