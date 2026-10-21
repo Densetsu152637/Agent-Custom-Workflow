@@ -2,7 +2,7 @@
 
 ## Scope and preflight
 
-These rules govern Git operations, including the authorized [root session-end push](#root-session-end-push). Other publication, merging, and contacting reviewers require separate task authorization.
+Load this core before local edits or Git mutations. Read-only work needs no mutation, commit or publication procedures. Load [worktrees and integration](git-worktrees.md) for parallel write streams, integration or worktree cleanup; load [publication](git-publication.md) for pushing, PR/merge operations and root session-end publication. The authorized [root session-end push](git-publication.md#root-session-end-push) is governed there. Other publication, merging, and contacting reviewers require separate task authorization.
 
 Before edits or Git mutations:
 
@@ -10,23 +10,6 @@ Before edits or Git mutations:
 2. Identify the intended base branch/commit, current branch, active worktrees, and existing staged, unstaged, and untracked changes. Inspect relevant diffs; do not assume a clean checkout or that the current branch is the requested base.
 3. Preserve changes owned by the user or other agents. Do not reset, clean, stash, overwrite, switch their branch, or rewrite their commits to make your task easier.
 4. If the folder is not a repository, report that and perform applicable file work. Do not initialize a repository unless requested.
-
-## Parallel work and worktrees
-
-- Give each concurrent write stream its own branch and worktree. Reuse an existing suitable task-owned worktree when safe. Read-only reviewers and planners may share a stable checkout; planners can return inline drafts to one integration writer. A single-writer restriction serializes writes, not independent read-only planning. If worktrees are unavailable or prohibited, serialize writers rather than switching branches in a shared directory.
-- The coordinating manager assigns integration and cleanup owners and records each stream's owner, absolute worktree path, branch, base commit, owned files, dependencies, and required checks. Pass this record in each agent's brief; apply [worktree cleanup ownership](#safe-cleanup) throughout the task.
-- Prefer the host's managed-worktree tools when available and follow their lifecycle rules. Otherwise use Git worktrees. Each worker runs commands with an explicit working directory or `git -C` pointing to its assigned worktree.
-- Worktrees isolate files and indexes, but share repository metadata and refs. Never check out the same branch in multiple worktrees with force options. Coordinate branch/ref mutations and repository-wide configuration or maintenance through one owner. Avoid global Git configuration changes.
-- Start independent streams from an agreed committed base. New worktrees do not contain another checkout's uncommitted changes. Transfer required changes explicitly as reviewed commits or a scoped patch, with ownership and user changes preserved.
-- Isolate build outputs, ports, test databases, generated artifacts, and temporary paths too. A worktree does not isolate external services. Serialize tests that mutate the same resource.
-- Before doing work in parallel, see if there are overlapping file/API changes and contracts, as these can be serialised before parallel work starts. Serialize changes to shared schemas, lockfiles, migrations, or interfaces when they would conflict during integration.
-
-CLI example, after resolving the actual paths and base commit (replace all placeholders; do not execute them literally):
-
-```text
-git -C "<repository>" worktree add -b feat/task-component "<new-worktree-path>" "<base-commit>"
-git -C "<new-worktree-path>" status --short --branch
-```
 
 ## Branches and commits
 
@@ -52,50 +35,9 @@ git -C "<new-worktree-path>" status --short --branch
 
 Every agent, including root, managers, and leaves, must commit its intended task-owned repository changes before normal completion, termination, handoff, replacement, or cancellation when it controls that transition. This includes documentation and tests. Read-only work needs no commit; do not create empty commits. Explicit user instructions not to commit and higher-priority restrictions take precedence. Non-Git work follows [scope and preflight](#scope-and-preflight); do not initialize a repository to satisfy this rule.
 
-Authorization to work in an assigned checkout includes scoped local commits on its assigned branch and root's [session-end push](#root-session-end-push). Non-root agents need explicit push authorization or the [starting-on-main authorization](#starting-on-main-authorization); merging and committing on unrelated branches remain separately authorized.
+Authorization to work in an assigned checkout includes scoped local commits on its assigned branch and root's [session-end push](git-publication.md#root-session-end-push). Non-root agents need explicit push authorization or the [starting-on-main authorization](git-publication.md#starting-on-main-authorization); merging and committing on unrelated branches remain separately authorized.
 
 1. Review the actual owned changes and run appropriate checks under [validation](validation.md#shared-validation-rules). Inspect existing staging and preserve others' changes. Stage only intended owned paths or hunks, never blanket-add files, secrets, or another contributor's work. If existing staging cannot be safely separated, stop the commit and report the ownership blocker.
 2. Inspect the complete staged diff and run `git diff --cached --check` before committing. Use a focused commit under [branches and commits](#branches-and-commits). Before a controlled interruption of incomplete work, make a recoverable checkpoint commit where possible; label it as incomplete and record validation limitations. A checkpoint does not establish acceptance or passing checks.
 3. Verify the resulting commit SHA and inspect status for remaining owned staged, unstaged, or untracked changes. Commit intended residual changes before ending work; report the SHA, validation evidence, and any residuals with their ownership and reason through the [result contract](subagent-coordination.md#assignment-and-result-contracts).
 4. If identity, hooks, permissions, conflicting ownership, or another real blocker prevents committing, preserve the work and report the concrete blocker and recovery owner. Do not bypass hooks or permissions, change Git configuration to force a commit, or claim that finalization succeeded. Abrupt forced shutdown may prevent a checkpoint; this rule applies wherever controls permit.
-
-## Starting-on-main authorization
-
-An agent whose assigned checkout is already on `main` at the start of its work is authorized to push validated, committed work to `origin/main` without asking the user for additional permission, including when `main` is the default branch. This applies to root and subagents; establish the starting branch during preflight. Subagents coordinate acceptance and publication with their immediate manager to avoid conflicting pushes. Switching to `main` later does not grant this authorization. Normal fast-forward pushes only: explicit no-push instructions, required checks, branch protections, and higher-priority or host restrictions still apply.
-
-## Root session-end push
-
-When finishing a session with repository work, root must push all commits reachable from the branch being worked on to the same branch on `origin`, including commits that predate the current task. This is the default push authorization; explicit user instructions not to push and higher-priority or host restrictions take precedence. Non-root agents return committed results for root to review and integrate unless explicitly assigned a push or covered by the [starting-on-main authorization](#starting-on-main-authorization).
-
-1. Complete required integration, validation, reviews, task-owned commits, and worktree reconciliation. Confirm the active checkout, named branch, commit SHA, and `origin` URL under [scope and preflight](#scope-and-preflight). Do not choose another branch or remote if the intended destination is unclear.
-2. Push only that branch with an explicit destination, for example `git push origin "HEAD:refs/heads/<branch>"` after replacing `<branch>` with the confirmed branch name. If upstream tracking is missing, add `--set-upstream` to this same push. Never use `--all`, `--mirror`, tag pushes, or force options for this default; do not publish unrelated branches.
-3. Verify the push succeeded and the matching branch on `origin` contains the final local commit; report the branch, commit SHA, and push outcome. A rejected or unverified push does not establish completion of this step.
-4. If a missing remote, detached HEAD, authentication, permissions, non-fast-forward rejection, protection, explicit no-push instruction, or another concrete blocker prevents the push, preserve local commits and report the blocker, unpushed SHA(s), and recovery owner. Do not bypass restrictions, rewrite shared history, or silently substitute another destination.
-
-## Integration
-
-1. Use the [coordination result contract](subagent-coordination.md#assignment-and-result-contracts) and [result schema](../templates/subagent-result.md) for worker handoffs; include the assigned Git checkout/branch and commit SHA under [commit before ending work](#commit-before-ending-work). A scoped patch is a recovery artifact when a disclosed blocker prevents committing. Hand off only a stable result.
-2. One integration owner applies results in dependency order in the assigned integration checkout. Use the repository's merge/cherry-pick convention; do not blindly apply both a branch merge and its commits.
-3. Resolve conflicts by understanding both changes and their contracts. Coordinate unclear intent with the responsible manager. Do not accept all of one side or discard unrelated edits to make conflicts disappear.
-4. Inspect the combined diff and apply [shared validation rules](validation.md#shared-validation-rules) to the integrated revision.
-5. Pause only the dependent integration step when blocked; continue independent authorized work. Report unresolved conflicts and failing checks explicitly.
-
-## Pull requests and merge rules
-
-- When creating or changing workflow files, load [GitHub Actions guidance](github-actions.md) for authoring, local verification, and hosted runtime controls.
-- Use the repository's PR template when present. Describe the problem, resulting behavior, relevant context, validation, and remaining limitations. If no template exists, use those fields directly.
-- Required CI/CD checks, including configured GitHub Actions, must pass for the revision being merged. Local checks do not replace required CI; unavailable checks are unverified, not passed.
-- Require at least one System Architect (SA) approval and any additional repository-mandated reviews. The author must not approve or merge their own PR. A subagent review is useful evidence but does not substitute for required repository approval.
-- Merge only within the user's authorization and repository protections. Keep PR title and description aligned with the final diff. Do not message reviewers unless authorized.
-- After confirmed merge, delete the task-owned source branch when no longer needed and retire its worktree under [safe cleanup](#safe-cleanup). Preserve branches still used by another stream; record deferred cleanup. Worktree retirement also applies to preserved results that do not require a PR merge.
-
-## Safe cleanup
-
-- Creating a worktree includes responsibility for its retirement; cleanup of task-created worktrees is part of the task's default scope. The coordinating manager owns reconciliation of all worktrees created for its workstream, including descendants' worktrees; the root verifies reconciliation across the task before closing it. For direct work, the creating agent owns cleanup. Delegating removal does not transfer accountability unless the receiving owner explicitly accepts it.
-- Track every task-created worktree from creation through retirement, including its absolute path, branch, creating stream, cleanup owner, and current use. Before task completion, archive or safely remove every such worktree that is no longer needed. An inactive worktree is not, by itself, evidence of ownership or safe removal; do not remove pre-existing, shared, primary, pinned, or user-retained worktrees without applicable ownership and host authorization.
-- For every retained worktree, report its absolute path, branch, cleanup owner, concrete reason for retention, and the condition or next action that permits cleanup. Pending review, required artifacts, active consumers, or a host restriction may justify retention; task completion alone does not justify leaving an unused worktree behind. On cancellation or handoff, retire unneeded worktrees or explicitly transfer/report outstanding cleanup under the same rules.
-- Confirm all agents/processes have stopped using the worktree. Inspect tracked and untracked changes and needed ignored artifacts; preserve required outputs before removal.
-- Verify the result was integrated or otherwise preserved. A squash merge may require checking PR status and resulting content rather than relying solely on ancestry.
-- Archive managed worktrees through their host tool. For ordinary worktrees, use `git worktree remove "<verified-worktree-path>"`; do not recursively delete the directory or use force to bypass dirty-worktree protection.
-- Remove only task-owned branches after checking they are no longer checked out or needed. Use normal branch deletion where possible; do not force-delete merely because squash history is not recognized as merged.
-- Report the final branch/worktree state, validation results, and any deliberately preserved changes or deferred cleanup.

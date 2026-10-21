@@ -16,7 +16,7 @@ Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [mode
 
 ## Visual inputs
 
-For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
 
 - Supply current outputs and comparisons as accessible image paths/references, plus intended style, viewing scale, acceptance criteria, and specific questions in the assignment brief.
 - Inspect actual rendered pages/screens for PDFs, slides, or UI. Include a full view plus detail crops when useful; do not judge unseen regions or inaccessible/insufficient-resolution inputs.
@@ -26,7 +26,7 @@ For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-accept
 
 1. Inspect pixels for relevant anatomy/geometry, text accuracy, clipping, blur, lighting, style consistency, layout, contrast, alignment, and rendering defects. For interactive UI, also perform functional checks; screenshots alone cannot prove behavior.
 2. Return per-artifact pass/fail/unable-to-verify findings with location, severity, observable evidence, and correction. Separate measured defects from preferences and uncertain interpretations.
-3. Route repairs through the [manager workflow](AGENTS.manager.md#recursive-delegation) to the assigned editor. The editor produces a stable new revision. Apply [shared validation rules](../guides/validation.md#shared-validation-rules) to reinspection; include changed assets and dependent visual regions.
-4. Allow at most three repair/recheck retries after the initial failure, subject to tighter user/assignment limits. This visual-repair allowance replaces the [shared recovery default](../guides/subagent-coordination.md#stalls-and-recovery); other recovery mechanics remain there.
+3. Route repairs through the [manager workflow](manager-delegation.md#recursive-delegation) to the assigned editor. The editor produces a stable new revision. Apply [shared validation rules](../guides/validation.md#shared-validation-rules) to reinspection; include changed assets and dependent visual regions.
+4. Allow at most three repair/recheck retries after the initial failure, subject to tighter user/assignment limits. This visual-repair allowance replaces the [shared recovery default](../guides/subagent-recovery.md#stalls-and-recovery); other recovery mechanics remain there.
 
 Report the exact inspection limitation for inaccessible or inadequate inputs and complete unaffected checks; do not mark visual acceptance passed without usable visual evidence.

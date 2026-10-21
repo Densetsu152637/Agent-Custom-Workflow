@@ -1,6 +1,6 @@
 # Subagent profiles
 
-Profiles describe execution focus and deliverables, not delegation authority. Choose [manager or leaf](../workflows/AGENTS.manager.md#manager-or-leaf-selection) before choosing a profile. A manager loads the manager workflow and owns descendant coordination/integration; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
+Profiles describe execution focus and deliverables, not delegation authority. Choose [manager or leaf](../workflows/manager-delegation.md#manager-or-leaf-selection) before choosing a profile. A manager loads the manager workflow and owns descendant coordination/integration; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
 
 | Assignment | Profile | Expected result |
 | ---------- | ------- | --------------- |

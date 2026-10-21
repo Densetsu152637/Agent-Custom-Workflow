@@ -1,6 +1,6 @@
 # GitHub Actions
 
-This guide owns workflow authoring and local iteration. [Git usage](git-usage.md#pull-requests-and-merge-rules) owns merge gates; [validation](validation.md#shared-validation-rules) owns check evidence; [environment configuration](environment-configuration.md#secret-handling) owns secret handling.
+This guide owns workflow authoring and local iteration. [Git usage](git-publication.md#pull-requests-and-merge-rules) owns merge gates; [validation](validation.md#shared-validation-rules) owns check evidence; [environment configuration](environment-configuration.md#secret-handling) owns secret handling.
 
 ## Author workflow files
 
@@ -55,40 +55,6 @@ pre-commit run --all-files
 
 Keep expensive integration tests and full container runs outside the default fast hook. Hooks give early feedback; run the same relevant checks in CI as well.
 
-## Run workflows locally with act
-
-For Linux container jobs, install and start Docker Engine or Docker Desktop (using Linux containers on Windows). Install [nektos/act](https://nektosact.com/installation/index.html) using one package manager already available on the host:
-
-```text
-# Homebrew (macOS/Linux)
-brew install act
-# Chocolatey (Windows)
-choco install act-cli
-# Scoop (Windows)
-scoop install act
-```
-
-From the consuming repository root, these commands list PR jobs, run PR workflows, or narrow execution to one file/job:
-
-```text
-act pull_request -l
-act pull_request
-act pull_request -W .github/workflows/checks.yml -j checks
-act pull_request -W .github/workflows/checks.yml -j checks -e event.json
-```
-
-Use a sanitized `event.json` fixture containing the PR fields your expressions read, for example:
-
-```json
-{"pull_request":{"number":42,"head":{"ref":"feature/example"},"base":{"ref":"main"}}}
-```
-
-Select a runner image with the required tools; act's default images are not identical to hosted runners. Linux Docker images do not reproduce native Windows/macOS jobs. act also supports opt-in [host execution](https://nektosact.com/usage/runners.html), which runs directly on the machine and still does not recreate GitHub's hosted image.
-
-Provide only needed local secrets using act's secure prompt, such as `act pull_request -s MY_SECRET`; use ignored secret files only under the linked secret-handling guide. GitHub's automatic token and environment secrets are not supplied locally. See [act usage](https://nektosact.com/usage/index.html).
-
-Treat act as a rehearsal: event context, token permissions, caches, and hosted services can differ. It currently ignores concurrency, job permissions, and job timeouts, among other [unsupported features](https://nektosact.com/not_supported.html). A local success does not verify those controls.
-
 ## Control hosted runtime
 
 - Use positive path filters for optional expensive workflows, including source, tests, dependency manifests/lockfiles, build configuration, shared scripts, and `.github/workflows/**`. Example fragment, adapted to actual project paths:
@@ -113,4 +79,4 @@ Treat act as a rehearsal: event context, token permissions, caches, and hosted s
 
 ## Verify before handoff
 
-Run static checks and the relevant project scripts, then use act for supported jobs. Exercise event-dependent conditions with representative payloads, including relevant PR/base branches and missing optional fields. Verify path-filter cases (source, docs-only, lockfile, and workflow edits), fork permissions, cache misses/hits, timeouts, and cancellation on GitHub where local execution cannot establish behavior. Report unrun hosted checks explicitly under the linked validation guide.
+Run static checks and the relevant project scripts, then load [local rehearsal](github-actions-local.md) and use act for supported jobs. Exercise event-dependent conditions with representative payloads, including relevant PR/base branches and missing optional fields. Verify path-filter cases (source, docs-only, lockfile, and workflow edits), fork permissions, cache misses/hits, timeouts, and cancellation on GitHub where local execution cannot establish behavior. Report unrun hosted checks explicitly under the linked validation guide.

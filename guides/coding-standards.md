@@ -11,7 +11,7 @@
 ## Documentation alignment
 
 - Reflect every repository implementation/refactor in relevant project documents in the same task. Identify affected docs during scoping; assign ownership with implementation. Update behavior, interfaces, configuration, architecture, and usage to match the final result; add focused documentation where missing.
-- Compare affected documents with the final implementation during acceptance and report unresolved gaps. For research implementations with a maintained research paper, also load [scoped paper-update rules](../workflows/AGENTS.research.md#update-the-paper-after-a-refactor); ordinary software work does not require creating paper artifacts.
+- Compare affected documents with the final implementation during acceptance and report unresolved gaps. For research implementations with a maintained research paper, also load [scoped paper-update rules](../workflows/AGENTS.research-paper.md#update-the-paper-after-a-refactor); ordinary software work does not require creating paper artifacts.
 
 ## Validation and completion
 

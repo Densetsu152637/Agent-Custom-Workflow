@@ -15,7 +15,7 @@ Return format/location; actionable limits/checkpoint, if beyond the milestone:
 
 When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; branch/base and worktree creator/cleanup owner; iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
 
-For a manager, include the [manager assignment requirements](../workflows/AGENTS.manager.md#manager-or-leaf-selection): delegated authority, likely child deliverables, coordination responsibility and allocated limits/ownership. Do not include leaf-only authority.
+For a manager, include the [manager assignment requirements](../workflows/manager-delegation.md#manager-or-leaf-selection): delegated authority, likely child deliverables, coordination responsibility and allocated limits/ownership. Do not include leaf-only authority.
 
 ## Expanded schema
 

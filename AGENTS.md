@@ -6,12 +6,12 @@ Follow higher-priority and repository-level instructions and explicit user const
 
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
-An agent whose assigned checkout is already on `main` at task start may make scoped task commits and push validated work to `origin/main` without asking the user again. Follow the [Git guide's commit](guides/git-usage.md#commit-before-ending-work) and [starting-on-main authorization](guides/git-usage.md#starting-on-main-authorization) rules for procedure and limits, including explicit no-push instructions, required checks, branch protections, and host restrictions.
+An agent whose assigned checkout is already on `main` at task start may make scoped task commits and push validated work to `origin/main` without asking the user again. Follow the [Git guide's commit](guides/git-usage.md#commit-before-ending-work) and [starting-on-main authorization](guides/git-publication.md#starting-on-main-authorization) rules for procedure and limits, including explicit no-push instructions, required checks, branch protections, and host restrictions.
 
 ## Workflows
 
 - Root: [Responsibilities and reporting](workflows/AGENTS.root.md).
-- Root personality: [Default and specialist-personality guidance](personalities/README.md).
+- Root only, conversation tone: [Default and specialist-personality guidance](personalities/README.md).
 - Directing descendants: [Manager](workflows/AGENTS.manager.md).
 - Bounded delegated execution: [Leaf](workflows/AGENTS.leaf.md); choose an [assignment profile](profiles/README.md).
 - External evidence, comparisons, and research plans: [Research](workflows/AGENTS.research.md).
@@ -29,15 +29,15 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 - Handoffs, retained context, or recovery: [Coordination](guides/subagent-coordination.md).
 - Acceptance evidence: [Validation](guides/validation.md).
 - Implementation changes: [Coding standards](guides/coding-standards.md).
-- Git operations or parallel editing: [Git usage](guides/git-usage.md).
+- Local edits/Git mutations: [Git usage](guides/git-usage.md); parallel writes/integration/cleanup: [Worktrees](guides/git-worktrees.md); pushes/PRs/merges: [Publication](guides/git-publication.md). Read-only work needs none of these mutation procedures.
 - Creating or changing GitHub Actions workflows: [GitHub Actions](guides/github-actions.md).
 - Container/Compose operations: [Container usage](guides/container-usage.md).
 - Configuration or secrets: [Environment configuration](guides/environment-configuration.md).
-- Reusable failure lessons: [Learning](learning/README.md).
+- Managers selecting or maintaining reusable failure lessons: [Learning](learning/README.md); workers load only assigned applicable lessons.
 
 ## Editing and temporary artifacts
 
-- Edit authoritative files in the assigned checkout with permitted tools; use [Git isolation](guides/git-usage.md#parallel-work-and-worktrees) where required. Review diffs or stable artifacts, without ad hoc backup/draft trees or routine one-off installer/check scripts.
+- Edit authoritative files in the assigned checkout with permitted tools; use [Git isolation](guides/git-worktrees.md#parallel-work-and-worktrees) where required. Review diffs or stable artifacts, without ad hoc backup/draft trees or routine one-off installer/check scripts.
 - Use host permissions for protected targets; shadow drafts do not replace authorization.
 - Create scratch artifacts only for a concrete task/tool need, at an assigned temporary location separate from deliverables. Keep their scope minimal, clean them when unneeded, and preserve required [handoff evidence](guides/subagent-coordination.md#assignment-and-result-contracts).
 
@@ -46,7 +46,7 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 - Before affected work, load its applicable owners and relevant README/source sections, including nested instructions. A link is not a requirement to load its target: follow the stated trigger. Discover progressively; avoid whole-repository dumps.
 - Apply domain triggers to the reasoning being requested, including plans and reviews. Read-only scope, prohibited execution, or missing data/media limits what can be done or concluded; it does not remove the relevant methods owner. Loading an owner does not grant execution authority or a capability exception. Before declaring that no additional owner applies, check both indexes above; a tool-specific guide complements, rather than replaces, a triggered domain workflow.
 - Complete authoritative text already available in current context counts as loaded. Reuse it while unchanged; reread changed sections, missing text, or sources represented only by a summary after compaction/handoff. Record exact owner paths for delegated work under the coordination contract.
-- On root recovery after compaction or handoff, follow the [root context-recovery contract](workflows/AGENTS.root.md#context-recovery) before substantive execution, dispatch, or publication.
+- On root recovery after compaction or handoff, follow the [root context-recovery contract](workflows/root-recovery.md#context-recovery) before substantive execution, dispatch, or publication.
 - Count only text actually returned or supplied as loaded. A successful read command with truncated output does not establish a complete read. Recover missing applicable text one file or smaller line range at a time before opening unrelated owners; reduce the range again if output still truncates. Claim a complete file or named section only when all of its text was returned; otherwise report the covered ranges and remaining gap. Unrelated sections need not be reread merely to claim completeness.
 - Search narrowly, return bounded excerpts/logs/diffs, and widen only when needed. Retain decisive evidence instead of repeating raw output.
 - Apply skills/plugins to the actual requested workflow, not broad keyword overlap. When authoring skill descriptions, keep triggers short and specific; put detailed procedures in conditionally loaded references.

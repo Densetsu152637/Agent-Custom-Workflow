@@ -4,10 +4,10 @@
 
 Use this workflow to verify websites or interactive applications through actual user journeys. It owns behavioral inspection; [vision](AGENTS.vision.md) owns visual inspection and [audio](AGENTS.audio.md) owns listening checks. Load relevant browser/computer-use skills and use supported host controls.
 
-For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf testers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf testers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 
 - Identify the target URL/application, build/revision, environment, user role, starting state, relevant device/viewport, required journeys, and expected outcomes. Match coverage to the changed behavior and supported platforms.
-- Establish service readiness under [validation](../guides/validation.md#readiness). Use assigned accounts, fixtures, and isolated sessions/resources where available; define ownership and cleanup for state created by checks under [Git resource isolation](../guides/git-usage.md#parallel-work-and-worktrees).
+- Establish service readiness under [shared validation](../guides/validation.md#shared-validation-rules). Use assigned accounts, fixtures, and isolated sessions/resources where available; define ownership and cleanup for state created by checks under [Git resource isolation](../guides/git-worktrees.md#parallel-work-and-worktrees).
 - Identify steps with external effects, such as sending, purchasing, publishing, or changing shared records. Execute them only within existing authorization and assigned resources; use an available sandbox for verification and report any untested live behavior.
 
 ## Journey verification
@@ -21,5 +21,5 @@ For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-accept
 ## Findings and recheck
 
 - Return a verdict per journey/criterion with target revision, starting state, steps, expected/actual outcome, evidence locators, and relevant browser/device details. Separate functional defects from visual findings and environment/tool failures.
-- Route repairs through the manager to the assigned editor. Recheck the stable repaired revision and affected dependent journeys under [shared validation](../guides/validation.md#shared-validation-rules); use [coordination recovery](../guides/subagent-coordination.md#stalls-and-recovery) for retries.
+- Route repairs through the manager to the assigned editor. Recheck the stable repaired revision and affected dependent journeys under [shared validation](../guides/validation.md#shared-validation-rules); use [coordination recovery](../guides/subagent-recovery.md#stalls-and-recovery) for retries.
 - If only static output or screenshots are accessible, complete those checks with the appropriate domain workflow and leave interactive behavior unverified. Preserve required evidence and clean up authorized task-created state using the applicable resource owner.

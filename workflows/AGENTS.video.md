@@ -4,7 +4,7 @@
 
 Use this workflow for moving-image content, temporal events, or synchronized visual/audio digestion. It owns temporal coverage and synthesis; [vision](AGENTS.vision.md) owns visual methods and its scoped ceiling, and [audio](AGENTS.audio.md) owns listening methods and its scoped ceiling.
 
-For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 
 - Dispatch actual frame/sequence inspection under vision eligibility and actual recording inspection under audio eligibility. A combined inspection must verify both capabilities and usable access to both modalities; resolve each applicable cap and obey the stricter cap for the combined assignment, or split it. Explicit video-scoped caps constrain both components under the [manager rules](AGENTS.manager.md#capability-ceilings).
 - Media extraction, orchestration, and synthesis from text-only findings retain the general ceiling. Reading transcripts, captions, or frame descriptions does not qualify for a modality exception or establish direct media coverage.
@@ -27,5 +27,5 @@ For delegated work, use [manager dispatch](AGENTS.manager.md#dispatch-and-accept
 
 - Return a verdict per source/range/criterion with timestamps, artifact revision, inspected coverage by modality, evidence, and correction. Label sampled coverage explicitly; do not claim full-event coverage from a transcript or a few stills.
 - Route repairs through the manager and recheck stable changed clips, affected boundaries/synchronization, and dependent digest conclusions under [shared validation](../guides/validation.md#shared-validation-rules).
-- Use vision's repair allowance for visual defects and audio's allowance for audio defects; all other recovery uses [coordination](../guides/subagent-coordination.md#stalls-and-recovery). Count a retry addressing the same audiovisual failure against both applicable allowances; switching modalities does not reset its count.
+- Use vision's repair allowance for visual defects and audio's allowance for audio defects; all other recovery uses [coordination](../guides/subagent-recovery.md#stalls-and-recovery). Count a retry addressing the same audiovisual failure against both applicable allowances; switching modalities does not reset its count.
 - Report inaccessible tracks or inadequate temporal coverage precisely and complete unaffected checks. Leave dependent claims unverified when either required modality or time range is missing.
