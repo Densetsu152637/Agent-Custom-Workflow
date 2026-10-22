@@ -4,7 +4,7 @@
 
 Use this workflow for substantial technical design, interface boundaries, migrations, or review of consequential design choices, including comparison and migration plans before implementation. It owns design reasoning and decision records; [coding standards](../guides/coding-standards.md) own implementation conventions.
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf designers/reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf designers/reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Assigned designers use the [architect profile](../profiles/AGENTS.architect.md).
 
 - Establish the problem, requirements, non-goals, compatibility obligations, operational constraints, and measurable acceptance criteria. Identify accepted decisions and the owner of unresolved choices.
 - Map the current architecture from actual sources (contracts, dependencies, data ownership, deployment boundaries); distinguish implemented behavior from aspirational documentation.

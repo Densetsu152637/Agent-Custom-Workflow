@@ -6,7 +6,7 @@ Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.
 
 ## Audio inputs
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf listeners, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf listeners, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery. Assigned listeners use the [inspector profile](../profiles/AGENTS.inspector.md).
 
 - Supply recording paths/references and revisions, requested deliverable, language and known speaker context, acceptance criteria, and specific questions. State whether the task needs a verbatim transcript, content digest, acoustic review, or a combination.
 - Inspect the actual recording and preserve the original. When decoding, resampling, channel separation, or segmentation is needed, record transformations and offsets so findings map to the source timeline; do not remove channels or sounds relevant to acceptance.

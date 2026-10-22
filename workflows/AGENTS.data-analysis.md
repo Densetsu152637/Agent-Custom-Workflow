@@ -4,7 +4,7 @@
 
 Use this workflow for quantitative analysis, dataset transformations, statistical interpretation, or numerical conclusions, including plans to assess a statistical claim when its dataset is missing. It owns analytical methods; use relevant spreadsheet, database, plotting, or other artifact skills for implementation and presentation.
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf analysts, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Load [research](AGENTS.research.md) when external source assessment or qualifying research interpretation is also required; its exception applies only to assignments meeting its eligibility.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf analysts, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Load [research](AGENTS.research.md) when external source assessment or qualifying research interpretation is also required; its exception applies only to assignments meeting its eligibility. Assigned analysts use the [analyst profile](../profiles/AGENTS.analyst.md).
 
 - Define the question, intended decision, population, observation unit, metrics, and denominators before selecting methods; distinguish exploratory analysis from a prespecified test.
 - Preserve source data; write transformations and outputs only to assigned paths/resources. Handle sensitive data under [environment configuration](../guides/environment-configuration.md#secret-handling).

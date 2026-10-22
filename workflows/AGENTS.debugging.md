@@ -4,7 +4,7 @@
 
 Use this workflow for incorrect behavior, regressions, exceptions, intermittent failures, or incidents, including diagnosis plans for application, test, build, and container failures. It owns causal investigation; tool-specific guides supply command and environment procedures. [Coding standards](../guides/coding-standards.md) own implementation and the [validation guide](../guides/validation.md) owns shared evidence requirements.
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf investigators, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf investigators, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Assigned investigators use the [debugger profile](../profiles/AGENTS.debugger.md).
 
 - Establish expected and observed behavior, impact, affected versions/environments, reproduction inputs, and the first known failing and last known working states. Separate supplied reports from reproduced observations.
 - Record the runtime/configuration and source revision; handle sensitive evidence under [environment configuration](../guides/environment-configuration.md#configuration-output).

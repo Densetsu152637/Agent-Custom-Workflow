@@ -6,7 +6,7 @@ Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.
 
 ## Scope and threat model
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Assigned reviewers use the [auditor profile](../profiles/AGENTS.auditor.md).
 
 - Establish the review objective, authorized targets/environment, revision, and expected controls. A focused review is not a whole-system assurance claim.
 - Identify assets, attacker capabilities, entry points, trust boundaries, and sensitive data flows from actual sources. Load [architecture](AGENTS.architecture.md) when design reasoning is also needed and [research](AGENTS.research.md) for external advisory/source verification.

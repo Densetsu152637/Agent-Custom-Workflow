@@ -4,7 +4,7 @@
 
 Use this workflow to verify websites or interactive applications through actual user journeys. It owns behavioral inspection; [vision](AGENTS.vision.md) owns visual inspection and [audio](AGENTS.audio.md) owns listening checks. Load relevant browser/computer-use skills and use supported host controls.
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf testers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf testers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Assigned testers use the [navigator profile](../profiles/AGENTS.navigator.md).
 
 - Identify the target URL/application, build/revision, environment, user role, starting state, device/viewport, required journeys, and expected outcomes.
 - Establish service readiness under [shared validation](../guides/validation.md#shared-validation-rules). Use assigned accounts, fixtures, and isolated sessions where available; define ownership and cleanup for state created by checks under [Git resource isolation](../guides/git-worktrees.md#parallel-work-and-worktrees).

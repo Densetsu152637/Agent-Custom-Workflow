@@ -4,7 +4,7 @@
 
 Use this workflow for moving-image content, temporal events, or synchronized visual/audio digestion. It owns temporal coverage and synthesis; [vision](AGENTS.vision.md) and [audio](AGENTS.audio.md) own their methods and scoped ceilings.
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Assigned inspectors use the [inspector profile](../profiles/AGENTS.inspector.md).
 
 - Dispatch frame/sequence inspection under vision's ceiling and recording inspection under audio's. A combined inspection needs both capabilities and obeys the stricter cap, or is split.
 - Media extraction, orchestration, and synthesis from text-only findings keep the general ceiling; transcripts, captions, or frame descriptions do not qualify for a modality exception or establish direct media coverage.

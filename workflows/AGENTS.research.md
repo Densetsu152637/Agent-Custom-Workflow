@@ -2,7 +2,7 @@
 
 ## Scope and documentation
 
-Load this core for external evidence, comparisons and research plans. Managers selecting research ceiling, model, or effort also load [research dispatch](AGENTS.research-dispatch.md); workers do not. Load [paper documentation](AGENTS.research-paper.md) only under the manuscript scope below.
+Load this core for external evidence, comparisons and research plans. Managers selecting research ceiling, model, or effort also load [research dispatch](AGENTS.research-dispatch.md); workers do not. Load [paper documentation](AGENTS.research-paper.md) only under the manuscript scope below. Assigned workers use the [researcher profile](../profiles/AGENTS.researcher.md).
 
 Mandatory persistent question maps, evidence ledgers, exact prompt/result records, discoverable indexes, and BibTeX entries apply only to paper-related research undertaken to write or maintain a research paper/manuscript. Calling a task research, using papers as sources, or comparing software does not alone trigger them. For ordinary lookups/comparisons, cite verified sources in the response, retain only task-required evidence, and create repository research documents only when requested or required by an applicable project owner.
 

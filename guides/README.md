@@ -11,7 +11,7 @@
 - [Container usage](container-usage.md): Compose-first discovery and service lifecycle.
 - [Environment configuration](environment-configuration.md): environment files, variables, and secrets.
 - [Validation](validation.md): shared check evidence; Compose readiness and sequence are in [container usage](container-usage.md).
-- [Subagent profiles](../profiles/README.md): portable explorer, implementer, documenter, tester, validator, and critic assignments.
+- [Subagent profiles](../profiles/README.md): portable generic and domain (researcher, debugger, analyst, architect, auditor, navigator, inspector) assignments.
 - [Failure catalog](../learning/README.md): evidence-backed reusable corrections and their applicability.
 
 Load applicable sections under [shared discovery](../AGENTS.md#context-and-discovery). Resolve placeholders and commands against the consuming project's files.

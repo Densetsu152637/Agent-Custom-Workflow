@@ -6,7 +6,7 @@ Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.
 
 ## Visual inputs
 
-For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery.
+For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs/recovery. Assigned inspectors use the [inspector profile](../profiles/AGENTS.inspector.md).
 
 - Supply current outputs and comparisons as accessible image paths/references, plus intended style, viewing scale, acceptance criteria, and specific questions.
 - For PDFs, slides, or UI, inspect actual rendered pages/screens. Do not judge unseen regions or inaccessible/insufficient-resolution inputs.
