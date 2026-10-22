@@ -7,13 +7,13 @@ This file owns assignment fields under the [coordination contract](../guides/sub
 ```text
 Task ID; role (manager or leaf); execution profile if applicable; immediate manager and acceptance owner:
 Deliverable; scope/non-goals; checks/expected outcomes; stopping milestone:
-Absolute workspace; inputs/revisions/sections; owned writes/resources (or read-only):
+Absolute workspace; file context (paths, symbols/ranges/sections, revisions, why each matters, or stated gaps); owned writes/resources (or read-only):
 Selected model/effort; preset; general and applicable scoped ceilings/qualifications; resolved effective ceiling and eligibility/override basis; other caps, workflows, and user restrictions/exemptions:
-Instruction manifest: exact owner paths/sections relative to an absolute root:
+Instruction manifest (guides): exact owner paths/sections, absolute or relative to a stated absolute workflow-repository root:
 Return format/location; actionable limits/checkpoint, if beyond the milestone:
 ```
 
-When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; the stream's [worktree record](../guides/git-worktrees.md#worktree-record) entry (absolute path, branch, base commit, creator/cleanup owner, owned files/resources, dependencies/checks, initial state); iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
+Managers fill the file-context and guide fields per [context handoff](../workflows/AGENTS.manager.md#context-handoff). When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; the stream's [worktree record](../guides/git-worktrees.md#worktree-record) entry (absolute path, branch, base commit, creator/cleanup owner, owned files/resources, dependencies/checks, initial state); iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
 
 For a manager, include the [manager assignment requirements](../workflows/manager-delegation.md#manager-or-leaf-selection): delegated authority, likely child deliverables, coordination responsibility and allocated limits/ownership. Do not include leaf-only authority.
 
