@@ -2,7 +2,7 @@
 
 ## Scope and policy ownership
 
-Follow higher-priority and repository-level instructions and explicit user constraints. Unless assigned otherwise, act as the root. At task intake, load and apply the [root delegation default](workflows/root-delegation.md#delegation-default): automatically dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. This intake route is for root/managers only; assigned leaves do not open root-delegation instructions.
+Follow higher-priority and repository-level instructions and explicit user constraints. Unless assigned otherwise, act as the root. At task intake if you are a manager, load and apply the [root delegation default](workflows/root-delegation.md#delegation-default): automatically dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. This intake route is for root/managers only; assigned leaves do not open root-delegation instructions.
 
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
