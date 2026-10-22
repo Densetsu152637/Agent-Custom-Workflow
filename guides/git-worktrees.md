@@ -1,13 +1,13 @@
 # Git worktrees and integration
 
-Load for parallel write streams, worktree creation/use, integration, or task-created worktree reconciliation and cleanup. Apply [local Git preflight](git-usage.md#scope-and-preflight) before edits or Git mutations. Read-only review in an existing stable checkout does not require mutation procedures.
+Load for parallel write streams, worktree creation/use, integration, or task-created worktree reconciliation and cleanup. Apply [local Git preflight](git-usage.md#scope-and-preflight) before edits or Git mutations.
 
 ## Parallel work and worktrees
 
-- Give each concurrent write stream its own branch and worktree. Reuse an existing suitable task-owned worktree when safe. Read-only reviewers and planners may share a stable checkout; planners can return inline drafts to one integration writer. A single-writer restriction serializes writes, not independent read-only planning. If worktrees are unavailable or prohibited, serialize writers rather than switching branches in a shared directory.
+- Give each concurrent write stream its own branch and worktree; reuse a suitable task-owned worktree when safe. Read-only reviewers and planners may share a stable checkout; planners can return inline drafts to one integration writer. A single-writer restriction serializes writes, not read-only planning. If worktrees are unavailable or prohibited, serialize writers rather than switching branches in a shared directory.
 - Admission, before dispatching parallel writers: the manager compares each stream's files, APIs/contracts, shared schemas, lockfiles, migrations, build outputs, generated artifacts, temporary paths, ports, databases, and external services. On overlap, serialize in dependency order or reassign to one stream before work starts. A worktree isolates files and indexes, not external services; serialize tests that mutate the same resource.
 - Admit a stream only once its [record](#worktree-record) entry exists. Name its branch with the task ID (for example `feat/wt-1-component`, under the [branch convention](git-usage.md#branches-and-commits)). Place the worktree at a task-ID-specific path outside every other checkout's working directory, or for host-managed worktrees under a host path that checkout ignores. Host-assigned branch/path replace the naming/path rule: record the entry as `planned` with "host-assigned" and complete it on return. Start from an agreed committed base; uncommitted changes do not carry over, so transfer them as reviewed commits or a scoped patch, preserving ownership and user changes.
-- Prefer the host's managed-worktree tools when available and follow their lifecycle rules; otherwise use Git worktrees. Worktrees share repository metadata and refs. Never check out one branch in several worktrees with force options. One owner creates, deletes, and renames refs and repoints any ref other than a stream's own branch, and handles repository-wide configuration or maintenance; avoid global Git configuration changes.
+- Prefer the host's managed-worktree tools and follow their lifecycle rules; otherwise use Git worktrees. Never check out one branch in several worktrees with force options. One owner creates, deletes, and renames refs, repoints any ref other than a stream's own branch, and handles repository-wide configuration or maintenance; avoid global Git configuration changes.
 
 CLI example, after resolving the actual paths and base commit (replace all placeholders; do not execute them literally):
 
@@ -18,8 +18,8 @@ git -C "<new-worktree-path>" status --short --branch
 
 ### Worker boundary
 
-- A worker runs commands with an explicit working directory or `git -C` in its assigned worktree and writes only there, to its owned files. It does not create worktrees or branches (except those host-provisioned for it), switch branches, rebase/reset/delete other branches or refs, run `git worktree prune`, or touch another stream's worktree. On needing an out-of-scope write or discovering overlap, it stops that action, preserves state, and reports to its manager.
-- Base drift: the manager alone decides whether a stream updates from a moved base (for example an upstream contract change); the stream's writer then merges or rebases only in its own worktree, rebasing only commits not yet handed off or pushed, and reruns affected checks. Never force-push shared branches. Otherwise defer reconciliation to [integration](#integration).
+- A worker runs commands with an explicit working directory or `git -C` in its assigned worktree and writes only there, to its owned files. It does not create worktrees or branches (except host-provisioned ones), switch branches, rebase/reset/delete other branches or refs, run `git worktree prune`, or touch another stream's worktree. On needing an out-of-scope write or discovering overlap, it stops that action, preserves state, and reports to its manager.
+- Base drift: the manager alone decides whether a stream updates from a moved base (for example an upstream contract change); the stream's writer then merges or rebases only in its own worktree, rebasing only commits not yet handed off or pushed, and reruns affected checks. Otherwise defer reconciliation to [integration](#integration).
 
 ## Worktree record
 
@@ -34,16 +34,16 @@ States: `planned` (manager, before creation) → `active` (manager, once the por
 
 ## Integration
 
-1. Use the [coordination result contract](subagent-coordination.md#assignment-and-result-contracts) and [result schema](../templates/subagent-result.md) for worker handoffs, accepted only after the handoff gate; include the assigned Git checkout/branch and commit SHA under [commit before ending work](git-usage.md#commit-before-ending-work). A scoped-patch handoff under a disclosed blocker is accepted through the recovery path (`preserved`), not the clean-status gate. Hand off only a stable result.
-2. One integration owner applies results in dependency order in the assigned integration checkout. Use the repository's merge/cherry-pick convention; do not blindly apply both a branch merge and its commits.
-3. Resolve conflicts by understanding both changes and their contracts. Coordinate unclear intent with the responsible manager. Do not accept all of one side or discard unrelated edits to make conflicts disappear.
+1. Worker handoffs use the [coordination result contract](subagent-coordination.md#assignment-and-result-contracts) and [result schema](../templates/subagent-result.md), accepted only after the handoff gate, and include the assigned checkout/branch and commit SHA under [commit before ending work](git-usage.md#commit-before-ending-work). A scoped-patch handoff under a disclosed blocker is accepted through the recovery path (`preserved`), not the clean-status gate.
+2. One integration owner applies results in dependency order in the assigned integration checkout, using the repository's merge/cherry-pick convention; do not apply both a branch merge and its commits.
+3. Resolve conflicts by understanding both changes and their contracts; coordinate unclear intent with the responsible manager. Do not accept all of one side or discard unrelated edits.
 4. Inspect the combined diff and apply [shared validation rules](validation.md#shared-validation-rules) to the integrated revision.
-5. Pause only the dependent integration step when blocked; continue independent authorized work. Report unresolved conflicts and failing checks explicitly.
+5. When blocked, pause only the dependent integration step; continue independent authorized work. Report unresolved conflicts and failing checks.
 
 ## Safe cleanup
 
 - Creating a worktree includes responsibility for its retirement; cleanup of task-created worktrees is part of the task's default scope. The coordinating manager owns reconciliation of all worktrees created for its workstream, including descendants'; the root verifies it across the task before closing. For direct work, the creating agent owns cleanup. Delegating removal does not transfer accountability unless the receiving owner explicitly accepts it.
-- An inactive worktree is not, by itself, evidence of ownership or safe removal; do not remove pre-existing, shared, primary, pinned, or user-retained worktrees without applicable ownership and host authorization. Task completion alone does not justify leaving an unused worktree; pending review, required artifacts, active consumers, or a host restriction may justify retention. On cancellation or handoff, retire unneeded worktrees or explicitly transfer outstanding cleanup.
+- An inactive worktree is not evidence of ownership or safe removal; do not remove pre-existing, shared, primary, pinned, or user-retained worktrees without ownership and host authorization. Task completion alone does not justify leaving an unused worktree; pending review, required artifacts, active consumers, or a host restriction may justify retention. On cancellation or handoff, retire unneeded worktrees or explicitly transfer outstanding cleanup.
 - The cleanup owner runs, in order, before declaring cleanup done:
   1. Compare `git worktree list --porcelain` with the record, normalizing absolute paths (porcelain uses forward slashes): each entry is listed (or verified gone), and unrecorded worktrees stay untouched.
   2. Per worktree, confirm no process or shell cwd is inside it; inspect `git -C "<path>" status --porcelain --untracked-files=all --ignored`; preserve required outputs.

@@ -4,7 +4,7 @@ Load when considering or executing act rehearsal for supported jobs. Workflow au
 
 ## Run workflows locally with act
 
-For Linux container jobs, install and start Docker Engine or Docker Desktop (using Linux containers on Windows). Install [nektos/act](https://nektosact.com/installation/index.html) using one package manager already available on the host:
+Linux container jobs need Docker Engine or Docker Desktop (Linux containers on Windows). Install [nektos/act](https://nektosact.com/installation/index.html) with one package manager already on the host:
 
 ```text
 # Homebrew (macOS/Linux)
@@ -15,7 +15,7 @@ choco install act-cli
 scoop install act
 ```
 
-From the consuming repository root, these commands list PR jobs, run PR workflows, or narrow execution to one file/job:
+From the consuming repository root:
 
 ```text
 act pull_request -l
@@ -24,14 +24,14 @@ act pull_request -W .github/workflows/checks.yml -j checks
 act pull_request -W .github/workflows/checks.yml -j checks -e event.json
 ```
 
-Use a sanitized `event.json` fixture containing the PR fields your expressions read, for example:
+Use a sanitized `event.json` containing the PR fields your expressions read, for example:
 
 ```json
 {"pull_request":{"number":42,"head":{"ref":"feature/example"},"base":{"ref":"main"}}}
 ```
 
-Select a runner image with the required tools; act's default images are not identical to hosted runners. Linux Docker images do not reproduce native Windows/macOS jobs. act also supports opt-in [host execution](https://nektosact.com/usage/runners.html), which runs directly on the machine and still does not recreate GitHub's hosted image.
+Select a runner image with the required tools; act's default images differ from hosted runners, and Linux images do not reproduce native Windows/macOS jobs. act's opt-in [host execution](https://nektosact.com/usage/runners.html) runs directly on the machine and still does not recreate GitHub's hosted image.
 
 Provide only needed local secrets using act's secure prompt, such as `act pull_request -s MY_SECRET`; use ignored secret files only under [secret handling](environment-configuration.md#secret-handling). GitHub's automatic token and environment secrets are not supplied locally. See [act usage](https://nektosact.com/usage/index.html).
 
-Treat act as a rehearsal: event context, token permissions, caches, and hosted services can differ. It currently ignores concurrency, job permissions, and job timeouts, among other [unsupported features](https://nektosact.com/not_supported.html). A local success does not verify those controls.
+act ignores concurrency, job permissions, and job timeouts, among other [unsupported features](https://nektosact.com/not_supported.html); event context, token permissions, caches, and hosted services can also differ. A local success does not verify those controls.

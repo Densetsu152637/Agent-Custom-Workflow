@@ -1,12 +1,12 @@
 # Subagent assignment brief
 
-This file owns assignment fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Combine fields in prose; omit inapplicable fields, not required constraints. A complete filled contract needs no separate template read by the recipient.
+Owns assignment fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Combine fields in prose; omit inapplicable fields, not required constraints. A complete filled contract needs no template read by the recipient.
 
 ## Compact schema
 
 ```text
 Task ID; role (manager or leaf); execution profile if applicable; immediate manager and acceptance owner:
-Deliverable; scope/non-goals; checks/expected outcomes; stopping milestone:
+Deliverable; scope/non-goals; checks/expected outcomes (assigned subset of root's boolean goals, each with its verifying command/check); stopping milestone:
 Absolute workspace; file context (paths, symbols/ranges/sections, revisions, why each matters, or stated gaps); owned writes/resources (or read-only):
 Selected model/effort; preset; general and applicable scoped ceilings/qualifications; resolved effective ceiling and eligibility/override basis; other caps, workflows, and user restrictions/exemptions:
 Instruction manifest (guides): exact owner paths/sections, absolute or relative to a stated absolute workflow-repository root:
@@ -19,4 +19,4 @@ For a manager, include the [manager assignment requirements](../workflows/manage
 
 ## Expanded schema
 
-For assignments requiring the expanded contract, also load [additional fields](subagent-brief-expanded.md). They extend the compact schema.
+For assignments requiring the expanded contract, also load [additional fields](subagent-brief-expanded.md).

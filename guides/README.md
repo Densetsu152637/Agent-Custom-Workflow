@@ -14,4 +14,4 @@
 - [Subagent profiles](../profiles/README.md): portable explorer, implementer, validator, and critic assignments.
 - [Failure catalog](../learning/README.md): evidence-backed reusable corrections and their applicability.
 
-Load applicable sections under [shared discovery](../AGENTS.md#context-and-discovery); links alone do not require loading every target. Resolve placeholders and commands against the consuming project's actual files and scripts.
+Load applicable sections under [shared discovery](../AGENTS.md#context-and-discovery). Resolve placeholders and commands against the consuming project's files.

@@ -7,7 +7,6 @@ Use the [coding standards loading rule](coding-standards.md#apply-these-rules) t
 FP = functional programming
 OOP = object-oriented programming
 DOD = data-oriented design
-Languages may combine paradigms; choose idiomatic constructs for the problem.
 
 | Language                | Default paradigm and emphasis                                                                             |
 | ----------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -24,40 +23,23 @@ Languages may combine paradigms; choose idiomatic constructs for the problem.
 | SQL                     | Declarative, set-based queries; explicit joins, constraints, and transactions                             |
 | Shell / PowerShell      | Procedural orchestration; small commands/functions, quoted paths, explicit failure handling               |
 
-For unlisted languages, follow their ecosystem and local conventions. Prefer local, controlled mutation when it makes an algorithm clearer or more efficient; avoid hidden shared mutable state. Pure functions and immutability improve reasoning and are preferred for FP, but do not inherently guarantee performance.
+Prefer local, controlled mutation when it makes an algorithm clearer or more efficient; avoid hidden shared mutable state.
 
-## Functions
+## Functions and types
 
-- Give each function one coherent responsibility and a name that describes its intent. Keep control flow shallow and readable; extract helpers when they isolate a meaningful concept, repeated behavior, or testable boundary.
-- Make inputs, outputs, effects, and failure behavior explicit. Prefer pure transformations for business rules and server logic; keep I/O and orchestration at clear boundaries. Do not introduce hidden global dependencies.
-- Use typed/named parameter groups when arguments become ambiguous. Avoid boolean mode flags and long positional argument lists where separate operations or a meaningful options type are clearer.
-- Validate untrusted input at boundaries. Handle empty, invalid, and missing values deliberately; preserve distinctions that matter to the domain instead of inventing silent defaults.
-- Use composition, currying, and higher-order functions where idiomatic and helpful. Do not force currying, one-line functions, recursion, or chained expressions when straightforward control flow reads better.
-- Document public contracts, non-obvious invariants, units, effects, and exceptions/errors in the language's standard documentation format. Do not restate the signature in boilerplate comments.
-
-## Classes, types, and modules
-
-- Use classes for cohesive state, invariants, behavior, or resource lifecycle. Use records/structs/data types for plain data; do not create a class solely to hold unrelated utility functions.
-- Establish valid state during construction and maintain it through a small public API. Encapsulate mutable state and expose the least authority callers need.
-- Prefer composition to inheritance. Use inheritance only for a real substitutable relationship or framework requirement; avoid deep hierarchies and oversized manager/service classes.
-- Keep modules focused with clear dependency direction. Introduce interfaces at real substitution, integration, or testing boundaries rather than one interface per class by default.
-- Make resource and concurrency ownership explicit. Close files, release locks/connections, cancel work, and dispose resources using language mechanisms such as RAII, context managers, or `defer`/`using`.
-- Model domain states with appropriate types, enums, or tagged unions. Avoid unchecked casts and overly broad types that conceal invalid states.
-
-## Naming and formatting
-
-- Use the repository's language-specific naming conventions: for example, `snake_case` in Python/Rust and `camelCase` in JavaScript/TypeScript where configured. Do not impose one language's casing globally.
-- Use descriptive nouns for values/types and intent-revealing verbs for operations. Boolean names should read as predicates, such as `isLoading`, adapted to language conventions. Keep abbreviations only when standard and clear.
-- Let configured formatters and linters enforce layout/import order. Limit formatting changes to the affected code unless the task requires more.
-- Comments explain rationale, constraints, and surprising decisions. Remove stale comments when behavior changes. Keep documentation and examples consistent with the implementation.
+- Prefer pure transformations for business rules and server logic; keep I/O and orchestration at clear boundaries.
+- Avoid boolean mode flags and long positional argument lists; use separate operations or a typed options group.
+- Handle empty, invalid, and missing values deliberately; do not invent silent defaults that erase domain distinctions.
+- Do not force currying, one-line functions, recursion, or chained expressions when straightforward control flow reads better.
+- Do not create a class solely to hold unrelated utilities. Prefer composition to inheritance; introduce interfaces at real substitution, integration, or testing boundaries, not one per class.
+- Model domain states with types, enums, or tagged unions; avoid unchecked casts and overly broad types.
 
 ## Errors and asynchronous work
 
-- Use the existing error strategy (exceptions, typed results, error returns, etc.). Preserve failures until a boundary can handle them; catch only to recover, add useful context, clean up, or present a safe error.
-- Do not swallow errors, report success after failure, or expose tokens, raw sensitive responses, or stack traces in user-facing messages. Offer an appropriate retry, resubmit, or navigation path.
-- Await or explicitly handle every asynchronous operation. Own cancellation, loading state, and cleanup. A `void` prefix does not itself handle a rejected promise.
-- Prevent stale or cancelled requests from overwriting current state, including error and loading state. Use cancellation plus a current-request/lifecycle guard where cancellation alone cannot guarantee this.
-- Validate HTTP status, decoding, and application-level success according to the endpoint contract. Reuse shared request helpers; do not introduce a second `Result`/`Either` framework for routine requests when existing Promise/error composition suffices.
+- Use the existing error strategy. Catch only to recover, add context, clean up, or present a safe error; do not swallow errors or expose tokens, raw sensitive responses, or stack traces in user-facing messages.
+- Await or explicitly handle every asynchronous operation; a `void` prefix does not itself handle a rejected promise. Own cancellation, loading state, and cleanup.
+- Prevent stale or cancelled requests from overwriting current state, including error and loading state; use cancellation plus a current-request/lifecycle guard where cancellation alone cannot guarantee this.
+- Validate HTTP status, decoding, and application-level success per the endpoint contract. Reuse shared request helpers; do not introduce a second `Result`/`Either` framework for routine requests when existing Promise/error composition suffices.
 
 ### Existing helper conventions
 

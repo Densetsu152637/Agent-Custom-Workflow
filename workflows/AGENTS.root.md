@@ -2,20 +2,29 @@
 
 ## Root responsibilities
 
-This file owns overall task responsibility and reporting. At intake, load the [delegation default](root-delegation.md#delegation-default). Load [implementation planning](root-planning.md) for substantial initially vague implementation or explicit multi-component planning. Load [context recovery](root-recovery.md) before preparing handoff/context loss and on root recovery before substantive execution, dispatch or publication. Load the [manager workflow](AGENTS.manager.md) before dispatching, assigning, or redirecting descendants; role naming alone does not require it.
+This file owns overall task responsibility and reporting. At intake, load the [delegation default](root-delegation.md#delegation-default). Load [implementation planning](root-planning.md) for substantial vague implementation or explicit multi-component planning. Load [context recovery](root-recovery.md) before preparing handoff/context loss and on root recovery before substantive execution, dispatch or publication. Load the [manager workflow](AGENTS.manager.md) before dispatching, assigning, or redirecting descendants; role naming alone does not require it.
 
-As the top-level root, always load the [personality index](../personalities/README.md) and the selected (else default) personality at intake, before the first user-facing reply, for root's user-facing conversation only. Output styles and brevity never waive this. Never pass a personality to descendants or use it to style deliverables. Personality guidance never changes policy, authority, or task decisions.
+As the top-level root, always load the [personality index](../personalities/README.md) and the selected (else default) personality at intake, before the first user-facing reply, for root's user-facing conversation only. Output styles and brevity never waive this. Never pass a personality to descendants or use it to style deliverables. Personality never changes policy, authority, or task decisions.
+
+## Goals
+
+For any non-trivial task, before dispatching or editing, define a short set of boolean, measurable goals covering the user's outcome (not process steps).
+
+- Each goal is one yes/no statement verifiable by a named command, check, or observation, e.g. "`npm test` exits 0", "no file under docs/ links to removed.md", "endpoint X returns 200 with field Y". Reject vague goals ("code is clean").
+- State the goals to the user in the routing checkpoint or plan. Pass each child the relevant subset as its acceptance checks.
+- Revise goals only when evidence or the user changes scope, and say so when revising.
+- Close only when every goal evaluates true with evidence. The final report lists each goal as met/unmet; an unmet goal is a reported blocker, never silently dropped.
 
 ## Execution and completion
 
-- Own scope, dependencies, integration, and user communication. Follow [shared execution defaults](../AGENTS.md#execution-defaults) for direct-answer and retained coordination work.
-- Apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work) to root-owned changes and verify descendant commit evidence before closing. Close only after required integration, [validation](../guides/validation.md#shared-validation-rules), reviews, [worktree reconciliation](../guides/git-worktrees.md#safe-cleanup), and the [root session-end push](../guides/git-publication.md#root-session-end-push) establish the outcome. Root pushes all commits on the branch being worked on to that branch on `origin` under the linked rule, or reports its concrete blocker. Load these owners when those actions apply; a factual answer does not require Git cleanup machinery.
-- Report resulting behavior, relevant evidence, and material blockers. For implementations/refactors, apply [documentation alignment](../guides/coding-standards.md#documentation-alignment), including its scoped research-paper rules.
+- Own scope, dependencies, integration, and user communication. Follow [shared execution defaults](../AGENTS.md#execution-defaults).
+- Apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work) to root-owned changes and verify descendant commit evidence before closing. Close only after required integration, [validation](../guides/validation.md#shared-validation-rules), reviews, [worktree reconciliation](../guides/git-worktrees.md#safe-cleanup), and the [root session-end push](../guides/git-publication.md#root-session-end-push). Root pushes all commits on the working branch to that branch on `origin` under the linked rule, or reports its concrete blocker. A factual answer needs no Git cleanup.
+- Report resulting behavior, goal status, relevant evidence, and material blockers. For implementations/refactors, apply [documentation alignment](../guides/coding-standards.md#documentation-alignment), including its scoped research-paper rules.
 
 ## Completion celebration
 
-Only the root celebrates a substantial verified completion, once, when a supported host tool permits it and user preferences allow it. Features, substantial refactors, difficult fixes, and migrations qualify; routine lookups, small edits, and individual subtasks do not. Never celebrate partial or unverified work. Use the running host's celebration control from [host adapters](../guides/host-adapters.md); tool absence/failure does not block reporting, and claim success only when confirmed.
+Only the root celebrates, once, a substantial verified completion (features, substantial refactors, difficult fixes, migrations) when a supported host tool and user preferences allow it. Never for routine lookups, small edits, subtasks, or partial/unverified work. Use the host's celebration control from [host adapters](../guides/host-adapters.md); tool absence/failure does not block reporting.
 
 ## Root manager timing and token report
 
-For substantial tasks or an explicit accounting request, report readily available measured elapsed time/token/subagent usage with scope. Routine responses need no metrics footer or collection calls. Load [accounting](../guides/usage-accounting.md) when collecting/aggregating metrics or enforcing a numeric budget; mention unavailable metrics only when requested or material to that budget.
+For substantial tasks or an explicit accounting request, report readily available measured elapsed time/token/subagent usage with scope. Routine responses need no metrics footer. Load [accounting](../guides/usage-accounting.md) when collecting/aggregating metrics or enforcing a numeric budget.

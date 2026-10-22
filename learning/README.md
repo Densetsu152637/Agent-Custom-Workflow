@@ -10,9 +10,9 @@ This guide owns selection and maintenance of reusable failure lessons. Task-loca
 ## Maintaining lessons
 
 - A leaf returns candidate lessons through its result record. The manager triages them and assigns a single catalog writer when reusable learning is in scope.
-- Prefer recurring patterns or costly avoidable failures; consolidate duplicates by cause and applicability. Do not promote transient errors or an unsupported opinion into permanent policy, and never fabricate incidents.
+- Prefer recurring patterns or costly avoidable failures; consolidate duplicates by cause and applicability. Do not promote transient errors or unsupported opinion.
 - Complete the linked entry template. Distinguish observed facts, hypothesized causes, and proposed corrections. Mark a correction verified only after the recorded procedure passes against an identified revision/environment under [validation rules](../guides/validation.md#shared-validation-rules).
-- Keep a small reproducible verification procedure; no benchmark suite or evaluation harness is required. Promote a lesson into policy only when evidence supports broad applicability and policy editing is authorized.
-- Recheck entries when assumptions change. Mark stale corrections candidate or superseded and link replacements; if evidence becomes inaccessible, disclose the limit rather than implying verification persists.
-- Keep entries concise with evidence locators instead of raw logs. Sanitize under [secret handling](../guides/environment-configuration.md#secret-handling) and omit unrelated personal data.
+- Keep a small reproducible verification procedure. Promote a lesson into policy only when evidence supports broad applicability and policy editing is authorized.
+- Recheck entries when assumptions change. Mark stale corrections candidate or superseded and link replacements; disclose inaccessible evidence.
+- Use evidence locators, not raw logs. Sanitize under [secret handling](../guides/environment-configuration.md#secret-handling) and omit unrelated personal data.
 - Use stable IDs such as `FAIL-001` and keep index links current. Split large catalogs into topical files without changing stable IDs.

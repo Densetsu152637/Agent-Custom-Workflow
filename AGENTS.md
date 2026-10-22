@@ -2,13 +2,13 @@
 
 ## Scope and policy ownership
 
-Follow higher-priority and repository-level instructions and explicit user constraints. Unless assigned otherwise, act as the root. At task intake if you are a manager, load and apply the [root delegation default](workflows/root-delegation.md#delegation-default): automatically dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. This intake route is for root/managers only; assigned leaves do not open root-delegation instructions.
+Unless assigned otherwise, act as the root. At task intake a manager loads and applies the [root delegation default](workflows/root-delegation.md#delegation-default): dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. Assigned leaves do not open root-delegation instructions.
 
-The top-level root (the main conversation agent) must load its [personality](personalities/README.md) at intake, before its first user-facing reply. Host output styles and brevity constraints govern reply form and never waive loading; on conflict the host or user style wins on form. Every dispatched agent, including child managers and before reading its brief, never loads or adopts a personality.
+The top-level root (the main conversation agent) must load its [personality](personalities/README.md) at intake, before its first user-facing reply. Host output styles govern reply form and never waive loading; on conflict the host or user style wins on form. Every dispatched agent, including child managers, never loads or adopts a personality.
 
-This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
+This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link rather than duplicate. Profiles describe assignments, not permissions or priority. Companions inherit this file. Keep links and consumers current when moving rules.
 
-An agent whose assigned checkout is already on `main` at task start may make scoped task commits and push validated work to `origin/main` without asking the user again. Follow the [Git guide's commit](guides/git-usage.md#commit-before-ending-work) and [starting-on-main authorization](guides/git-publication.md#starting-on-main-authorization) rules for procedure and limits, including explicit no-push instructions, required checks, branch protections, and host restrictions.
+An agent whose assigned checkout is already on `main` at task start may make scoped task commits and push validated work to `origin/main` without asking the user again. Procedure and limits (no-push instructions, required checks, branch protections, host restrictions) follow [commit](guides/git-usage.md#commit-before-ending-work) and [starting-on-main authorization](guides/git-publication.md#starting-on-main-authorization).
 
 ## Workflows
 
@@ -28,11 +28,11 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 
 ## Guides
 
-- Mapping workflow terms to the running host's tools (Claude Code, Codex): [Host adapters](guides/host-adapters.md).
+- Host tool mapping (Claude Code, Codex): [Host adapters](guides/host-adapters.md).
 - Handoffs, retained context, or recovery: [Coordination](guides/subagent-coordination.md).
 - Acceptance evidence: [Validation](guides/validation.md).
 - Implementation changes: [Coding standards](guides/coding-standards.md).
-- Local edits/Git mutations: [Git usage](guides/git-usage.md); parallel writes/integration/cleanup: [Worktrees](guides/git-worktrees.md); pushes/PRs/merges: [Publication](guides/git-publication.md). Read-only work needs none of these mutation procedures.
+- Local edits/Git mutations: [Git usage](guides/git-usage.md); parallel writes/integration/cleanup: [Worktrees](guides/git-worktrees.md); pushes/PRs/merges: [Publication](guides/git-publication.md).
 - GitHub Actions authoring/verification, including plans: [GitHub Actions](guides/github-actions.md); act rehearsal/planning: also [Local rehearsal](guides/github-actions-local.md).
 - Managing application containers/Compose services: [Container usage](guides/container-usage.md); tools merely using their own containers do not trigger it.
 - Configuration or secrets: [Environment configuration](guides/environment-configuration.md).
@@ -40,23 +40,21 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 
 ## Editing and temporary artifacts
 
-- Edit authoritative files in the assigned checkout with permitted tools; use [Git isolation](guides/git-worktrees.md#parallel-work-and-worktrees) where required. Review diffs or stable artifacts, without ad hoc backup/draft trees or routine one-off installer/check scripts.
-- Use host permissions for protected targets; shadow drafts do not replace authorization.
-- Create scratch artifacts only for a concrete task/tool need, at an assigned temporary location separate from deliverables. Keep their scope minimal, clean them when unneeded, and preserve required [handoff evidence](guides/subagent-coordination.md#assignment-and-result-contracts).
+- Edit authoritative files in the assigned checkout; use [Git isolation](guides/git-worktrees.md#parallel-work-and-worktrees) where required. No ad hoc backup/draft trees or routine one-off installer/check scripts. Shadow drafts do not replace host authorization for protected targets.
+- Create scratch artifacts only for a concrete need, at an assigned temporary location separate from deliverables; clean them up and preserve required [handoff evidence](guides/subagent-coordination.md#assignment-and-result-contracts).
 
 ## Context and discovery
 
-- Decide applicability from index labels and the assigned role/profile before opening owner bodies; then load triggered owners and relevant README/source sections, including nested instructions. Do not sample untriggered owners because they are linked, batch them with required reads, or broadly search owner bodies to confirm non-applicability. An anchored instruction reference requires only its named section, not the whole file. An assigned leaf/profile needs no root, manager or profile-catalogue confirmation read. For genuinely ambiguous applicability, state the reason and inspect only the narrow excerpt needed to decide. Discover progressively; avoid whole-repository dumps.
-- Apply domain triggers to the reasoning being requested, including plans and reviews. Read-only scope, prohibited execution, or missing data/media limits actions and conclusions, not explicitly triggered role, procedure or methods instruction reads; loading them does not permit prohibited execution. Loading an owner does not grant execution authority or a capability exception. Before declaring that no additional owner applies, check both indexes above; a tool-specific guide complements, rather than replaces, a triggered domain workflow.
-- Complete authoritative text already available in current context counts as loaded. Reuse it while unchanged; reread changed sections, missing text, or sources represented only by a summary after compaction/handoff. Record exact owner paths for delegated work under the coordination contract.
+- Decide applicability from index labels and the assigned role/profile before opening owner bodies; then load triggered owners and relevant sections, including nested instructions. Do not sample untriggered owners or search owner bodies to confirm non-applicability. An anchored reference requires only its named section. An assigned leaf/profile needs no root, manager or profile-catalogue read. For genuinely ambiguous applicability, inspect only the narrow excerpt needed.
+- Apply domain triggers to the reasoning requested, including plans and reviews. Read-only scope, prohibited execution, or missing data/media limits actions and conclusions, not triggered instruction reads; loading an owner grants no execution authority or capability exception. Before declaring that no additional owner applies, check both indexes above; a tool-specific guide complements a triggered domain workflow.
+- Complete authoritative text already in context counts as loaded; reuse it while unchanged. Reread changed sections, missing text, or sources represented only by a summary after compaction/handoff. Record exact owner paths for delegated work under the coordination contract.
 - On root recovery after compaction or handoff, follow the [root context-recovery contract](workflows/root-recovery.md#context-recovery) before substantive execution, dispatch, or publication.
-- Count only text actually returned or supplied as loaded. A successful read command with truncated output does not establish a complete read. Recover missing applicable text one file or smaller line range at a time before opening unrelated owners; reduce the range again if output still truncates. Claim a complete file or named section only when all of its text was returned; otherwise report the covered ranges and remaining gap. Unrelated sections need not be reread merely to claim completeness.
-- Search narrowly, return bounded excerpts/logs/diffs, and widen only when needed. Retain decisive evidence instead of repeating raw output.
-- Apply skills/plugins to the actual requested workflow, not broad keyword overlap. When authoring skill descriptions, keep triggers short and specific; put detailed procedures in conditionally loaded references.
+- Count only text actually returned as loaded; truncated output is not a complete read. Recover missing text one file or smaller range at a time. Claim a complete file or section only when all of it was returned; otherwise report covered ranges and the gap.
+- Apply skills/plugins to the actual requested workflow, not keyword overlap. Skill descriptions keep triggers short; detailed procedures go in conditionally loaded references.
 
 ## Execution defaults
 
-- Establish the outcome, scope, known paths, acceptance checks, and stopping condition. Resolve routine choices from available evidence; ask only for missing information or authority that materially affects the result.
-- Keep related work together and pass compact deltas. Use fresh context for unrelated assignments; suggest a new chat when unrelated history materially impedes direct work, without creating one unless requested.
-- When effort controls are exposed, use low for routine edits/extraction, medium for ordinary implementation/debugging, and deeper effort for difficult uncertain analysis. Honor explicit settings and host controls; instructions do not change hidden runtime settings.
-- Keep communication and evidence proportional to the task. Stop exploration and checks when acceptance is established; preserve mandatory gates under [validation](guides/validation.md#shared-validation-rules).
+- Resolve routine choices from available evidence; ask only for missing information or authority that materially affects the result.
+- Keep related work together and pass compact deltas; use fresh context for unrelated assignments. Suggest a new chat when unrelated history materially impedes direct work, without creating one unless requested.
+- When effort controls are exposed, use low for routine edits/extraction, medium for ordinary implementation/debugging, deeper for difficult uncertain analysis. Honor explicit settings and host controls.
+- Stop exploration and checks when acceptance is established; preserve mandatory gates under [validation](guides/validation.md#shared-validation-rules).

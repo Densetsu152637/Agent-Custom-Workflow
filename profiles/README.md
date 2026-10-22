@@ -1,6 +1,6 @@
 # Subagent profiles
 
-Profiles describe execution focus and deliverables, not delegation authority. Choose [manager or leaf](../workflows/manager-delegation.md#manager-or-leaf-selection) before choosing a profile. A manager loads the manager workflow and owns descendant coordination/integration; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
+Profiles describe execution focus, not delegation authority. Choose [manager or leaf](../workflows/manager-delegation.md#manager-or-leaf-selection) first; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
 
 | Assignment | Profile | Expected result |
 | ---------- | ------- | --------------- |
@@ -9,6 +9,6 @@ Profiles describe execution focus and deliverables, not delegation authority. Ch
 | Execute acceptance checks | [Validator](AGENTS.validator.md) | Criterion-specific verdicts |
 | Challenge correctness and consequential assumptions | [Critic](AGENTS.critic.md) | Substantiated findings and resolving checks |
 
-Combine these profiles with the [applicable domain workflows](../AGENTS.md#workflows); the manager supplies exact owners in the selected compact/expanded instruction manifest. Follow [shared loading rules](../AGENTS.md#context-and-discovery) for text already in context. A domain workflow does not create a new role or grant permission to change the assigned artifact.
+Combine these profiles with the [applicable domain workflows](../AGENTS.md#workflows); the manager supplies owners in the instruction manifest. A domain workflow creates no new role and grants no permission to change the artifact.
 
-Add a profile only for a recurring distinct responsibility. Use the [shared ownership rule](../AGENTS.md#scope-and-policy-ownership) to keep general procedures in their owners.
+Add a profile only for a recurring distinct responsibility.
