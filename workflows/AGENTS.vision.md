@@ -2,16 +2,7 @@
 
 ## Specialized capability ceiling
 
-Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [model selection](AGENTS.manager.md#model-and-effort-selection). This section owns vision qualification and the scoped maximum.
-
-| Selected preset | Maximum vision tier |
-| --------------- | ------------------- |
-| light | Specialist with verified vision capability |
-| balanced | Frontier with verified vision capability |
-| heavy | Frontier with verified vision capability |
-
-- The scoped ceiling replaces the general ceiling only for assignments inspecting actual visual inputs, and remains available through a cheaper general manager. Verify visual capability and image access; text-only summaries do not constitute image QA. Select sufficient capability for input detail and ambiguity.
-- Managers, code writers, image-generation orchestration, and text-only reviewers retain the general ceiling. Do not pass this exception to unrelated descendants; split mixed assignments into visual inspection and general execution.
+Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: assignments inspecting actual visual inputs may use up to Specialist under `light` and Frontier under `balanced`/`heavy`, with verified vision capability. Text-only summaries are not image QA; text-only and non-inspection work keep the general ceiling, so split mixed assignments.
 
 ## Visual inputs
 

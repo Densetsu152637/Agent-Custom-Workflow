@@ -2,17 +2,7 @@
 
 ## Specialized capability ceiling
 
-Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [model selection](AGENTS.manager.md#model-and-effort-selection). This section owns audio qualification and the scoped maximum.
-
-| Selected preset | Maximum audio tier |
-| --------------- | ------------------ |
-| light | Specialist with verified audio capability |
-| balanced | Frontier with verified audio capability |
-| heavy | Frontier with verified audio capability |
-
-- The scoped ceiling replaces the general ceiling only for assignments consuming actual audio inputs, and remains available through a cheaper general manager. Verify audio capability and recording access (formats, duration, input limits); transcripts, waveforms, or tool summaries alone are not listening evidence.
-- Managers, code writers, audio-generation orchestration, and text-only transcript reviewers or summarizers retain the general ceiling. Do not pass this exception to unrelated descendants; split mixed assignments into audio digestion and general execution.
-- Each selected audio model needs verified support for the assigned task; speech recognition and acoustic analysis do not imply each other. Select sufficient capability for recording quality, language, overlapping speakers, and ambiguity.
+Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: assignments consuming actual audio may use up to Specialist under `light` and Frontier under `balanced`/`heavy`, with verified audio capability for the task (speech recognition and acoustic analysis are separate). Transcripts or summaries alone are not listening evidence; text-only and non-listening work keep the general ceiling, so split mixed assignments.
 
 ## Audio inputs
 

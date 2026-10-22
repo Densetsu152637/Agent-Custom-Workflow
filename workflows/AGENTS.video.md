@@ -2,12 +2,12 @@
 
 ## Scope and modality dispatch
 
-Use this workflow for moving-image content, temporal events, or synchronized visual/audio digestion. It owns temporal coverage and synthesis; [vision](AGENTS.vision.md) owns visual methods and its scoped ceiling, and [audio](AGENTS.audio.md) owns listening methods and its scoped ceiling.
+Use this workflow for moving-image content, temporal events, or synchronized visual/audio digestion. It owns temporal coverage and synthesis; [vision](AGENTS.vision.md) and [audio](AGENTS.audio.md) own their methods and scoped ceilings.
 
 For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf inspectors, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery.
 
-- Dispatch frame/sequence inspection under vision eligibility and recording inspection under audio eligibility. A combined inspection must verify both capabilities and access to both modalities and obeys the stricter cap, or is split. Explicit video-scoped caps constrain both components under the [manager rules](AGENTS.manager.md#capability-ceilings).
-- Media extraction, orchestration, and synthesis from text-only findings retain the general ceiling. Reading transcripts, captions, or frame descriptions does not qualify for a modality exception or establish direct media coverage.
+- Dispatch frame/sequence inspection under vision's ceiling and recording inspection under audio's. A combined inspection needs both capabilities and obeys the stricter cap, or is split.
+- Media extraction, orchestration, and synthesis from text-only findings keep the general ceiling; transcripts, captions, or frame descriptions do not qualify for a modality exception or establish direct media coverage.
 
 ## Inputs and coverage plan
 

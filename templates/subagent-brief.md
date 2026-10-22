@@ -1,6 +1,6 @@
 # Subagent assignment brief
 
-Owns assignment fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Combine fields in prose; omit inapplicable fields, not required constraints. A complete filled contract needs no template read by the recipient.
+Assignment fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts). Combine fields in prose; omit inapplicable fields, not required constraints. The recipient need not read the template.
 
 ## Compact schema
 
@@ -8,12 +8,12 @@ Owns assignment fields under the [coordination contract](../guides/subagent-coor
 Task ID; role (manager or leaf); execution profile if applicable; immediate manager and acceptance owner:
 Deliverable; scope/non-goals; checks/expected outcomes (assigned subset of root's boolean goals, each with its verifying command/check); stopping milestone:
 Absolute workspace; file context (paths, symbols/ranges/sections, revisions, why each matters, or stated gaps); owned writes/resources (or read-only):
-Selected model/effort; preset; general and applicable scoped ceilings/qualifications; resolved effective ceiling and eligibility/override basis; other caps, workflows, and user restrictions/exemptions:
+Model/effort; preset and effective ceiling; user restrictions:
 Instruction manifest (guides): exact owner paths/sections, absolute or relative to a stated absolute workflow-repository root:
 Return format/location; actionable limits/checkpoint, if beyond the milestone:
 ```
 
-Managers fill the file-context and guide fields per [context handoff](../workflows/AGENTS.manager.md#context-handoff). When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; the stream's [worktree record](../guides/git-worktrees.md#worktree-record) entry (absolute path, branch, base commit, creator/cleanup owner, owned files/resources, dependencies/checks, initial state); iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
+Managers fill the file-context and guide fields per [context handoff](../workflows/AGENTS.manager.md#context-handoff). When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; the stream's [worktree record](../guides/git-worktrees.md#worktree-record) entry (absolute path, branch, base commit, creator/cleanup owner, owned files/resources, dependencies/checks, initial state); iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep manager-only controls out of the brief; child managers receive what they need to direct descendants.
 
 For a manager, include the [manager assignment requirements](../workflows/manager-delegation.md#manager-or-leaf-selection): delegated authority, likely child deliverables, coordination responsibility and allocated limits/ownership. Do not include leaf-only authority.
 

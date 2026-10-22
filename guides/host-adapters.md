@@ -21,13 +21,13 @@ Workflow term mapping:
 | Cancellation | `TaskStop`. |
 | Depth limit | Three subagent layers below the main conversation by default (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`). At the limit the `Agent` tool is removed. |
 | Turn limit | No per-dispatch control; turn limits are monitored allowances. |
-| Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). Report the selected model to the user. |
+| Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). |
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../AGENTS.md#execution-defaults) are the explicit instruction that permits setting it. |
 | Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
 | Completion celebration | None available; skip it. |
 
-Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`. Map other aliases only from documented capability under [model selection](../workflows/AGENTS.manager.md#model-and-effort-selection).
+Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`; map other aliases only from documented capability.
 
 Managed worktrees (where available; verify against the live tool list). Policy, records, and cleanup stay with [worktrees](git-worktrees.md):
 

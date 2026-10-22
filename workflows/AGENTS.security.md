@@ -2,17 +2,7 @@
 
 ## Specialized capability ceiling
 
-Use the [manager ceiling rules](AGENTS.manager.md#capability-ceilings) and [model selection](AGENTS.manager.md#model-and-effort-selection). This section owns security qualification and the scoped maximum.
-
-| Selected preset | Maximum security tier |
-| --------------- | --------------------- |
-| light | Specialist |
-| balanced | Frontier |
-| heavy | Frontier |
-
-- The scoped ceiling replaces the general ceiling only for bounded difficult threat modeling or adversarial analysis of consequential vulnerabilities, such as authorization bypass, privilege escalation, or interacting trust-boundary failures. It remains available through a cheaper general manager.
-- Routine checklist review, scanner execution/triage, dependency inventory, managers, code repair, and unrelated reviews retain the general ceiling. Source/behavior verification within a qualifying analysis stays in scope. Split mixed assignments; do not pass the exception to unrelated descendants.
-- Verify access to relevant code/configuration and suitable security reasoning capability; the exception cannot compensate for inaccessible evidence.
+Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: bounded difficult threat modeling or adversarial analysis of consequential vulnerabilities (authorization bypass, privilege escalation, interacting trust-boundary failures) may use up to Specialist under `light` and Frontier under `balanced`/`heavy`. Routine checklist review, scanner triage, dependency inventory, managers, and code repair keep the general ceiling, so split mixed assignments. Verify access to the relevant code and configuration.
 
 ## Scope and threat model
 
