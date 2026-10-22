@@ -13,7 +13,7 @@ Instruction manifest: exact owner paths/sections relative to an absolute root:
 Return format/location; actionable limits/checkpoint, if beyond the milestone:
 ```
 
-When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; the stream's [worktree record](../guides/git-worktrees.md#worktree-record) entry (branch, base, path, creator/cleanup owner, owned files/resources, state); iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
+When applicable, add plan excerpt/revision, decisions/assumptions/dependencies; the stream's [worktree record](../guides/git-worktrees.md#worktree-record) entry (absolute path, branch, base commit, creator/cleanup owner, owned files/resources, dependencies/checks, initial state); iteration unit/allowance, retry override, configured limits versus monitored allowances, and stop instructions. Use the coordination retry default otherwise. Keep selection rationale, mapping evidence, and manager-only controls in the manager's dispatch record; child managers receive what they need to direct descendants.
 
 For a manager, include the [manager assignment requirements](../workflows/manager-delegation.md#manager-or-leaf-selection): delegated authority, likely child deliverables, coordination responsibility and allocated limits/ownership. Do not include leaf-only authority.
 
