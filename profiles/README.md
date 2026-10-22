@@ -6,6 +6,8 @@ Profiles describe execution focus, not delegation authority. Choose [manager or 
 | ---------- | ------- | --------------- |
 | Locate and explain relevant code/evidence | [Explorer](AGENTS.explorer.md) | Focused path/dependency map |
 | Implement an agreed change | [Implementer](AGENTS.implementer.md) | Cohesive change and focused checks |
+| Write or update docs from the final implementation | [Documenter](AGENTS.documenter.md) | Doc paths or "no documentation impact" reason, plus defects found |
+| Author tests and regression reproductions | [Tester](AGENTS.tester.md) | Behavior tests, run results, coverage gaps |
 | Execute acceptance checks | [Validator](AGENTS.validator.md) | Criterion-specific verdicts |
 | Challenge correctness and consequential assumptions | [Critic](AGENTS.critic.md) | Substantiated findings and resolving checks |
 
