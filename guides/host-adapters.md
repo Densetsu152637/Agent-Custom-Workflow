@@ -23,11 +23,17 @@ Workflow term mapping:
 | Turn limit | No per-dispatch control; turn limits are monitored allowances. |
 | Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). Report the selected model to the user. |
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../AGENTS.md#execution-defaults) are the explicit instruction that permits setting it. |
-| Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. |
+| Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
 | Completion celebration | None available; skip it. |
 
 Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`. Map other aliases only from documented capability under [model selection](../workflows/AGENTS.manager.md#model-and-effort-selection).
+
+Managed worktrees (where available; verify against the live tool list). Policy, records, and cleanup stay with [worktrees](git-worktrees.md); these controls only map to it:
+
+- `Agent` `isolation: "worktree"` removes the worktree automatically when the agent made no changes. When it did, the result returns the worktree path and branch: the manager enters them in the [worktree record](git-worktrees.md#worktree-record) and reconciles them under [safe cleanup](git-worktrees.md#safe-cleanup); a returned worktree is not retired by the host.
+- `EnterWorktree` creates (under `.claude/worktrees/`) or, with `path`, enters a worktree; `ExitWorktree` with `keep` or `remove` acts only on one `EnterWorktree` created this session. Record the worktree; never pass `discard_changes: true` to bypass its refusal, which returns to the [preserve steps](git-worktrees.md#safe-cleanup).
+- The desktop app's `clean_up_worktrees` (inactive-session storage cleanup) and `discard_kept_worktree` (archived sessions' kept dirty worktrees) are the managed archive path for app-made worktrees. Use them for recorded task-owned entries only after integration or preservation is proven; `include_uncommitted`, `delete_sessions`, and `discard_kept_worktree` discard unrecoverable work and need the user's request. They do not replace the record or reconciliation report.
 
 Additional folders:
 
