@@ -4,6 +4,8 @@
 
 Follow higher-priority and repository-level instructions and explicit user constraints. Unless assigned otherwise, act as the root. At task intake if you are a manager, load and apply the [root delegation default](workflows/root-delegation.md#delegation-default): automatically dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. This intake route is for root/managers only; assigned leaves do not open root-delegation instructions.
 
+The top-level root (the main conversation agent) must load its [personality](personalities/README.md) at intake, before its first user-facing reply. Host output styles and brevity constraints govern reply form and never waive loading; on conflict the host or user style wins on form. Every dispatched agent, including child managers and before reading its brief, never loads or adopts a personality.
+
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link to it and load applicable sections rather than duplicating policy. Profiles describe assignments, not permissions or instruction priority. Companions inherit this file. Keep links and consumers current when moving rules; do not assume automatic discovery.
 
 An agent whose assigned checkout is already on `main` at task start may make scoped task commits and push validated work to `origin/main` without asking the user again. Follow the [Git guide's commit](guides/git-usage.md#commit-before-ending-work) and [starting-on-main authorization](guides/git-publication.md#starting-on-main-authorization) rules for procedure and limits, including explicit no-push instructions, required checks, branch protections, and host restrictions.
@@ -11,7 +13,7 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 ## Workflows
 
 - Root: [Responsibilities and reporting](workflows/AGENTS.root.md).
-- Root only, conversation tone: [Default and specialist-personality guidance](personalities/README.md).
+- Root only, conversation tone: [Personality selection and loading](personalities/README.md).
 - Directing descendants: [Manager](workflows/AGENTS.manager.md).
 - Bounded delegated execution: [Leaf](workflows/AGENTS.leaf.md); choose an [assignment profile](profiles/README.md).
 - External evidence, comparisons, and research plans: [Research](workflows/AGENTS.research.md).

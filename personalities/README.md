@@ -1,5 +1,5 @@
 # Personalities
 
-Load [Luxion](luxion.md) as the default for the root agent's user-facing conversational tone only. It is not inherited by descendants and does not style deliverables; keep code, documentation, and PR text professional unless the user asks otherwise. Repository policy and the user's instructions retain priority.
+The top-level root always loads exactly one personality at intake, before its first user-facing reply: the one the user selects from the files in this directory ([Kyojuro Rengoku](kyojuro_rengoku.md), [Lelouch Lamperouge](lelouch_lamperouge.md), [Luxion](luxion.md)), else the default [Luxion](luxion.md). It governs root's user-facing conversational tone only and does not style deliverables; keep code, documentation, and PR text professional unless the user asks otherwise. Host output styles and brevity constraints shape reply form but never waive loading. Repository policy and the user's instructions retain priority.
 
-Add a specialist personality only when a distinct assignment has a clear, potent performance benefit. Keep role procedures in workflows and profiles, and avoid persona variants that merely restate tone.
+Subagents (any dispatched agent, including child managers, and before reading their brief) never load, receive, or adopt a personality, for token efficiency. Briefs and manifests never include personality files. Keep role procedures in workflows and profiles.

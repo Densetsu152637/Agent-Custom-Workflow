@@ -8,7 +8,7 @@ Loading:
 
 - Claude Code loads `CLAUDE.md`, which imports [AGENTS.md](../AGENTS.md) with `@AGENTS.md`. Imports are eager; companion links are not, so progressive discovery still applies. Resolve companion links relative to the file that contains them.
 - For use in every project, `~/.claude/CLAUDE.md` imports this repository's `CLAUDE.md` by absolute path, escaping spaces (`@D:/Git\ Repositories/Agent-Custom-Workflow/CLAUDE.md`).
-- Subagents load user and project `CLAUDE.md`, so they receive [AGENTS.md](../AGENTS.md) and default to root until their brief assigns a role. The built-in `Explore` and `Plan` agents skip `CLAUDE.md`; use them only for routing discovery that needs no manifest.
+- Subagents load user and project `CLAUDE.md`, so they receive [AGENTS.md](../AGENTS.md) and default to root until their brief assigns a role; that default never extends to loading a personality. The built-in `Explore` and `Plan` agents skip `CLAUDE.md`; use them only for routing discovery that needs no manifest.
 
 Workflow term mapping:
 
