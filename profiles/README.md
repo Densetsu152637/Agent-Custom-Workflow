@@ -11,4 +11,6 @@ Profiles describe execution focus and deliverables, not delegation authority. Ch
 
 Combine these profiles with the [applicable domain workflows](../AGENTS.md#workflows); the manager supplies exact owners in the selected compact/expanded instruction manifest. Follow [shared loading rules](../AGENTS.md#context-and-discovery) for text already in context. A domain workflow does not create a new role or grant permission to change the assigned artifact.
 
+Under Claude Code, each profile has a matching leaf definition in [`.claude/agents/`](../.claude/agents/); see [host adapters](../guides/host-adapters.md#claude-code).
+
 Add a profile only for a recurring distinct responsibility. Use the [shared ownership rule](../AGENTS.md#scope-and-policy-ownership) to keep general procedures in their owners.

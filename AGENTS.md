@@ -26,6 +26,7 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 
 ## Guides
 
+- Mapping workflow terms to the running host's tools (Claude Code, Codex): [Host adapters](guides/host-adapters.md).
 - Handoffs, retained context, or recovery: [Coordination](guides/subagent-coordination.md).
 - Acceptance evidence: [Validation](guides/validation.md).
 - Implementation changes: [Coding standards](guides/coding-standards.md).

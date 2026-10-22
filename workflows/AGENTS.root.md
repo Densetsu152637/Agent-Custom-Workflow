@@ -14,7 +14,7 @@ When acting as root, load the [personality index](../personalities/README.md) an
 
 ## Completion celebration
 
-Only the root celebrates a substantial verified completion, once, when a supported host tool permits it and user preferences allow it. Features, substantial refactors, difficult fixes, and migrations qualify; routine lookups, small edits, and individual subtasks do not. Never celebrate partial or unverified work. In Codex use `mcp__codex_app__fire_confetti`; tool absence/failure does not block reporting, and claim success only when confirmed.
+Only the root celebrates a substantial verified completion, once, when a supported host tool permits it and user preferences allow it. Features, substantial refactors, difficult fixes, and migrations qualify; routine lookups, small edits, and individual subtasks do not. Never celebrate partial or unverified work. Use the running host's celebration control from [host adapters](../guides/host-adapters.md); tool absence/failure does not block reporting, and claim success only when confirmed.
 
 ## Root manager timing and token report
 
