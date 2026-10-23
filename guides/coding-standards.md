@@ -6,6 +6,7 @@
 - Refactors must adapt the affected system wherever the new design requires it, including consumers, interfaces, integrations, tests, and documentation. Remove superseded pieces; do not add compatibility shims or parallel paths solely to preserve the old design. Keep this bounded to the affected system and follow explicit user instructions about preservation, compatibility, or scope.
 - Validate untrusted input at boundaries; preserve failures, cancellation, and resource cleanup. Never report failure as success.
 - Load [coding conventions](coding-conventions.md) when introducing a language/framework without established conventions, designing/reviewing API or state contracts, or changing error/cancellation/resource handling; routine edits following existing patterns do not need it. Do not change working code's paradigm merely to follow defaults.
+- Load the [pattern guides](patterns/README.md) when designing, implementing, or reviewing the structure of non-trivial code: [function and class structure](patterns/structure.md) plus the paradigm guide that fits the code, using only the relevant language sections. Project conventions take precedence; routine edits following existing patterns need none.
 
 ## Documentation alignment
 

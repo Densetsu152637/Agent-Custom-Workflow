@@ -120,8 +120,8 @@ References:
 
 References:
 
-- [Unity Entities package](http://docs.unity3d.com/Packages/com.unity.entities@latest/): ECS, components and systems.
-- [Burst compiler](http://docs.unity3d.com/Packages/com.unity.burst@latest/): compiling job code to optimised native code.
+- [Unity Entities package](https://docs.unity3d.com/Packages/com.unity.entities@latest/): ECS, components and systems.
+- [Burst compiler](https://docs.unity3d.com/Packages/com.unity.burst@latest/): compiling job code to optimised native code.
 - [Unity job system](https://docs.unity3d.com/Manual/job-system.html): scheduling safe multithreaded jobs.
 
 ### Java

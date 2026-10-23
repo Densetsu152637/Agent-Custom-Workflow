@@ -31,7 +31,7 @@ An agent whose assigned checkout is already on `main` at task start may make sco
 - Host tool mapping (Claude Code, Codex): [Host adapters](guides/host-adapters.md).
 - Handoffs, retained context, or recovery: [Coordination](guides/subagent-coordination.md).
 - Acceptance evidence: [Validation](guides/validation.md).
-- Implementation changes: [Coding standards](guides/coding-standards.md).
+- Implementation changes: [Coding standards](guides/coding-standards.md); function/class structure and design patterns with per-language idioms: [Pattern guides](guides/patterns/README.md).
 - Local edits/Git mutations: [Git usage](guides/git-usage.md); parallel writes/integration/cleanup: [Worktrees](guides/git-worktrees.md); pushes/PRs/merges: [Publication](guides/git-publication.md).
 - GitHub Actions authoring/verification, including plans: [GitHub Actions](guides/github-actions.md); act rehearsal/planning: also [Local rehearsal](guides/github-actions-local.md).
 - Managing application containers/Compose services: [Container usage](guides/container-usage.md); tools merely using their own containers do not trigger it.

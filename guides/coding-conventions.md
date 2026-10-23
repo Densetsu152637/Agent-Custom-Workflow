@@ -25,14 +25,7 @@ DOD = data-oriented design
 
 Prefer local, controlled mutation when it makes an algorithm clearer or more efficient; avoid hidden shared mutable state.
 
-## Functions and types
-
-- Prefer pure transformations for business rules and server logic; keep I/O and orchestration at clear boundaries.
-- Avoid boolean mode flags and long positional argument lists; use separate operations or a typed options group.
-- Handle empty, invalid, and missing values deliberately; do not invent silent defaults that erase domain distinctions.
-- Do not force currying, one-line functions, recursion, or chained expressions when straightforward control flow reads better.
-- Do not create a class solely to hold unrelated utilities. Prefer composition to inheritance; introduce interfaces at real substitution, integration, or testing boundaries, not one per class.
-- Model domain states with types, enums, or tagged unions; avoid unchecked casts and overly broad types.
+Function reuse, function and class structure, and paradigm patterns with per-language idioms are in the [pattern guides](patterns/README.md).
 
 ## Errors and asynchronous work
 

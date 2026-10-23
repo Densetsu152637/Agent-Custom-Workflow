@@ -5,6 +5,7 @@
 - [Subagent coordination](subagent-coordination.md): compact/expanded contracts, manifests and retained context; [recovery](subagent-recovery.md) for stalls, limits and ownership transfer.
 - [Coding standards](coding-standards.md): core implementation, documentation alignment, and completion requirements.
 - [Coding conventions](coding-conventions.md): conditional language/design/async defaults under the coding standards loading rule.
+- [Pattern guides](patterns/README.md): function reuse and function/class structure, plus object-oriented, data-oriented and functional patterns, each linking its relevant languages and external references.
 - [Usage accounting](usage-accounting.md): requested/substantial-task metrics, aggregation, and numeric budgets.
 - [Git usage](git-usage.md): local preflight, branches and commits; [worktrees](git-worktrees.md): isolation, integration and cleanup; [publication](git-publication.md): starting-main authority, root pushes, PRs and merges.
 - [GitHub Actions](github-actions.md): workflow authoring, actionlint/pre-commit and hosted controls; [act rehearsal](github-actions-local.md) when supported local execution applies.
