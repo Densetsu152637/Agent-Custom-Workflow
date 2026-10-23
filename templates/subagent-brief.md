@@ -5,7 +5,7 @@ Assignment fields under the [coordination contract](../guides/subagent-coordinat
 ## Compact schema
 
 ```text
-Task ID; tag line `Role: <leaf|manager>; Profile: <name>` (lowercase profile file stem, e.g. `implementer`; `manager` for managers; omit `Profile` only if none applies); immediate manager and acceptance owner:
+Task ID; tag line `Role: <leaf|manager>; Profile: <name>` (mandatory for every child: exact lowercase file stem of a [catalogue profile](../profiles/README.md), e.g. `implementer`; `manager` for managers; if none fits exactly, use the closest, e.g. `explorer` for read-only discovery, `implementer` for changes, never omit it or invent a name); immediate manager and acceptance owner:
 Deliverable; scope/non-goals; checks/expected outcomes (assigned subset of root's boolean goals, each with its verifying command/check); stopping milestone:
 Absolute workspace; file context (paths, symbols/ranges/sections, revisions, why each matters, or stated gaps); owned writes/resources (or read-only):
 Model/effort; preset and effective ceiling; user restrictions:

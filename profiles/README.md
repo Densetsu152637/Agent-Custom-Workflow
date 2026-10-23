@@ -1,6 +1,6 @@
 # Subagent profiles
 
-Profiles describe execution focus, not delegation authority. Choose [manager or leaf](../workflows/manager-delegation.md#manager-or-leaf-selection) first; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
+Profiles describe execution focus, not delegation authority. Every leaf assignment names exactly one profile from these tables; if none fits exactly, name the closest and report the recurring gap as a candidate profile. Choose [manager or leaf](../workflows/manager-delegation.md#manager-or-leaf-selection) first; a leaf loads the [leaf workflow](../workflows/AGENTS.leaf.md). Managers may use these profiles for direct execution without becoming leaves.
 
 | Assignment | Profile | Expected result |
 | ---------- | ------- | --------------- |
