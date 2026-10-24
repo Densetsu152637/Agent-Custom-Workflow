@@ -42,6 +42,17 @@ Additional folders:
 
 ## Codex
 
-- `~/.codex/AGENTS.md` points to this repository's [AGENTS.md](../AGENTS.md).
-- Subagents use Codex's agent tools under `[agents]` in `~/.codex/config.toml`; the brief and manifest carry the role and profile.
+Loading:
+
+- The personal file is `~/.codex/AGENTS.md` (Windows: `C:\Users\<you>\.codex\AGENTS.md`). It references this repository's [AGENTS.md](../AGENTS.md) by absolute path using the link-reference form: "Read [AGENT-INSTRUCTIONS](D:/Git Repositories/Agent-Custom-Workflow/AGENTS.md) and assume its configuration." followed by "Resolve companion links relative to the instruction file that contains them." The second line matters: without it, relative companion links may be resolved against the personal file's directory. There is no import; companion links are followed lazily. This repository's `CLAUDE.md` is not used.
+- That personal file may declare the root personality with a line such as `Personality: luxion.md`; see [personality selection](../personalities/README.md#selection). Complete example: [README Codex setup](../README.md#codex).
+- Subagents never load a personality. The brief and manifest carry the role and profile; do not include personality files.
+
+Workflow term mapping:
+
+- Dispatch, reuse, cancellation, parallel start, model selection, effort, depth and turn limits, and parallel write isolation: Codex's agent tools, configured under `[agents]` in `~/.codex/config.toml`; no tool names or parameters are mapped here. Treat any control absent from the live tool list as unavailable, and apply the [worktree](git-worktrees.md) policy with plain Git where no managed isolation is offered.
+- Fresh context versus inherited context: unmapped; treat as unavailable unless the live tool list shows a control.
+- Tier mapping (Economy, Specialist, Frontier): none defined; use the user's mapping, else the models Codex exposes by documented capability.
+- Routing checkpoint / progress: inline text.
+- Additional folders: unmapped; treat instructions in other directories as unloaded until read.
 - Completion celebration: `mcp__codex_app__fire_confetti`.

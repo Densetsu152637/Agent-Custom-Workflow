@@ -6,7 +6,7 @@ Subagents (any dispatched agent, including child managers, and before reading th
 
 ## Selection
 
-There is no default personality. Root loads the one selected in chat for the session, else the one the user's personal instruction file that loads this workflow (for example `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, or the desktop app's equivalent) declares with an optional line naming a catalogue file, e.g. `Personality: luxion.md`.
+There is no default personality. Root loads the one selected in chat for the session, else the one the user's personal instruction file that loads this workflow (locations per host are in [host adapters](../guides/host-adapters.md)) declares with an optional line naming a catalogue file, e.g. `Personality: luxion.md`.
 
 - At intake, before its first user-facing reply, the top-level root checks that file for the declaration, using text already in context and reading the file only when its contents are not in context.
 - If there is no valid selection (line missing, or naming a file not in the catalogue), root loads no personality and uses a neutral professional tone. Its first user-facing reply tells the user they can select one from the [catalogue](#catalogue) (add a `Personality:` line to their personal instruction file, or pick one in chat), that without one it uses none, and, for an invalid name, that the named file is not in the catalogue. This is not a blocker for the task.

@@ -8,7 +8,7 @@ Point your host at this repository from a personal, user-level instruction file 
 
 In the examples below, `<path-to-repo>` is wherever you cloned this repository (for example `D:/Git Repositories/Agent-Custom-Workflow`).
 
-### Claude Code (CLI and desktop app), recommended
+### Claude Code (CLI and desktop app)
 
 Add an eager import of this repository's [`CLAUDE.md`](CLAUDE.md) to your personal `~/.claude/CLAUDE.md` (Windows: `C:\Users\<you>\.claude\CLAUDE.md`), using the absolute path with spaces escaped:
 
@@ -38,7 +38,19 @@ The `Personality:` line is optional here too. Links are followed lazily rather t
 
 ### Codex
 
-Have `~/.codex/AGENTS.md` point to this repository's [`AGENTS.md`](AGENTS.md), using the link-reference form above. Configure subagents under `[agents]` in `~/.codex/config.toml`; briefs and manifests carry the role and profile. See the [Codex adapter](guides/host-adapters.md#codex).
+Codex has no `@` import, so use the link-reference form in your personal `~/.codex/AGENTS.md` (Windows: `C:\Users\<you>\.codex\AGENTS.md`), pointing at this repository's [`AGENTS.md`](AGENTS.md) by absolute path:
+
+```markdown
+# Custom workflow
+
+Read [AGENT-INSTRUCTIONS](D:/Git Repositories/Agent-Custom-Workflow/AGENTS.md) and assume its configuration.
+
+Resolve companion links relative to the instruction file that contains them.
+
+Personality: luxion.md
+```
+
+The `Personality:` line is optional; see [Choosing a personality](#choosing-a-personality). Configure subagents under `[agents]` in `~/.codex/config.toml`; briefs and manifests carry the role and profile, and subagents never load a personality. See the [Codex adapter](guides/host-adapters.md#codex).
 
 ## Choosing a personality
 
