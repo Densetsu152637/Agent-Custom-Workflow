@@ -52,6 +52,10 @@ Personality: luxion.md
 
 The `Personality:` line is optional; see [Choosing a personality](#choosing-a-personality). Configure subagents under `[agents]` in `~/.codex/config.toml`; briefs and manifests carry the role and profile, and subagents never load a personality. See the [Codex adapter](guides/host-adapters.md#codex).
 
+### Local paths
+
+Machine-specific paths, such as where worktrees go, live in the gitignored [`local-paths/`](local-paths/README.md) folder. Setup and supported files are in its README.
+
 ## Choosing a personality
 
 The top-level root loads at most one conversational personality at intake. To select one, add an optional line to the same personal instruction file, naming a file from the [personality catalogue](personalities/README.md):
@@ -68,5 +72,6 @@ With no valid selection (line missing or naming an unknown file) root uses no pe
 - [`profiles/`](profiles/README.md): assignment profiles (explorer, implementer, tester, documenter, and others) that describe a leaf's execution focus.
 - [`guides/`](guides/README.md): shared guidance for coordination, validation, coding standards, Git and worktrees, publication, environment configuration, and host adapters.
 - [`personalities/`](personalities/README.md): selectable root conversation personalities and the selection rules.
+- [`local-paths/`](local-paths/README.md): gitignored per-user machine paths the workflow resolves, such as the worktree location.
 - [`templates/`](templates): subagent brief and result templates, plus the failure-entry template.
 - [`learning/`](learning/README.md): maintenance rules and the catalogue of reusable failure lessons.
