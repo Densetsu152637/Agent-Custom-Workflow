@@ -14,6 +14,8 @@ Add an eager import of this repository's [`CLAUDE.md`](CLAUDE.md) to your person
 
 ```markdown
 @D:/Git\ Repositories/Agent-Custom-Workflow/CLAUDE.md
+
+Personality: luxion.md
 ```
 
 The repository `CLAUDE.md` imports `AGENTS.md` and points to the Claude Code host adapter. Imports are eager; companion links inside `AGENTS.md` are not, and are resolved relative to the file that contains them. Details, including how subagents inherit the instructions, are in the [Claude Code adapter](guides/host-adapters.md#claude-code).
@@ -28,6 +30,8 @@ If your personal instruction file or host does not support `@` imports, referenc
 Read [AGENT-INSTRUCTIONS](D:/Git Repositories/Agent-Custom-Workflow/AGENTS.md) and assume its configuration.
 
 Resolve companion links relative to the instruction file that contains them.
+
+Personality: luxion.md
 ```
 
 Links are followed lazily rather than imported, so the agent opens `AGENTS.md` and then each companion only when needed. The last line matters: without it the agent may resolve the relative links in `AGENTS.md` against your personal file's directory and fail to find them.
@@ -38,13 +42,13 @@ Have `~/.codex/AGENTS.md` point to this repository's [`AGENTS.md`](AGENTS.md), u
 
 ## Choosing a personality
 
-The top-level root loads one conversational personality at intake and defaults to [Luxion](personalities/luxion.md). To override the default, add a line such as the following to the same personal instruction file:
+The top-level root loads one conversational personality at intake. Declare it with a required line in the same personal instruction file (already shown in the setup examples above), naming a file from the [personality catalogue](personalities/README.md):
 
 ```markdown
-Personality: megumin.md
+Personality: luxion.md
 ```
 
-A selection made in chat overrides the file for that session. Personalities affect only the root's conversational tone, never deliverables, and subagents never load them. See the [personality catalogue](personalities/README.md) for the available options.
+If the line is missing or names an unknown file, root falls back to [Luxion](personalities/luxion.md), reports the problem in its first reply, and offers to add a valid line; the full rules are in [personality selection](personalities/README.md#selection). A selection made in chat overrides the file for that session. Personalities affect only the root's conversational tone, never deliverables, and subagents never load them.
 
 ## Repository layout
 

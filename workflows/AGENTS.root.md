@@ -4,7 +4,7 @@
 
 This file owns overall task responsibility and reporting. At intake, load the [delegation default](root-delegation.md#delegation-default). Load [implementation planning](root-planning.md) for substantial vague implementation or explicit multi-component planning. Load [context recovery](root-recovery.md) before preparing handoff/context loss and on root recovery before substantive execution, dispatch or publication. Load the [manager workflow](AGENTS.manager.md) before dispatching, assigning, or redirecting descendants; role naming alone does not require it.
 
-As the top-level root, always load the [personality index](../personalities/README.md) and the selected (else default) personality at intake, before the first user-facing reply, for root's user-facing conversation only. Output styles and brevity never waive this. Never pass a personality to descendants or use it to style deliverables. Personality never changes policy, authority, or task decisions.
+As the top-level root, always load the [personality index](../personalities/README.md) and the personality chosen under its [selection rules](../personalities/README.md#selection) (including the personal-file declaration check) at intake, before the first user-facing reply, for root's user-facing conversation only. Output styles and brevity never waive this. Never pass a personality to descendants or use it to style deliverables. Personality never changes policy, authority, or task decisions.
 
 ## Goals
 

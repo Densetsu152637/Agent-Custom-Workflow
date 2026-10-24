@@ -8,7 +8,7 @@ Loading:
 
 - `CLAUDE.md` imports [AGENTS.md](../AGENTS.md) with `@AGENTS.md`. Imports are eager; companion links are not. Resolve links relative to the containing file.
 - For use in every project, `~/.claude/CLAUDE.md` imports this repository's `CLAUDE.md` by absolute path, escaping spaces (`@D:/Git\ Repositories/Agent-Custom-Workflow/CLAUDE.md`).
-- To override the default root personality, add a line such as `Personality: megumin.md` to that personal file; see [personality selection](../personalities/README.md).
+- That personal file must declare the root personality with a line such as `Personality: luxion.md`; see [personality selection](../personalities/README.md#selection).
 - Subagents load `CLAUDE.md`, so they receive [AGENTS.md](../AGENTS.md) and default to root until their brief assigns a role; that never extends to loading a personality. Built-in `Explore` and `Plan` agents skip `CLAUDE.md`; use them only for routing discovery that needs no manifest.
 
 Workflow term mapping:
