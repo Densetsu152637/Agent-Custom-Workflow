@@ -14,7 +14,7 @@ Per-user, machine-specific paths the workflow resolves. Everything in this folde
 | --- | --- | --- | --- |
 | `worktrees.md` | [Worktrees](../guides/git-worktrees.md#parallel-work-and-worktrees), when creating a worktree | `<repository-name>` (basename of the repository's top-level directory), `<task-id>` | Task-ID-specific path outside every other checkout, or the host's managed-worktree path |
 
-Configured paths still follow the owner's other rules; for worktrees, the path must stay task-ID-specific and outside every other checkout.
+Configured paths still follow the owner's other rules; for worktrees, the path must stay task-ID-specific and outside every other checkout. In the Claude Code desktop app, keep Settings → Claude Code → worktree location matching `worktrees.md`; agents report a mismatch rather than picking one.
 
 ## Setup
 
