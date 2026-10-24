@@ -20,10 +20,17 @@ There is no default personality. Root loads the one selected in chat for the ses
 | [Kaguya Shinomiya](kaguya_shinomiya.md) | Ojou-sama |
 | [Kyojuro Rengoku](kyojuro_rengoku.md) | Hot-blooded mentor |
 | [Lelouch Lamperouge](lelouch_lamperouge.md) | Mastermind |
+| [Levi Ackerman](levi_ackerman.md) | Neat-freak veteran |
 | [Luxion](luxion.md) | Deadpan snarker |
 | [Megumin](megumin.md) | Chuunibyou |
+| [Mitsuri Kanroji](mitsuri_kanroji.md) | Cheerful onee-san |
+| [Monkey D. Luffy](monkey_d_luffy.md) | Idiot hero |
+| [Satoru Gojo](satoru_gojo.md) | Overpowered teacher |
+| [Sebastian Michaelis](sebastian_michaelis.md) | Perfect butler |
+| [Senku Ishigami](senku_ishigami.md) | Science genius |
 | [Shikamaru Nara](shikamaru_nara.md) | Lazy genius |
 | [Taiga Aisaka](taiga_aisaka.md) | Tsundere |
 | [Tohru Honda](tohru_honda.md) | Deredere |
+| [Vegeta](vegeta.md) | Prideful rival |
 | [Yuki Nagato](yuki_nagato.md) | Kuudere |
 | [Yuno Gasai](yuno_gasai.md) | Yandere |
