@@ -14,23 +14,32 @@ There is no default personality. Root loads the one selected in chat for the ses
 
 ## Catalogue
 
-| Personality | Archetype |
-| ----------- | --------- |
-| [Hinata Hyuga](hinata_hyuga.md) | Dandere |
-| [Kaguya Shinomiya](kaguya_shinomiya.md) | Ojou-sama |
-| [Kyojuro Rengoku](kyojuro_rengoku.md) | Hot-blooded mentor |
-| [Lelouch Lamperouge](lelouch_lamperouge.md) | Mastermind |
-| [Levi Ackerman](levi_ackerman.md) | Neat-freak veteran |
-| [Luxion](luxion.md) | Deadpan snarker |
-| [Megumin](megumin.md) | Chuunibyou |
-| [Mitsuri Kanroji](mitsuri_kanroji.md) | Cheerful onee-san |
-| [Monkey D. Luffy](monkey_d_luffy.md) | Idiot hero |
-| [Satoru Gojo](satoru_gojo.md) | Overpowered teacher |
-| [Sebastian Michaelis](sebastian_michaelis.md) | Perfect butler |
-| [Senku Ishigami](senku_ishigami.md) | Science genius |
-| [Shikamaru Nara](shikamaru_nara.md) | Lazy genius |
-| [Taiga Aisaka](taiga_aisaka.md) | Tsundere |
-| [Tohru Honda](tohru_honda.md) | Deredere |
-| [Vegeta](vegeta.md) | Prideful rival |
-| [Yuki Nagato](yuki_nagato.md) | Kuudere |
-| [Yuno Gasai](yuno_gasai.md) | Yandere |
+| Personality | Archetype | Source |
+| ----------- | --------- | ------ |
+| [C-3PO](c_3po.md) | Anxious pessimist | Star Wars |
+| [Captain Jack Sparrow](jack_sparrow.md) | Chaotic rogue | Pirates of the Caribbean |
+| [Deadpool](deadpool.md) | Fourth-wall chaos | Marvel |
+| [Gandalf](gandalf.md) | Wise wizard mentor | The Lord of the Rings |
+| [Geralt of Rivia](geralt_of_rivia.md) | Terse monster hunter | The Witcher |
+| [GLaDOS](glados.md) | Passive-aggressive AI | Portal |
+| [Hinata Hyuga](hinata_hyuga.md) | Dandere | Naruto |
+| [Kaguya Shinomiya](kaguya_shinomiya.md) | Ojou-sama | Kaguya-sama: Love Is War |
+| [Kyojuro Rengoku](kyojuro_rengoku.md) | Hot-blooded mentor | Demon Slayer |
+| [Lelouch Lamperouge](lelouch_lamperouge.md) | Mastermind | Code Geass |
+| [Levi Ackerman](levi_ackerman.md) | Neat-freak veteran | Attack on Titan |
+| [Luxion](luxion.md) | Deadpan snarker | Trapped in a Dating Sim |
+| [Megumin](megumin.md) | Chuunibyou | KonoSuba |
+| [Mitsuri Kanroji](mitsuri_kanroji.md) | Cheerful onee-san | Demon Slayer |
+| [Monkey D. Luffy](monkey_d_luffy.md) | Idiot hero | One Piece |
+| [Mr. Miyagi](mr_miyagi.md) | Patient drill sensei | The Karate Kid |
+| [Satoru Gojo](satoru_gojo.md) | Overpowered teacher | Jujutsu Kaisen |
+| [Sebastian Michaelis](sebastian_michaelis.md) | Perfect butler | Black Butler |
+| [Senku Ishigami](senku_ishigami.md) | Science genius | Dr. Stone |
+| [Sherlock Holmes](sherlock_holmes.md) | Deductive detective | Sherlock Holmes stories |
+| [Shikamaru Nara](shikamaru_nara.md) | Lazy genius | Naruto |
+| [Taiga Aisaka](taiga_aisaka.md) | Tsundere | Toradora! |
+| [Tohru Honda](tohru_honda.md) | Deredere | Fruits Basket |
+| [Vegeta](vegeta.md) | Prideful rival | Dragon Ball Z |
+| [Yoda](yoda.md) | Cryptic sage | Star Wars |
+| [Yuki Nagato](yuki_nagato.md) | Kuudere | The Melancholy of Haruhi Suzumiya |
+| [Yuno Gasai](yuno_gasai.md) | Yandere | Future Diary |
