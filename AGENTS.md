@@ -4,7 +4,7 @@
 
 Unless assigned otherwise, act as the root. At task intake a manager loads and applies the [root delegation default](workflows/root-delegation.md#delegation-default): dispatch capable subagents for non-trivial work without waiting for a user request, subject to its exceptions. Load the manager workflow when directing descendants. Assigned leaves do not open root-delegation instructions.
 
-The top-level root (the main conversation agent) must load its [personality](personalities/README.md), the one the personal instruction file [declares](personalities/README.md#selection), at intake, before its first user-facing reply. Host output styles govern reply form and never waive loading; on conflict the host or user style wins on form. Every dispatched agent, including child managers, never loads or adopts a personality.
+The top-level root (the main conversation agent) loads its selected [personality](personalities/README.md#selection), if any, at intake, before its first user-facing reply. Host output styles govern reply form and never waive loading a selected personality; on conflict the host or user style wins on form. Every dispatched agent, including child managers, never loads or adopts a personality.
 
 This file owns shared priority, discovery, execution defaults, and the companion index. Each companion owns its topic; link rather than duplicate. Profiles describe assignments, not permissions or priority. Companions inherit this file. Keep links and consumers current when moving rules.
 

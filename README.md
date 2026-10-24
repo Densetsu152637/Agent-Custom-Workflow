@@ -18,7 +18,7 @@ Add an eager import of this repository's [`CLAUDE.md`](CLAUDE.md) to your person
 Personality: luxion.md
 ```
 
-The repository `CLAUDE.md` imports `AGENTS.md` and points to the Claude Code host adapter. Imports are eager; companion links inside `AGENTS.md` are not, and are resolved relative to the file that contains them. Details, including how subagents inherit the instructions, are in the [Claude Code adapter](guides/host-adapters.md#claude-code).
+The `Personality:` line is optional; see [Choosing a personality](#choosing-a-personality). The repository `CLAUDE.md` imports `AGENTS.md` and points to the Claude Code host adapter. Imports are eager; companion links inside `AGENTS.md` are not, and are resolved relative to the file that contains them. Details, including how subagents inherit the instructions, are in the [Claude Code adapter](guides/host-adapters.md#claude-code).
 
 ### Link-reference alternative
 
@@ -34,7 +34,7 @@ Resolve companion links relative to the instruction file that contains them.
 Personality: luxion.md
 ```
 
-Links are followed lazily rather than imported, so the agent opens `AGENTS.md` and then each companion only when needed. The last line matters: without it the agent may resolve the relative links in `AGENTS.md` against your personal file's directory and fail to find them.
+The `Personality:` line is optional here too. Links are followed lazily rather than imported, so the agent opens `AGENTS.md` and then each companion only when needed. The "Resolve companion links" line matters: without it the agent may resolve the relative links in `AGENTS.md` against your personal file's directory and fail to find them.
 
 ### Codex
 
@@ -42,13 +42,13 @@ Have `~/.codex/AGENTS.md` point to this repository's [`AGENTS.md`](AGENTS.md), u
 
 ## Choosing a personality
 
-The top-level root loads one conversational personality at intake. Declare it with a required line in the same personal instruction file (already shown in the setup examples above), naming a file from the [personality catalogue](personalities/README.md):
+The top-level root loads at most one conversational personality at intake. To select one, add an optional line to the same personal instruction file, naming a file from the [personality catalogue](personalities/README.md):
 
 ```markdown
 Personality: luxion.md
 ```
 
-If the line is missing or names an unknown file, root falls back to [Luxion](personalities/luxion.md), reports the problem in its first reply, and offers to add a valid line; the full rules are in [personality selection](personalities/README.md#selection). A selection made in chat overrides the file for that session. Personalities affect only the root's conversational tone, never deliverables, and subagents never load them.
+With no valid selection (line missing or naming an unknown file) root uses no personality and a neutral tone, and tells the user in its first reply how to select one; the rules are in [personality selection](personalities/README.md#selection). A selection made in chat overrides the file for that session. Personalities affect only the root's conversational tone, never deliverables, and subagents never load them.
 
 ## Repository layout
 
