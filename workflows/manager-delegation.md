@@ -24,8 +24,8 @@ Root and every manager apply this before dispatch; difficulty alone does not sel
 
 ## Budgets and scheduling
 
-- Before dispatch set a concurrency limit, effort/time allowance, stop condition, retry allowance and checkpoint. Honor user and host limits; a preset adds no token/cost caps. Configure documented host controls (concurrency, depth, turn/tool limits, timeouts, cancellation); do not invent APIs. Without them, allowances are monitored checkpoints; tell each child its limits and checkpoint.
-- Without a user preference, run at most three active children across the whole root task tree, or the smaller host limit; raise only when independent work and budget justify it. Coordinate slots through the root.
+- Before dispatch set any applicable concurrency limit, effort/time allowance, stop condition, retry allowance and checkpoint. Honor user and host limits; a preset adds no token/cost caps. Configure documented host controls (concurrency, depth, turn/tool limits, timeouts, cancellation); do not invent APIs. Without them, allowances are monitored checkpoints; tell each child its limits and checkpoint.
+- Concurrency is unbound by default: start every ready independent child unless a user or host limit applies. Serialize only exclusive resources (a shared service stack, ports, databases, timing or performance measurements, single-use evaluation sets) and coordinate them through the root.
 - Child allowances come from the parent's remaining budget, reserving review time. [Accounting](../guides/usage-accounting.md) is needed only for numeric budgets or required metrics.
 - Start unblocking and ready independent work before waiting; serialize real dependencies, using [Git isolation](../guides/git-worktrees.md#parallel-work-and-worktrees) for concurrent writes.
 - At the checkpoint or on material change, stop dispatching at the allowance and stop/redirect running work through available controls (if cancellation is unavailable, request a stop and verify writes ceased before transfer); narrow, queue or escalate when acceptance is unreachable. A stopped or exhausted run is incomplete, not done. User budgets cannot be expanded without authorization.
