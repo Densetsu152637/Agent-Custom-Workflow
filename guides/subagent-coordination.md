@@ -4,7 +4,7 @@ Owns handoffs, instruction loading and retained context. Load [stalls and recove
 
 ## Assignment and result contracts
 
-- After discovery, supply an explicit [brief](../templates/subagent-brief.md): compact for bounded work with stable inputs, expanded for multiphase work, replacement, cross-stream integration or consequential uncertainty. Include the relevant [plan](../workflows/root-planning.md#implementation-planning) excerpt, decisions and dependencies; on updates send changes only.
+- After discovery, supply an explicit [brief](../templates/subagent-brief.md): compact for bounded work with stable inputs, expanded for multiphase work, replacement, cross-stream integration or consequential uncertainty. Include the relevant stage excerpt and path of the [plan document](../workflows/root-planning.md#plan-document), decisions and dependencies; on updates send changes only.
 - Every handoff uses the [result schema](../templates/subagent-result.md), inline for compact work and in an assigned record for expanded work. Workers report `ready for review`; only the immediate manager records `accepted`.
 - Before return or transfer, [commit owned repository changes](git-usage.md#commit-before-ending-work) and report the SHA (a scoped patch if committing is blocked; non-Git results use a hash/artifact version). Stop writes for review; resume only under the manager. Follow [validation](validation.md#shared-validation-rules).
 

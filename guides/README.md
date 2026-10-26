@@ -1,6 +1,6 @@
 # Shared guidance
 
-- [Root implementation planning](../workflows/root-planning.md#implementation-planning): actionable plans for substantial initially vague prompts, followed by execution in the same turn.
+- [Root implementation planning](../workflows/root-planning.md#implementation-planning): staged plan documents in the project for substantial initially vague prompts, consolidated with existing docs, resumed by later agents, and executed in the same turn.
 - [Host adapters](host-adapters.md): Claude Code and Codex tool mappings for dispatch, context, effort, worktrees, and celebration.
 - [Subagent coordination](subagent-coordination.md): compact/expanded contracts, manifests and retained context; [recovery](subagent-recovery.md) for stalls, limits and ownership transfer.
 - [Coding standards](coding-standards.md): core implementation, documentation alignment, and completion requirements.
