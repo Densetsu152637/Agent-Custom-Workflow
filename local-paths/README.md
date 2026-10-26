@@ -56,10 +56,7 @@ Set-Content -Encoding utf8 local-paths/plan.md "# Plan`n`n``Max 20x``"
 Bash:
 
 ```bash
-printf '# Plan
-
-`%s`
-' 'Max 20x' > local-paths/plan.md
+printf '# Plan\n\n`%s`\n' 'Max 20x' > local-paths/plan.md
 ```
 
 ## Adding a setting
