@@ -33,12 +33,12 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 | Free | 1 |
 | Pro | 2 |
 | Max 5x | 4 |
-| Max 20x | 8 |
+| Max 20x | 16 |
 | Max, multiplier unknown | 4 |
 | Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 2 |
 | No plan known | 2 |
 
-- The cap counts every running subagent in the session tree at any depth; root is excluded. Root allocates slot shares to child managers; a share includes the manager's own slot and is never exceeded. A manager returns unused slots by finishing.
+- The cap counts every running subagent in the session tree at any depth; root is excluded. Managers are excluded too when [`local-paths/pool-managers.md`](../local-paths/pool-managers.md) says `excluded`; the cap then counts non-manager subagents only, and a manager's share covers its descendants, not itself. Root allocates slot shares to child managers; a share includes the manager's own slot when managers count and is never exceeded. A manager returns unused slots by finishing.
 - Staging: managers queue ready assignments and spawn while a slot is free. When an agent finishes, is stopped or is exhausted, its slot frees and its immediate manager starts the next queued assignment. At the cap, wait for a completion notification; do not poll.
 - Prefer reusing a finished worker for related follow-ups over a cold start. An idle reusable worker holds no slot; reuse takes one while it runs.
 - Usage gate: immediately before each spawn, read the plan usage windows where telemetry exists. Do not spawn when the 5-hour window is at least 85% used or any applicable weekly window (all models, or the dispatched model's own) is at least 95% used. Running agents finish their current assignment; queued work stays queued; nothing is cancelled for the gate. Root tells the user once which window tripped and when it resets, and resumes staging after the reset or below threshold.
