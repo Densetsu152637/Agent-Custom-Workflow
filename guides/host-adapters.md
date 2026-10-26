@@ -15,7 +15,7 @@ Workflow term mapping:
 
 | Workflow term | Claude Code control |
 | ------------- | ------------------- |
-| Dispatch a child | `Agent` with `subagent_type: "general-purpose"`; the brief and manifest carry role, profile, and owners; the brief begins with the [`Role: <leaf\|manager>; Profile: <name>` tag line](../templates/subagent-brief.md#compact-schema) so [the agents panel](https://github.com/Densetsu152637/Crew-Progress) can identify it. `general-purpose` is only the host carrier; the tag line's profile is always required, since a missing or unknown tag shows as general-purpose in the panel. |
+| Dispatch a child | `Agent` with `subagent_type: "general-purpose"`; the brief and manifest carry role, profile, and owners; the brief begins with the [`Role: <leaf\|manager>; Profile: <name>` tag line](../templates/subagent-brief.md#compact-schema) so [the agents panel](https://github.com/Densetsu152637/The-Crew) can identify it. `general-purpose` is only the host carrier; the tag line's profile is always required, since a missing or unknown tag shows as general-purpose in the panel. |
 | Fresh context | Any non-`fork` `subagent_type`. `fork` inherits the parent transcript; use it only when inheritance is justified under [dispatch](../workflows/manager-delegation.md#dispatch-and-acceptance). |
 | Reuse a worker | `SendMessage` to the agent ID returned at dispatch. |
 | Start ready assignments in parallel | Several `Agent` calls in one message; they notify on completion. Do not poll. |
