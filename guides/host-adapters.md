@@ -26,6 +26,9 @@ Workflow term mapping:
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../AGENTS.md#execution-defaults) are the explicit instruction that permits setting it. |
 | Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
+| Plan and usage telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier); `plan.windows[]` carry `label` ("5-hour limit", "Weekly · all models", "Weekly · <model>"), `percentUsed`, `resetsAt`. `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: the status-line JSON `rate_limits` (`five_hour`, `seven_day` `used_percentage`) is user-visible only, not an agent tool, so treat telemetry as unavailable unless a mod relays it. |
+| Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
+| Relay a usage-gate halt | `SendMessage`. |
 | Completion celebration | None available; skip it. |
 
 Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`; map other aliases only from documented capability.
@@ -55,5 +58,6 @@ Workflow term mapping:
 - Fresh context versus inherited context: unmapped; treat as unavailable unless the live tool list shows a control.
 - Tier mapping (Economy, Specialist, Frontier): none defined; use the user's mapping, else the models Codex exposes by documented capability.
 - Routing checkpoint / progress: inline text.
+- Plan and usage telemetry: unmapped; use `local-paths/plan.md` for the [agent pool](../workflows/manager-delegation.md#agent-pool) cap.
 - Additional folders: unmapped; treat instructions in other directories as unloaded until read.
 - Completion celebration: `mcp__codex_app__fire_confetti`.

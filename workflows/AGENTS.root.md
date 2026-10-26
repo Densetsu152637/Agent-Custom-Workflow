@@ -17,6 +17,7 @@ For any non-trivial task, before dispatching or editing, define a short set of b
 
 ## Execution and completion
 
+- At intake, determine the session's subagent cap and usage gate per the [agent pool](manager-delegation.md#agent-pool).
 - Own scope, dependencies, integration, and user communication. Follow [shared execution defaults](../AGENTS.md#execution-defaults).
 - Apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work) to root-owned changes and verify descendant commit evidence before closing. Close only after required integration, [validation](../guides/validation.md#shared-validation-rules), reviews, [worktree reconciliation](../guides/git-worktrees.md#safe-cleanup), and the [root session-end push](../guides/git-publication.md#root-session-end-push). Root pushes all commits on the working branch to that branch on `origin` under the linked rule, or reports its concrete blocker. A factual answer needs no Git cleanup.
 - Report resulting behavior, goal status, relevant evidence, and material blockers. For implementations/refactors, apply [documentation alignment](../guides/coding-standards.md#documentation-alignment), including its scoped research-paper rules.

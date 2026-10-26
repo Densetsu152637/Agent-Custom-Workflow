@@ -72,6 +72,6 @@ With no valid selection (line missing or naming an unknown file) root uses no pe
 - [`profiles/`](profiles/README.md): assignment profiles (explorer, implementer, tester, documenter, and others) that describe a leaf's execution focus.
 - [`guides/`](guides/README.md): shared guidance for coordination, validation, coding standards, Git and worktrees, publication, environment configuration, and host adapters.
 - [`personalities/`](personalities/README.md): selectable root conversation personalities and the selection rules.
-- [`local-paths/`](local-paths/README.md): gitignored per-user machine paths the workflow resolves, such as the worktree location.
+- [`local-paths/`](local-paths/README.md): gitignored per-user machine paths the workflow resolves, such as the worktree location or plan tier.
 - [`templates/`](templates): subagent brief and result templates, plus the failure-entry template.
 - [`learning/`](learning/README.md): maintenance rules and the catalogue of reusable failure lessons.

@@ -12,7 +12,7 @@ The user selects `light`, `balanced`, or `heavy` (default **heavy**; lasts for t
 | balanced | Specialist |
 | heavy | Frontier |
 
-- The ceiling is a maximum, not a target: under heavy, Frontier is permitted, not presumed. It constrains descendants only, not the root model, effort, agent count, depth, or budget.
+- The ceiling is a maximum, not a target: under heavy, Frontier is permitted, not presumed. It constrains descendants only, not the root model, effort, depth, or budget; agent count follows the [agent pool](manager-delegation.md#agent-pool).
 - Explicit user caps and model requests win, honored within the strictest cap. A workflow may declare a different cap or a capability requirement (such as vision or audio input) in one line; it applies only to the assignments it names, never to unrelated descendants.
 - Managers may tighten a ceiling for their subtree, never raise it. Pass each child the preset and effective ceiling.
 - If a ceiling drops, replace above-cap assignments under [recovery](../guides/subagent-recovery.md#stalls-and-recovery).
