@@ -108,6 +108,7 @@ References:
 
 - [Rust API Guidelines](https://rust-lang.github.io/api-guidelines/): checklist for idiomatic public APIs.
 - [Rust Style Guide](https://doc.rust-lang.org/style-guide/): default formatting implemented by `rustfmt`.
+- [Google Rust Style Guide](https://google.github.io/styleguide/rustguide.html): conventions for ownership, error reporting, traits, naming and `unsafe`.
 - [Clippy Lints](https://clippy.rust-lang.org/master/index.html): lint catalogue for correctness, performance and idiom.
 - [The Rustonomicon](https://doc.rust-lang.org/nomicon/): rules for sound `unsafe` code.
 
