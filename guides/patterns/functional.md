@@ -107,7 +107,6 @@ Convert untrusted input into a precise type once at the boundary; downstream cod
 - Use iterator adapters (`map`, `filter`, `fold`, `collect`) when clearer than index loops; bindings are immutable by default, so add `mut` only locally.
 - Use newtypes and private fields with constructors that parse input into valid values.
 - [The Rust Programming Language](https://doc.rust-lang.org/book/): official book covering enums, pattern matching, error handling, and iterators.
-- [Google Rust Style Guide](https://google.github.io/styleguide/rustguide.html): conventions for types, traits, error reporting, and naming.
 
 ### Python
 
