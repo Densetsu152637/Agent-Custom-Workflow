@@ -13,10 +13,10 @@ Managers: load at intake and before dispatch, redirection or acceptance. Ceiling
 
 Root and every manager apply this before dispatch; difficulty alone does not select the role:
 
-| Work assigned to the child | Role |
-| -------------------------- | ---- |
-| One cohesive deliverable with bounded acceptance | Leaf with the applicable profile |
-| Independent deliverables the current manager can coordinate | Separate leaves, started in parallel when ready |
+| Work assigned to the child                                                                               | Role                                                     |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| One cohesive deliverable with bounded acceptance                                                         | Leaf with the applicable profile                         |
+| Independent deliverables the current manager can coordinate                                              | Separate leaves, started in parallel when ready          |
 | A workstream with useful child deliverables and recurring dependency, interface or integration decisions | Manager owning that workstream and its integrated result |
 
 - Assign the manager role automatically for the third case, naming its likely child deliverables. Its brief grants delegation within inherited restrictions and supplies the manager manifest, concurrency share, depth limit, interfaces, acceptance criteria and integration ownership. If the host role lacks delegation tools, flatten or queue.
@@ -28,15 +28,15 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 
 - Session cap: root sets one cap at intake, re-checks it on root recovery, and states it in the routing checkpoint. Source order: the user's explicit cap in chat (it wins, even above the plan cap; state it); else the plan from host telemetry. Fill gaps from [`local-paths/plan.md`](../local-paths/plan.md) when telemetry is unavailable, not applicable (API key, gateway) or names a tier without its multiplier. If file and telemetry conflict, use the smaller cap and report the mismatch once.
 
-| Plan | Cap |
-| ---- | --- |
-| Free | 1 |
-| Pro | 2 |
-| Max 5x | 4 |
-| Max 20x | 16 |
-| Max, multiplier unknown | 4 |
+| Plan                                    | Cap                                                       |
+| --------------------------------------- | --------------------------------------------------------- |
+| Free                                    | 1                                                         |
+| Pro                                     | 2                                                         |
+| Max Nx                                  | 2\*\*(N / 5)                                              |
+| Max, multiplier unknown                 | 4                                                         |
 | Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 2 |
-| No plan known | 2 |
+| No plan known                           | 2                                                         |
+| Usage Credits                           | 2                                                         |
 
 - The cap counts every running subagent in the session tree at any depth; root is excluded. Managers are excluded too when [`local-paths/pool-managers.md`](../local-paths/pool-managers.md) says `excluded`; the cap then counts non-manager subagents only, and a manager's share covers its descendants, not itself. Root allocates slot shares to child managers; a share includes the manager's own slot when managers count and is never exceeded. A manager returns unused slots by finishing.
 - Staging: managers queue ready assignments and spawn while a slot is free. When an agent finishes, is stopped or is exhausted, its slot frees and its immediate manager starts the next queued assignment. At the cap, wait for a completion notification; do not poll.
@@ -44,6 +44,7 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 - Usage gate: immediately before each spawn, read the plan usage windows where telemetry exists. Do not spawn when the 5-hour window is at least 85% used or any applicable weekly window (all models, or the dispatched model's own) is at least 95% used. Running agents finish their current assignment; queued work stays queued; nothing is cancelled for the gate. Root tells the user once which window tripped and when it resets, and resumes staging after the reset or below threshold.
 - A manager without telemetry asks its manager; root relays a halt to child managers through the reuse/message control. Without any telemetry, say so once and proceed under the cap alone.
 - Reuse is not a spawn but still consumes usage: near the gate, finish rather than start new work.
+- Working on Usage Credits ignores the gate, but defaults to that lower bound agent cap. Existing agents should finish their tasks when transitioning to usage credits from weekly usage
 
 ## Budgets and scheduling
 
