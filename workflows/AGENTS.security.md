@@ -2,13 +2,15 @@
 
 ## Specialized capability ceiling
 
-Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: bounded difficult threat modeling or adversarial analysis of consequential vulnerabilities (authorization bypass, privilege escalation, interacting trust-boundary failures) may use up to Specialist under `light` and Frontier under `balanced`/`heavy`. Routine checklist review, scanner triage, dependency inventory, managers, and code repair keep the general ceiling, so split mixed assignments. Verify access to the relevant code and configuration.
+Managers only; workers skip.
+
+Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: bounded difficult threat modeling or adversarial analysis of consequential vulnerabilities (authorization bypass, privilege escalation, interacting trust-boundary failures) may use up to Specialist under `light` and Frontier under `balanced`/`heavy`. Routine checklist review, scanner triage, dependency inventory, managers, and code repair keep the general ceiling, so split mixed assignments.
 
 ## Scope and threat model
 
 For delegated work, use [manager dispatch](manager-delegation.md#dispatch-and-acceptance), the [leaf workflow](AGENTS.leaf.md) for leaf reviewers, and [coordination](../guides/subagent-coordination.md) for handoffs and recovery. Assigned reviewers use the [auditor profile](../profiles/AGENTS.auditor.md).
 
-- Establish the review objective, authorized targets/environment, revision, and expected controls. A focused review is not a whole-system assurance claim.
+- Verify access to the relevant code and configuration. Establish the review objective, authorized targets/environment, revision, and expected controls. A focused review is not a whole-system assurance claim.
 - Identify assets, attacker capabilities, entry points, trust boundaries, and sensitive data flows from actual sources. Load [architecture](AGENTS.architecture.md) when design reasoning is also needed and [research](AGENTS.research.md) for external advisory/source verification.
 - Prefer source review and controlled local tests with synthetic data. Active probing must stay within authorized targets, methods, and resources; a security assignment does not grant access or mutation permissions. Handle credentials and sensitive output under [environment configuration](../guides/environment-configuration.md#secret-handling).
 

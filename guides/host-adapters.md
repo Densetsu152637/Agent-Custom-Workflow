@@ -54,8 +54,11 @@ Loading:
 
 Workflow term mapping:
 
-- Dispatch, reuse, cancellation, parallel start, model selection, effort, depth and turn limits, and parallel write isolation: Codex's agent tools, configured under `[agents]` in `~/.codex/config.toml`; no tool names or parameters are mapped here. Treat any control absent from the live tool list as unavailable, and apply the [worktree](git-worktrees.md) policy with plain Git where no managed isolation is offered.
-- Fresh context versus inherited context: unmapped; treat as unavailable unless the live tool list shows a control.
+- Dispatch, parallel start, model selection, effort, depth and turn limits, and parallel write isolation: Codex's agent tools (`spawn_agent`), configured under `[agents]` in `~/.codex/config.toml`. Every mapping below is subject to the live tool list; a control absent there is unavailable. Apply the [worktree](git-worktrees.md) policy with plain Git where no managed isolation is offered.
+- Fresh context: `spawn_agent` with `fork_turns: "none"` (multi-agent V2) or `fork_context: false` (V1); always set it explicitly, because V2 omitted `fork_turns` defaults to `"all"`.
+- Inherited context: `fork_turns: "all"` (V2) or `fork_context: true` (V1). Full-history forks reject `model`, `reasoning_effort` and `agent_type` overrides, so use them only when inheritance is justified under [dispatch](../workflows/manager-delegation.md#dispatch-and-acceptance) and no override is needed.
+- Reuse: `followup_task` (V2), `send_input` (V1). Relay a usage-gate halt: `send_message` (V2), `send_input` (V1). Wait for completion: `wait` where listed.
+- Cancellation: `close_agent`.
 - Tier mapping (Economy, Specialist, Frontier): none defined; use the user's mapping, else the models Codex exposes by documented capability.
 - Routing checkpoint / progress: inline text.
 - Plan and usage telemetry: unmapped; use `local-paths/plan.md` for the [agent pool](../workflows/manager-delegation.md#agent-pool) cap.

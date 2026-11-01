@@ -2,6 +2,8 @@
 
 ## Specialized capability ceiling
 
+Managers only; workers skip.
+
 Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: assignments consuming actual audio may use up to Specialist under `light` and Frontier under `balanced`/`heavy`, with verified audio capability for the task (speech recognition and acoustic analysis are separate). Transcripts or summaries alone are not listening evidence; text-only and non-listening work keep the general ceiling, so split mixed assignments.
 
 ## Audio inputs

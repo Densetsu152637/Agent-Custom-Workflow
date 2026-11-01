@@ -44,7 +44,7 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 - Usage gate: immediately before each spawn, read the plan usage windows where telemetry exists. Do not spawn when the 5-hour window is at least 85% used or any applicable weekly window (all models, or the dispatched model's own) is at least 95% used. Running agents finish their current assignment; queued work stays queued; nothing is cancelled for the gate. Root tells the user once which window tripped and when it resets, and resumes staging after the reset or below threshold.
 - A manager without telemetry asks its manager; root relays a halt to child managers through the reuse/message control. Without any telemetry, say so once and proceed under the cap alone.
 - Reuse is not a spawn but still consumes usage: near the gate, finish rather than start new work.
-- Usage Credits (signal: plan telemetry or the user's statement): the usage gate is off and the cap is 2. Running agents finish their current assignment; queued work starts under the new cap.
+- Usage Credits (signal: the user's statement, or usage information a plugin or mod puts in context, for example the Hit The Ground Running usage notes described in [host adapters](../guides/host-adapters.md#claude-code)): the usage gate is off and the cap is 2. Running agents finish their current assignment; queued work starts under the new cap.
 
 ## Budgets and scheduling
 

@@ -2,6 +2,8 @@
 
 ## Specialized capability ceiling
 
+Managers only; workers skip.
+
 Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: assignments inspecting actual visual inputs may use up to Specialist under `light` and Frontier under `balanced`/`heavy`, with verified vision capability. Text-only summaries are not image QA; text-only and non-inspection work keep the general ceiling, so split mixed assignments.
 
 ## Visual inputs

@@ -18,7 +18,7 @@ Agents starting on `main` may commit and push validated work under [starting-on-
 - Root only, conversation tone: [Personality selection and loading](personalities/README.md).
 - Directing descendants: [Manager](workflows/AGENTS.manager.md).
 - Bounded delegated execution: [Leaf](workflows/AGENTS.leaf.md); choose an [assignment profile](profiles/README.md).
-- External evidence, comparisons, and research plans: [Research](workflows/AGENTS.research.md).
+- External evidence, comparisons of external options, and research plans: [Research](workflows/AGENTS.research.md).
 - Visual inspection and its review plan: [Vision](workflows/AGENTS.vision.md).
 - Recording inspection and its listening plan: [Audio](workflows/AGENTS.audio.md).
 - Incorrect behavior or incidents: [Debugging](workflows/AGENTS.debugging.md).
