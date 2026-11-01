@@ -1,3 +1,3 @@
 @AGENTS.md
 
-When running under Claude Code, use the [Claude Code host adapter](guides/host-adapters.md#claude-code) to map this workflow's host-neutral terms to Claude Code tools.
+Under Claude Code, load the [Claude Code section](guides/host-adapters.md#claude-code) of the host adapter when dispatching, selecting a model or effort, using worktrees, reading usage telemetry, celebrating, or working in an added directory.

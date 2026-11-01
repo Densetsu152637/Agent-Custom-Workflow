@@ -32,7 +32,7 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 | --------------------------------------- | --------------------------------------------------------- |
 | Free                                    | 1                                                         |
 | Pro                                     | 2                                                         |
-| Max Nx                                  | 2\*\*(N / 5)                                              |
+| Max Nx                                  | 4N/5, rounded down                                        |
 | Max, multiplier unknown                 | 4                                                         |
 | Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 2 |
 | No plan known                           | 2                                                         |
@@ -44,7 +44,7 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 - Usage gate: immediately before each spawn, read the plan usage windows where telemetry exists. Do not spawn when the 5-hour window is at least 85% used or any applicable weekly window (all models, or the dispatched model's own) is at least 95% used. Running agents finish their current assignment; queued work stays queued; nothing is cancelled for the gate. Root tells the user once which window tripped and when it resets, and resumes staging after the reset or below threshold.
 - A manager without telemetry asks its manager; root relays a halt to child managers through the reuse/message control. Without any telemetry, say so once and proceed under the cap alone.
 - Reuse is not a spawn but still consumes usage: near the gate, finish rather than start new work.
-- Working on Usage Credits ignores the gate, but defaults to that lower bound agent cap. Existing agents should finish their tasks when transitioning to usage credits from weekly usage
+- Usage Credits (signal: plan telemetry or the user's statement): the usage gate is off and the cap is 2. Running agents finish their current assignment; queued work starts under the new cap.
 
 ## Budgets and scheduling
 
