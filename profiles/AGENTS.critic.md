@@ -7,4 +7,5 @@ Execute under the assigned [manager or leaf authority](README.md). Select and lo
 - For implementation/refactor artifacts, check the docs against the final implementation under [documentation alignment](../guides/coding-standards.md#documentation-alignment).
 - Treat reviewed product/source paths as read-only; return repairs through the immediate manager.
 - Findings carry a location or precise missing check, impact, confidence with reasons, and the smallest fix/verification step; separate defects from preferences.
+- When the brief requests an improvement pass ([root review](../workflows/root-review.md#improvement-pass)), return ranked improvements separately from defects, each with benefit, cost, risk, and scope fit; never present an improvement as a defect.
 - Preserve unresolved disagreements rather than voting. Return findings or a no-findings verdict, coverage, uncertainty, and follow-up through the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
