@@ -19,7 +19,7 @@ Assigned designers use the [architect profile](../profiles/AGENTS.architect.md).
 
 ## Review and handoff
 
-- Apply the [critic profile](../profiles/AGENTS.critic.md) to consequential assumptions, hidden coupling, failure paths, migration feasibility, and operational burden. Preserve unsettled disagreements.
+- The manager adds an independent [critic](../profiles/AGENTS.critic.md) leaf for consequential assumptions, hidden coupling, failure paths, migration feasibility, and operational burden; the authoring leaf only reports where critique is needed. Preserve unsettled disagreements.
 - Produce a concise decision record plus affected interfaces, compatibility/migration plan, dependency-ordered implementation slices, ownership, and validation criteria. Use diagrams only when they clarify.
 - Validate design claims and prototype evidence under [shared validation](../guides/validation.md#shared-validation-rules). Design acceptance does not establish that the implementation works; hand implementation to the assigned editor and verify the integrated result separately.
 - Set a bounded checkpoint under [shared execution defaults](../AGENTS.md#execution-defaults), or [manager scheduling](manager-delegation.md#budgets-and-scheduling) for delegated work. Stop when decision-relevant uncertainty is resolved or cannot be reduced within scope; name the exact remaining decision/input.

@@ -22,7 +22,7 @@ The gate critic does not count toward the session subagent cap ([agent pool](man
 
 ## Triage
 
-- Root records each finding as accepted (fix it or assign the fix) or rejected with an evidence-backed reason; preferences may be declined without evidence.
+- Root records each finding as accepted (fix it or assign the fix) or rejected with an evidence-backed reason; preferences may be declined without evidence. Implementation-gate fixes and adopted improvements go to the same implementer by reuse (it counts toward the agent pool); plan-gate revisions stay with the plan's [single writer](root-planning.md#plan-document). Use a fresh implementer only if the original is unavailable or the work needs a different profile.
 - After revisions, resubmit the revised artifact to the same critic by reuse, for a delta review. Repeat while rounds keep producing accepted acceptance-changing findings.
 - Stop when: (a) a round returns no open finding that could change acceptance (converged); (b) a round yields no newly accepted finding, or findings repeat or oscillate (no progress); or (c) a budget or allowance, the usage gate or a user limit is reached.
 - There is no fixed round limit; preferences never extend the triage loop and go to the [improvement pass](#improvement-pass) instead. Every third round (triage and improvement rounds counted together), tell the user the rounds so far, findings and improvements accepted, and what remains open.

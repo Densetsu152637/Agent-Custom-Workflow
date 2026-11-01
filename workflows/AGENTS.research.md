@@ -30,7 +30,7 @@ Use [manager dispatch](manager-delegation.md#dispatch-and-acceptance) for delega
 ## Synthesis and critique
 
 - Give delegated analysts exact source paths/locators and any evidence-ledger paths through the assignment contract.
-- Apply the [critic profile](../profiles/AGENTS.critic.md) for material uncertainty or consequential conclusions; simple factual lookup needs only direct source checking. Focus critique on source selection/quality, dependent evidence, missing alternatives, confounding, numerical errors, extrapolation, and citation support.
+- For material uncertainty or consequential conclusions, the manager adds an independent critic leaf ([critic profile](../profiles/AGENTS.critic.md)); the authoring leaf only reports where critique is needed. Simple factual lookup needs only direct source checking. Focus critique on source selection/quality, dependent evidence, missing alternatives, confounding, numerical errors, extrapolation, and citation support.
 - Send only consequential gaps back to investigators. Preserve unresolved disagreements; do not decide by agent vote.
 
 ## Deliver and validate
