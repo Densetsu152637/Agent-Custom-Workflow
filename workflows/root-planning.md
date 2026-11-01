@@ -10,6 +10,7 @@ Root performs only minimal routing discovery, then delegates substantive analysi
 - The plan of record is a [plan document](#plan-document) in the consuming project, not commentary or the host task list. Built-in planning/progress APIs track progress only. Do not enter a mode requiring a separate approval turn merely to record the plan.
 - Order stages by dependency; assign ownership, deliverables, integration points, and acceptance checks drawn from the goals. Pass each agent its stage excerpt, the plan document path and revision, and assumptions through the [assignment contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
 - An ordinary plan is ready to execute under the user's existing authorization: implement or delegate authorized stages in the same turn, updating the document as each completes; stages left incomplete stay documented for future agents. Planning-only work ends with the committed plan document. This is not actual user approval and does not bypass higher-priority instructions, mandatory host approvals, or unanswered material clarification.
+- The plan passes the [plan gate](root-review.md#gates) before implementation stages are dispatched.
 - Infer routine reversible choices; ask only for blocking missing scope, information, or authority, and continue independent authorized work. Revise the plan, goals (stating the revision), and affected briefs when material evidence changes decisions, dependencies, or acceptance.
 
 ## Plan document
