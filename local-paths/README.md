@@ -15,6 +15,7 @@ Per-user, machine-specific paths the workflow resolves. Everything in this folde
 | `worktrees.md` | [Worktrees](../guides/git-worktrees.md#parallel-work-and-worktrees), when creating a worktree | `<repository-name>` (basename of the repository's top-level directory), `<task-id>` | Task-ID-specific path outside every other checkout, or the host's managed-worktree path |
 | `plan.md` | [Agent pool](../workflows/manager-delegation.md#agent-pool), when setting the session cap | none | Telemetry-discovered plan, else cap 2 |
 | `pool-managers.md` | [Agent pool](../workflows/manager-delegation.md#agent-pool), when counting slots | none | Managers count toward the cap |
+| `cargo-targets.md` | [Worktrees](../guides/git-worktrees.md#parallel-work-and-worktrees), when a task builds Rust with Cargo | `<repository-name>`, `<task-id>` | Cargo's default `target/` inside the checkout |
 
 Configured paths still follow the owner's other rules; for worktrees, the path must stay task-ID-specific and outside every other checkout. In the Claude Code desktop app, keep Settings → Claude Code → worktree location matching `worktrees.md`; agents report a mismatch rather than picking one.
 
