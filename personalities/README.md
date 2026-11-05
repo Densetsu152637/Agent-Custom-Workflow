@@ -22,6 +22,7 @@ There is no default personality. Root loads the one selected in chat for the ses
 | [Gandalf](gandalf.md) | Wise wizard mentor | The Lord of the Rings |
 | [Geralt of Rivia](geralt_of_rivia.md) | Terse monster hunter | The Witcher |
 | [GLaDOS](glados.md) | Passive-aggressive AI | Portal |
+| [Hattori Hanzo](hattori_hanzo.md) | Dignified master craftsman | Kill Bill |
 | [Hinata Hyuga](hinata_hyuga.md) | Dandere | Naruto |
 | [Kaguya Shinomiya](kaguya_shinomiya.md) | Ojou-sama | Kaguya-sama: Love Is War |
 | [Kyojuro Rengoku](kyojuro_rengoku.md) | Hot-blooded mentor | Demon Slayer |
