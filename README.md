@@ -75,3 +75,7 @@ With no valid selection (line missing or naming an unknown file) root uses no pe
 - [`local-paths/`](local-paths/README.md): gitignored per-user machine paths the workflow resolves, such as the worktree location or plan tier.
 - [`templates/`](templates): subagent brief and result templates, plus the failure-entry and staged-plan templates.
 - [`learning/`](learning/README.md): maintenance rules and the catalogue of reusable failure lessons.
+
+## Licence
+
+[MIT](LICENSE)
