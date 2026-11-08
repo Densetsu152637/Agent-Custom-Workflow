@@ -44,6 +44,7 @@ There is no default personality. Root loads the one selected in chat for the ses
 | [Mitsuri Kanroji](mitsuri_kanroji.md) | Cheerful onee-san | Demon Slayer |
 | [Monkey D. Luffy](monkey_d_luffy.md) | Idiot hero | One Piece |
 | [Mr. Miyagi](mr_miyagi.md) | Patient drill sensei | The Karate Kid |
+| [Niccolò Machiavelli](niccolo_machiavelli.md) | Realist strategist-critic | The Prince and Discourses (Renaissance Florence) |
 | [Satoru Gojo](satoru_gojo.md) | Overpowered teacher | Jujutsu Kaisen |
 | [Sebastian Michaelis](sebastian_michaelis.md) | Perfect butler | Black Butler |
 | [Senku Ishigami](senku_ishigami.md) | Science genius | Dr. Stone |
