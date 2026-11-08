@@ -6,6 +6,19 @@ This file owns overall task responsibility and reporting. At intake, load the [d
 
 As the top-level root, load the [personality index](../personalities/README.md) at intake, run its [selection](../personalities/README.md#selection) check, and load the selected personality, if any, before the first user-facing reply, for root's user-facing conversation only. Output styles and brevity never waive loading a selected personality, and every reply carries it at the [voice strength](../personalities/README.md#voice-strength) the index requires. Never pass a personality to subagents or use it to style deliverables. Personality never changes policy, authority, or task decisions.
 
+## Owner index
+
+Root-only owners (leaves never open these):
+
+- Intake delegation: [delegation default](root-delegation.md#delegation-default); dispatch, briefs, models, agent pool, acceptance: [root dispatch](root-dispatch.md); research model selection: [research dispatch](AGENTS.research-dispatch.md).
+- Planning: [implementation planning](root-planning.md); review gates: [root review](root-review.md); compaction and handoff: [context recovery](root-recovery.md).
+- Conversation tone: [personality selection](../personalities/README.md).
+- Brief and manifest construction, worker reuse: [coordination](../guides/subagent-coordination.md); replacement and ownership transfer: [recovery](../guides/subagent-recovery.md).
+- Profile choice: [profile catalogue](../profiles/README.md). Failure lessons: [learning](../learning/README.md).
+- Host tool mapping: [host adapters](../guides/host-adapters.md). Worktree admission, records, integration and cleanup: [worktrees](../guides/git-worktrees.md); pushes, PRs and merges: [publication](../guides/git-publication.md). Metrics and numeric budgets: [usage accounting](../guides/usage-accounting.md).
+
+Shared owners: every entry in the [leaf index](AGENTS.leaf.md#leaf-index) (domain workflows and execution guides), applied in full by root, including sections marked root only. Before declaring that no further owner applies, check both lists.
+
 ## Goals
 
 For any non-trivial task, before dispatching or editing, define a short set of boolean, measurable goals covering the user's outcome (not process steps).
@@ -18,7 +31,7 @@ For any non-trivial task, before dispatching or editing, define a short set of b
 ## Execution and completion
 
 - At intake, determine the session's subagent cap and usage gate per the [agent pool](root-dispatch.md#agent-pool).
-- Own scope, dependencies, integration, and user communication. Follow [shared execution defaults](../AGENTS.md#execution-defaults).
+- Own scope, dependencies, integration, and user communication. Follow [shared execution defaults](../AGENTS.md#execution-defaults); keep related work together, pass leaves compact deltas, and use fresh context for unrelated assignments. Suggest a new chat when unrelated history materially impedes direct work, without creating one unless requested.
 - Apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work) to root-owned changes and verify leaf commit evidence before closing. Close only after required integration, [validation](../guides/validation.md#shared-validation-rules), [reviews](root-review.md#gates), [worktree reconciliation](../guides/git-worktrees.md#safe-cleanup), and the [root session-end push](../guides/git-publication.md#root-session-end-push). Root pushes all commits on the working branch to that branch on `origin` under the linked rule, or reports its concrete blocker. A factual answer needs no Git cleanup.
 - Report resulting behavior, goal status, relevant evidence, and material blockers. For implementations/refactors, apply [documentation alignment](../guides/coding-standards.md#documentation-alignment), including its scoped research-paper rules.
 

@@ -45,7 +45,7 @@ Governing rule: choose the cheapest tier expected to produce high-quality work o
 - Escalate one tier on a demonstrated capability gap or a failed/low-quality attempt, not on importance, size, or the preset alone. A wide goal is not hard by width alone.
 - Split mixed assignments so only the hard part uses the stronger tier.
 - State the reason for each Frontier choice in the routing checkpoint, which reports the model.
-- Workflow-specific model/effort rules override this table; set effort per the [execution defaults](../AGENTS.md#execution-defaults), using only documented controls.
+- Workflow-specific model/effort rules override this table. When effort controls are exposed, use low for routine edits/extraction, medium for ordinary implementation/debugging, deeper for difficult uncertain analysis; honor explicit settings and host controls, using only documented controls.
 - Inherit model/effort only when it is the suitable choice; else use a fresh-context dispatch, or report blocked. Never invent a hidden model's ID or claim unobserved settings; prompts do not configure runtime.
 - Report the model used to the user. If the needed capability exceeds the ceiling, use the best within it and say so, or ask the user.
 

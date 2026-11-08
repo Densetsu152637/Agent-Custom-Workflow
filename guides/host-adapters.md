@@ -9,7 +9,7 @@ Loading:
 - `CLAUDE.md` imports [AGENTS.md](../AGENTS.md) with `@AGENTS.md`. Imports are eager; companion links are not. Resolve links relative to the containing file.
 - For use in every project, `~/.claude/CLAUDE.md` imports this repository's `CLAUDE.md` by absolute path, escaping spaces (`@D:/Git\ Repositories/Agent-Custom-Workflow/CLAUDE.md`).
 - That personal file may declare the root personality with a line such as `Personality: luxion.md`; see [personality selection](../personalities/README.md#selection).
-- Subagents load `CLAUDE.md`, so they receive [AGENTS.md](../AGENTS.md) and act as a leaf within their prompt's scope unless it assigns a role; only the top-level conversation agent is root, and no agent but root loads a personality. Built-in `Explore` and `Plan` agents skip `CLAUDE.md`; use them only for routing discovery that needs no manifest.
+- Subagents load `CLAUDE.md`, so they receive [AGENTS.md](../AGENTS.md), which routes them to the [leaf entrance](../workflows/AGENTS.leaf.md); only the top-level conversation agent is root, and no agent but root loads a personality. Built-in `Explore` and `Plan` agents skip `CLAUDE.md`; use them only for routing discovery that needs no manifest.
 
 Workflow term mapping:
 
@@ -23,7 +23,7 @@ Workflow term mapping:
 | Depth limit | Three subagent layers below the main conversation by default (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`). The workflow uses one: only root dispatches, and leaves never call `Agent`. |
 | Turn limit | No per-dispatch control; turn limits are monitored allowances. |
 | Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). |
-| Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../AGENTS.md#execution-defaults) are the explicit instruction that permits setting it. |
+| Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../workflows/root-dispatch.md#model-and-effort-selection) are the explicit instruction that permits setting it. |
 | Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
 | Plan and usage telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier); `plan.windows[]` carry `label` ("5-hour limit", "Weekly · all models", "Weekly · <model>"), `percentUsed`, `resetsAt`. `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: the status-line JSON `rate_limits` (`five_hour`, `seven_day` `used_percentage`) is user-visible only, not an agent tool, so treat telemetry as unavailable unless a mod relays it. Where the Hit The Ground Running mod is enabled, its `[Hit The Ground Running]` usage notes in context count as telemetry, and its `Agent` spawn denial is the usage gate's hard stop; a denied spawn stays queued. |

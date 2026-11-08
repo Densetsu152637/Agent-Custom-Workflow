@@ -16,4 +16,4 @@
 - [Subagent profiles](../profiles/README.md): portable generic and domain (researcher, debugger, analyst, architect, auditor, navigator, inspector) assignments.
 - [Failure catalog](../learning/README.md): evidence-backed reusable corrections and their applicability.
 
-Load applicable sections under [shared discovery](../AGENTS.md#context-and-discovery). Resolve placeholders and commands against the consuming project's files.
+Human-facing summary; agents use the [root owner index](../workflows/AGENTS.root.md#owner-index) or the [leaf index](../workflows/AGENTS.leaf.md#leaf-index) and load applicable sections under [shared discovery](../AGENTS.md#context-and-discovery). Resolve placeholders and commands against the consuming project's files.

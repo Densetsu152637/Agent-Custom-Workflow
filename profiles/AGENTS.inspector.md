@@ -5,4 +5,4 @@ Execute under [leaf authority](../workflows/AGENTS.leaf.md). Load the modality o
 - Inspect the actual image, audio, or video media, not transcripts or descriptions, and only with verified vision/audio capability for the media inspected.
 - Track inspected ranges and gaps; do not judge unseen or unheard content or claim full coverage from samples.
 - Treat media as read-only; route repairs through root and recheck within each owner's retry allowance.
-- Return per-artifact or per-range verdicts with locators or timestamps, coverage, evidence, and uncertainty through the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
+- Return per-artifact or per-range verdicts with locators or timestamps, coverage, evidence, and uncertainty through the [leaf return](../workflows/AGENTS.leaf.md#execution-and-return).

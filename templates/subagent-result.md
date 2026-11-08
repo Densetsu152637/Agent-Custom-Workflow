@@ -1,6 +1,6 @@
 # Subagent result record
 
-Owns result fields under the [coordination contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
+Owns result fields; leaves return them under the [leaf return](../workflows/AGENTS.leaf.md#execution-and-return), and root chooses compact or expanded under [coordination](../guides/subagent-coordination.md#assignment-and-result-contracts).
 
 Lifecycle values: `in progress | ready for review | accepted | blocked | cancelled`
 

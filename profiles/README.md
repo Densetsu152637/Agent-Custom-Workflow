@@ -1,6 +1,6 @@
 # Subagent profiles
 
-Profiles describe execution focus, not delegation authority. Every leaf assignment names exactly one profile from these tables; if none fits exactly, name the closest and report the recurring gap as a candidate profile. Every subagent is a leaf and loads the [leaf workflow](../workflows/AGENTS.leaf.md); a profile suits a narrow or wide goal alike. Root may use these profiles for direct execution.
+Profiles describe execution focus, not delegation authority. Every leaf assignment names exactly one profile from these tables; if none fits exactly, name the closest and report the recurring gap as a candidate profile. Root-only catalogue: leaves load just their own profile file. Every subagent is a leaf and loads the [leaf entrance](../workflows/AGENTS.leaf.md); a profile suits a narrow or wide goal alike. Root may use these profiles for direct execution.
 
 | Assignment | Profile | Expected result |
 | ---------- | ------- | --------------- |
@@ -11,7 +11,7 @@ Profiles describe execution focus, not delegation authority. Every leaf assignme
 | Execute acceptance checks | [Validator](AGENTS.validator.md) | Criterion-specific verdicts |
 | Challenge correctness and consequential assumptions | [Critic](AGENTS.critic.md) | Substantiated findings and resolving checks |
 
-Combine the generic profiles with the [applicable domain workflows](../AGENTS.md#workflows); root supplies owners in the instruction manifest. A domain workflow creates no new role and grants no permission to change the artifact.
+Combine the generic profiles with the [applicable domain workflows](../workflows/AGENTS.leaf.md#leaf-index); root supplies owners in the instruction manifest. A domain workflow creates no new role and grants no permission to change the artifact.
 
 ## Domain profiles
 

@@ -1,6 +1,6 @@
 # Validation
 
-This guide owns common validation evidence. Discover applicable methods through the [workflow index](../AGENTS.md#workflows). Load [container usage](container-usage.md#compose-validation-sequence) only for container/Compose work; it owns identity, readiness and the Compose check sequence.
+This guide owns common validation evidence. Discover applicable methods through the [leaf index](../workflows/AGENTS.leaf.md#leaf-index). Load [container usage](container-usage.md#compose-validation-sequence) only for container/Compose work; it owns identity, readiness and the Compose check sequence.
 
 ## Shared validation rules
 

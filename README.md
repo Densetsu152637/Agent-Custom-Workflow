@@ -1,6 +1,6 @@
 # Agent Custom Workflow
 
-A host-neutral workflow for coding agents. It defines how a root agent plans, delegates and integrates as the only coordinator, and how leaf subagents execute narrow or wide goals, using assignment profiles, domain workflows (research, debugging, security, browser verification and others), shared guides, and selectable root personalities. [`AGENTS.md`](AGENTS.md) is the entry point: it owns shared priority, discovery rules, and the index of everything else. Host-specific tool mappings live in [`guides/host-adapters.md`](guides/host-adapters.md).
+A host-neutral workflow for coding agents. It defines how a root agent plans, delegates and integrates as the only coordinator, and how leaf subagents execute narrow or wide goals, using assignment profiles, domain workflows (research, debugging, security, browser verification and others), shared guides, and selectable root personalities. [`AGENTS.md`](AGENTS.md) is the small entry point every agent loads: it owns shared priority and loading rules and routes root to the [root workflow](workflows/AGENTS.root.md) (full owner index) and each leaf to the narrow [leaf entrance](workflows/AGENTS.leaf.md), so subagents load only what their goal needs. Host-specific tool mappings live in [`guides/host-adapters.md`](guides/host-adapters.md).
 
 ## Setup
 

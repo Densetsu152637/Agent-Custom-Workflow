@@ -37,4 +37,4 @@ Use [root dispatch](root-dispatch.md#dispatch-and-acceptance) for delegated rese
 
 - Lead with the answer; explain recommendation tradeoffs and what evidence would change them.
 - Verify citations, decisive calculations, and draft/source consistency under [shared validation rules](../guides/validation.md#shared-validation-rules). Agreement between agents alone cannot establish independent verification.
-- Use [coordination handoffs](../guides/subagent-coordination.md#assignment-and-result-contracts) for concise reports to root.
+- Return concise reports to root through the [leaf return](AGENTS.leaf.md#execution-and-return).

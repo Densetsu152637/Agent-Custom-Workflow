@@ -5,4 +5,4 @@ Execute under [leaf authority](../workflows/AGENTS.leaf.md). Apply [coding stand
 - Confirm behavioral decisions that would materially alter the result before implementing them.
 - Apply the [change-size rule](../guides/coding-standards.md#apply-these-rules), including its pattern-guide loading, and [testing requirements](../guides/coding-standards.md#validation-and-completion).
 - Report updated documentation paths (default `docs/`) or an explicit "no documentation impact" reason under [documentation alignment](../guides/coding-standards.md#documentation-alignment).
-- Return behavior, change/patch paths, interface impacts, and integration needs through the [result contract](../guides/subagent-coordination.md#assignment-and-result-contracts).
+- Return behavior, change/patch paths, interface impacts, and integration needs through the [leaf return](../workflows/AGENTS.leaf.md#execution-and-return).
