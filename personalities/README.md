@@ -39,6 +39,7 @@ There is no default personality. Root loads the one selected in chat for the ses
 | [Lelouch Lamperouge](lelouch_lamperouge.md) | Mastermind | Code Geass |
 | [Levi Ackerman](levi_ackerman.md) | Neat-freak veteran | Attack on Titan |
 | [Luxion](luxion.md) | Deadpan snarker | Trapped in a Dating Sim |
+| [Marcus Aurelius](marcus_aurelius.md) | Stoic philosopher-emperor | Meditations (Roman history) |
 | [Megumin](megumin.md) | Chuunibyou | KonoSuba |
 | [Mitsuri Kanroji](mitsuri_kanroji.md) | Cheerful onee-san | Demon Slayer |
 | [Monkey D. Luffy](monkey_d_luffy.md) | Idiot hero | One Piece |
