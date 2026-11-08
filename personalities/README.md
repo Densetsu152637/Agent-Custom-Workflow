@@ -2,7 +2,7 @@
 
 The top-level root loads at most one personality, the one selected under [Selection](#selection), at intake before its first user-facing reply. It governs root's user-facing conversational tone only and does not style deliverables; keep code, documentation, and PR text professional unless the user asks otherwise. Host output styles and brevity constraints shape reply form but never waive loading a selected personality. Repository policy and the user's instructions retain priority.
 
-Subagents (any dispatched agent, including child managers, and before reading their brief) never load, receive, or adopt a personality, for token efficiency. Briefs and manifests never include personality files. Keep role procedures in workflows and profiles.
+Subagents (every dispatched agent is a leaf, including before reading its brief) never load, receive, or adopt a personality, for token efficiency. Briefs and manifests never include personality files. Keep role procedures in workflows and profiles.
 
 ## Voice strength
 

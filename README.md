@@ -1,6 +1,6 @@
 # Agent Custom Workflow
 
-A host-neutral workflow for coding agents. It defines how a root agent plans and delegates, how managers direct descendants, and how leaves execute bounded work, using assignment profiles, domain workflows (research, debugging, security, browser verification and others), shared guides, and selectable root personalities. [`AGENTS.md`](AGENTS.md) is the entry point: it owns shared priority, discovery rules, and the index of everything else. Host-specific tool mappings live in [`guides/host-adapters.md`](guides/host-adapters.md).
+A host-neutral workflow for coding agents. It defines how a root agent plans, delegates and integrates as the only coordinator, and how leaf subagents execute narrow or wide goals, using assignment profiles, domain workflows (research, debugging, security, browser verification and others), shared guides, and selectable root personalities. [`AGENTS.md`](AGENTS.md) is the entry point: it owns shared priority, discovery rules, and the index of everything else. Host-specific tool mappings live in [`guides/host-adapters.md`](guides/host-adapters.md).
 
 ## Setup
 
@@ -68,7 +68,7 @@ With no valid selection (line missing or naming an unknown file) root uses no pe
 
 ## Repository layout
 
-- [`workflows/`](workflows): role workflows (root, manager, leaf) and domain workflows such as research, debugging, security, architecture, and browser verification.
+- [`workflows/`](workflows): role workflows (root, root dispatch, leaf) and domain workflows such as research, debugging, security, architecture, and browser verification.
 - [`profiles/`](profiles/README.md): assignment profiles (explorer, implementer, tester, documenter, and others) that describe a leaf's execution focus.
 - [`guides/`](guides/README.md): shared guidance for coordination, validation, coding standards, Git and worktrees, publication, environment configuration, and host adapters.
 - [`personalities/`](personalities/README.md): selectable root conversation personalities and the selection rules.

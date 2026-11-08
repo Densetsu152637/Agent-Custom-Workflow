@@ -14,11 +14,11 @@ Root only: load before closing non-trivial implementation or refactor work and a
 - A leaf with Profile: critic, fresh context (never a fork or inherited history), and never the agent that authored the artifact.
 - The brief carries only the artifact (plan document path and revision, or diff range/commit), the boolean [goals](AGENTS.root.md#goals), scope and non-goals, relevant paths, and validation evidence locators. Omit root's rationale and preferred conclusions to avoid anchoring.
 - Ask for findings that could change acceptance, each with location, impact, confidence, and smallest fix or check, per the critic profile.
-- Model: Specialist by default; Frontier only for consequential or hard critique per [model and effort selection](AGENTS.manager.md#model-and-effort-selection).
+- Model: Specialist by default; Frontier only for consequential or hard critique per [model and effort selection](root-dispatch.md#model-and-effort-selection).
 
 ## Agent pool
 
-The gate critic does not count toward the session subagent cap ([agent pool](manager-delegation.md#agent-pool)), including its reuse rounds and any fresh-context replacement. Only root dispatches gate critics; the exclusion covers no other critic, and critics dispatched by managers count against their share. At most one gate critic runs at a time: a replacement starts only after the prior critic has finished or been stopped. The usage gate, user no-subagent instructions and host limits still apply; if the usage gate blocks the spawn, use the [self-check](#self-check) and say so.
+The gate critic does not count toward the session subagent cap ([agent pool](root-dispatch.md#agent-pool)), including its reuse rounds and any fresh-context replacement. The exclusion covers no other critic. At most one gate critic runs at a time: a replacement starts only after the prior critic has finished or been stopped. The usage gate, user no-subagent instructions and host limits still apply; if the usage gate blocks the spawn, use the [self-check](#self-check) and say so.
 
 ## Triage
 

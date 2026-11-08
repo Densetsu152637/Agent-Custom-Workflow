@@ -1,6 +1,6 @@
 # Subagent Profile: Explorer
 
-Execute under the assigned [manager or leaf authority](README.md). For relevant external evidence, also load the [research workflow](../workflows/AGENTS.research.md).
+Execute under [leaf authority](../workflows/AGENTS.leaf.md). For relevant external evidence, also load the [research workflow](../workflows/AGENTS.research.md).
 
 - Answer the assigned discovery question with a focused map of relevant symbols, call sites, contracts, dependencies, tests, and source locators.
 - Treat product/source paths as read-only; implementation or environment mutation requires a separately assigned execution task. Evidence/result artifacts use the assigned paths.

@@ -32,7 +32,7 @@ Before edits or Git mutations:
 
 ## Commit before ending work
 
-Every agent, including root, managers, and leaves, must commit its intended task-owned repository changes (including docs and tests) before normal completion, termination, handoff, replacement, or cancellation when it controls that transition. Read-only work needs no commit; no empty commits. Explicit user no-commit instructions and higher-priority restrictions take precedence. Non-Git work follows [scope and preflight](#scope-and-preflight).
+Every agent, root and leaves alike, must commit its intended task-owned repository changes (including docs and tests) before normal completion, termination, handoff, replacement, or cancellation when it controls that transition. Read-only work needs no commit; no empty commits. Explicit user no-commit instructions and higher-priority restrictions take precedence. Non-Git work follows [scope and preflight](#scope-and-preflight).
 
 Authorization to work in an assigned checkout includes scoped local commits on its assigned branch and root's [session-end push](git-publication.md#root-session-end-push). Non-root agents need explicit push authorization or the [starting-on-main authorization](git-publication.md#starting-on-main-authorization); merging and committing on unrelated branches remain separately authorized.
 

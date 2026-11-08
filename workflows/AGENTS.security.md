@@ -2,9 +2,9 @@
 
 ## Specialized capability ceiling
 
-Managers only; workers skip.
+Root only; leaves skip.
 
-Generic [ceiling](AGENTS.manager.md#capability-ceilings) and [selection](AGENTS.manager.md#model-and-effort-selection) rules apply except: bounded difficult threat modeling or adversarial analysis of consequential vulnerabilities (authorization bypass, privilege escalation, interacting trust-boundary failures) may use up to Specialist under `light` and Frontier under `balanced`/`heavy`. Routine checklist review, scanner triage, dependency inventory, managers, and code repair keep the general ceiling, so split mixed assignments.
+Generic [ceiling](root-dispatch.md#capability-ceilings) and [selection](root-dispatch.md#model-and-effort-selection) rules apply except: bounded difficult threat modeling or adversarial analysis of consequential vulnerabilities (authorization bypass, privilege escalation, interacting trust-boundary failures) may use up to Specialist under `light` and Frontier under `balanced`/`heavy`. Routine checklist review, scanner triage, dependency inventory, and code repair keep the general ceiling, so split mixed assignments.
 
 ## Scope and threat model
 
@@ -23,6 +23,6 @@ Assigned reviewers use the [auditor profile](../profiles/AGENTS.auditor.md).
 
 ## Repair and acceptance
 
-- Route remediation through the manager to the assigned implementer; keep review separate from implementation ownership. Prefer fixes at the trust boundary and inspect dependent paths that could retain the bypass.
+- Route remediation through root to the assigned implementer; keep review separate from implementation ownership. Prefer fixes at the trust boundary and inspect dependent paths that could retain the bypass.
 - Verify, under [shared validation](../guides/validation.md#shared-validation-rules), the failure on the vulnerable revision where feasible, rejection on the repaired revision, and continued success for legitimate authorized behavior.
 - Deliver the threat model, tested revision/surfaces, findings, coverage, residual risk, and checks left unrun. A no-findings verdict applies only to the inspected scope; it does not establish the system is secure.

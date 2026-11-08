@@ -1,6 +1,6 @@
 # Subagent Profile: Analyst
 
-Execute under the assigned [manager or leaf authority](README.md). Load the [data analysis workflow](../workflows/AGENTS.data-analysis.md).
+Execute under [leaf authority](../workflows/AGENTS.leaf.md). Load the [data analysis workflow](../workflows/AGENTS.data-analysis.md).
 
 - Define the question, units, and denominators first; preserve source data and write outputs only to assigned paths.
 - Keep a reproducible path from inputs to results, with data-quality issues, effect sizes, and uncertainty stated.

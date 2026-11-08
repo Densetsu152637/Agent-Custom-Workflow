@@ -15,12 +15,12 @@ Workflow term mapping:
 
 | Workflow term | Claude Code control |
 | ------------- | ------------------- |
-| Dispatch a child | `Agent` with `subagent_type: "general-purpose"`; the brief and manifest carry role, profile, and owners; the brief begins with the [`Role: <leaf\|manager>; Profile: <name>` tag line](../templates/subagent-brief.md#compact-schema) so [the agents panel](https://github.com/Densetsu152637/The-Crew) can identify it. `general-purpose` is only the host carrier; the tag line's profile is always required, since a missing or unknown tag shows as general-purpose in the panel. |
-| Fresh context | Any non-`fork` `subagent_type`. `fork` inherits the parent transcript; use it only when inheritance is justified under [dispatch](../workflows/manager-delegation.md#dispatch-and-acceptance). |
+| Dispatch a child | `Agent` with `subagent_type: "general-purpose"`; the brief and manifest carry role, profile, and owners; the brief begins with the [`Role: leaf; Profile: <name>` tag line](../templates/subagent-brief.md#compact-schema) so [the agents panel](https://github.com/Densetsu152637/The-Crew) can identify it. `general-purpose` is only the host carrier; the tag line's profile is always required, since a missing or unknown tag shows as general-purpose in the panel. |
+| Fresh context | Any non-`fork` `subagent_type`. `fork` inherits the parent transcript; use it only when inheritance is justified under [dispatch](../workflows/root-dispatch.md#dispatch-and-acceptance). |
 | Reuse a worker | `SendMessage` to the agent ID returned at dispatch. |
 | Start ready assignments in parallel | Several `Agent` calls in one message; they notify on completion. Do not poll. |
 | Cancellation | `TaskStop`. |
-| Depth limit | Three subagent layers below the main conversation by default (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`). At the limit the `Agent` tool is removed. |
+| Depth limit | Three subagent layers below the main conversation by default (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`). The workflow uses one: only root dispatches, and leaves never call `Agent`. |
 | Turn limit | No per-dispatch control; turn limits are monitored allowances. |
 | Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). |
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../AGENTS.md#execution-defaults) are the explicit instruction that permits setting it. |
@@ -28,15 +28,14 @@ Workflow term mapping:
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
 | Plan and usage telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier); `plan.windows[]` carry `label` ("5-hour limit", "Weekly · all models", "Weekly · <model>"), `percentUsed`, `resetsAt`. `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: the status-line JSON `rate_limits` (`five_hour`, `seven_day` `used_percentage`) is user-visible only, not an agent tool, so treat telemetry as unavailable unless a mod relays it. Where the Hit The Ground Running mod is enabled, its `[Hit The Ground Running]` usage notes in context count as telemetry, and its `Agent` spawn denial is the usage gate's hard stop; a denied spawn stays queued. |
 | Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
-| Relay a usage-gate halt | `SendMessage`. |
 | Completion celebration | None available; skip it. |
 
 Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`; map other aliases only from documented capability.
 
 Managed worktrees (where available; verify against the live tool list). Policy, records, and cleanup stay with [worktrees](git-worktrees.md):
 
-- `Agent` `isolation: "worktree"` removes the worktree when the agent made no changes; otherwise the result returns its path and branch, which the manager enters in the [worktree record](git-worktrees.md#worktree-record) and reconciles under [safe cleanup](git-worktrees.md#safe-cleanup).
-- `EnterWorktree` creates (under `.claude/worktrees/`) or, with `path`, enters a worktree; when a [configured location](git-worktrees.md#parallel-work-and-worktrees) applies, create it there with `git worktree add` and enter it with `path`; `ExitWorktree` acts only on one `EnterWorktree` created this session. Root and managers use them; a worker only when assigned. Record the worktree; never pass `discard_changes: true` to bypass a refusal, which returns to the [handoff gate and recovery](git-worktrees.md#handoff-gate-and-recovery) preserve step.
+- `Agent` `isolation: "worktree"` removes the worktree when the agent made no changes; otherwise the result returns its path and branch, which root enters in the [worktree record](git-worktrees.md#worktree-record) and reconciles under [safe cleanup](git-worktrees.md#safe-cleanup).
+- `EnterWorktree` creates (under `.claude/worktrees/`) or, with `path`, enters a worktree; when a [configured location](git-worktrees.md#parallel-work-and-worktrees) applies, create it there with `git worktree add` and enter it with `path`; `ExitWorktree` acts only on one `EnterWorktree` created this session. Root uses them; a leaf only when assigned. Record the worktree; never pass `discard_changes: true` to bypass a refusal, which returns to the [handoff gate and recovery](git-worktrees.md#handoff-gate-and-recovery) preserve step.
 - The desktop app's `clean_up_worktrees` and `discard_kept_worktree` are the archive path for app-made worktrees, used under [safe cleanup](git-worktrees.md#safe-cleanup); their `include_uncommitted`, `delete_sessions`, and discard options are the unrecoverable-work tools that rule gates.
 - The desktop app creates session worktrees under its `worktree_location` (read-only in `ccd_settings` `get_settings`, where available). When a [configured location](git-worktrees.md#parallel-work-and-worktrees) applies, compare the two before creating a worktree; on a mismatch, report both paths to the user instead of choosing one.
 
@@ -54,13 +53,13 @@ Loading:
 
 Workflow term mapping:
 
-- Dispatch, parallel start, model selection, effort, depth and turn limits, and parallel write isolation: Codex's agent tools (`spawn_agent`), configured under `[agents]` in `~/.codex/config.toml`. Every mapping below is subject to the live tool list; a control absent there is unavailable. Apply the [worktree](git-worktrees.md) policy with plain Git where no managed isolation is offered.
+- Dispatch (root only), parallel start, model selection, effort, depth and turn limits, and parallel write isolation: Codex's agent tools (`spawn_agent`), configured under `[agents]` in `~/.codex/config.toml`. Every mapping below is subject to the live tool list; a control absent there is unavailable. Apply the [worktree](git-worktrees.md) policy with plain Git where no managed isolation is offered.
 - Fresh context: `spawn_agent` with `fork_turns: "none"` (multi-agent V2) or `fork_context: false` (V1); always set it explicitly, because V2 omitted `fork_turns` defaults to `"all"`.
-- Inherited context: `fork_turns: "all"` (V2) or `fork_context: true` (V1). Full-history forks reject `model`, `reasoning_effort` and `agent_type` overrides, so use them only when inheritance is justified under [dispatch](../workflows/manager-delegation.md#dispatch-and-acceptance) and no override is needed.
-- Reuse: `followup_task` (V2), `send_input` (V1). Relay a usage-gate halt: `send_message` (V2), `send_input` (V1). Wait for completion: `wait` where listed.
+- Inherited context: `fork_turns: "all"` (V2) or `fork_context: true` (V1). Full-history forks reject `model`, `reasoning_effort` and `agent_type` overrides, so use them only when inheritance is justified under [dispatch](../workflows/root-dispatch.md#dispatch-and-acceptance) and no override is needed.
+- Reuse: `followup_task` (V2), `send_input` (V1). Wait for completion: `wait` where listed.
 - Cancellation: `close_agent`.
 - Tier mapping (Economy, Specialist, Frontier): none defined; use the user's mapping, else the models Codex exposes by documented capability.
 - Routing checkpoint / progress: inline text.
-- Plan and usage telemetry: unmapped; use `local-paths/plan.md` for the [agent pool](../workflows/manager-delegation.md#agent-pool) cap.
+- Plan and usage telemetry: unmapped; use `local-paths/plan.md` for the [agent pool](../workflows/root-dispatch.md#agent-pool) cap.
 - Additional folders: unmapped; treat instructions in other directories as unloaded until read.
 - Completion celebration: `mcp__codex_app__fire_confetti`.

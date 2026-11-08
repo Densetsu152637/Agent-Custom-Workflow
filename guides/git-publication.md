@@ -4,7 +4,7 @@ Load before publication, PR creation/update/merge, or root session-end publicati
 
 ## Starting-on-main authorization
 
-An agent whose assigned checkout is already on `main` at the start of its work (root or subagent, including when `main` is the default branch) may push validated, committed work to `origin/main` without further permission. A subagent pushes under this authority only after its immediate manager records the work `accepted` and root's [review gates](../workflows/root-review.md#gates) have passed or do not apply, or when explicitly assigned the push. Normal fast-forward pushes only: explicit no-push instructions, required checks, branch protections, and higher-priority or host restrictions still apply.
+An agent whose assigned checkout is already on `main` at the start of its work (root or subagent, including when `main` is the default branch) may push validated, committed work to `origin/main` without further permission. A subagent pushes under this authority only after root records the work `accepted` and root's [review gates](../workflows/root-review.md#gates) have passed or do not apply, or when explicitly assigned the push. Normal fast-forward pushes only: explicit no-push instructions, required checks, branch protections, and higher-priority or host restrictions still apply.
 
 ## Root session-end push
 

@@ -26,6 +26,6 @@ Assigned inspectors use the [inspector profile](../profiles/AGENTS.inspector.md)
 ## Findings and recheck
 
 - Return a verdict per source/range/criterion with timestamps, artifact revision, inspected coverage by modality, evidence, and correction. Label sampled coverage; do not claim full-event coverage from a transcript or a few stills.
-- Route repairs through the manager and recheck stable changed clips, affected boundaries/synchronization, and dependent digest conclusions under [shared validation](../guides/validation.md#shared-validation-rules).
+- Route repairs through root and recheck stable changed clips, affected boundaries/synchronization, and dependent digest conclusions under [shared validation](../guides/validation.md#shared-validation-rules).
 - Use vision's repair allowance for visual defects and audio's for audio defects; other recovery uses [coordination](../guides/subagent-recovery.md#stalls-and-recovery). A retry addressing the same audiovisual failure counts against both allowances; switching modalities does not reset its count.
 - Report inaccessible tracks or inadequate temporal coverage and complete unaffected checks. Leave dependent claims unverified when either required modality or time range is missing.

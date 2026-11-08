@@ -21,5 +21,5 @@ Assigned testers use the [navigator profile](../profiles/AGENTS.navigator.md).
 ## Findings and recheck
 
 - Return a verdict per journey/criterion with target revision, starting state, steps, expected/actual outcome, evidence locators, and browser/device details. Separate functional defects from visual findings and environment/tool failures.
-- Route repairs through the manager to the assigned editor. Recheck the stable repaired revision and dependent journeys under [shared validation](../guides/validation.md#shared-validation-rules); use [coordination recovery](../guides/subagent-recovery.md#stalls-and-recovery) for retries.
+- Route repairs through root to the assigned editor. Recheck the stable repaired revision and dependent journeys under [shared validation](../guides/validation.md#shared-validation-rules); use [coordination recovery](../guides/subagent-recovery.md#stalls-and-recovery) for retries.
 - If only static output or screenshots are accessible, complete those checks with the appropriate domain workflow and leave interactive behavior unverified. Clean up authorized task-created state using the applicable resource owner.
