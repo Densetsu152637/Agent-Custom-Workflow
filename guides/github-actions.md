@@ -40,7 +40,7 @@ Syntax and events: [GitHub workflow reference](https://docs.github.com/en/action
 
 ## Fast local checks
 
-Run the project's check scripts directly first. Use [actionlint](https://github.com/rhysd/actionlint) for workflow syntax and expression errors; plain YAML validation does not understand Actions semantics.
+Run the project's own build and test scripts through CI under [CI-first checks](validation.md#ci-first-checks). Use [actionlint](https://github.com/rhysd/actionlint) for workflow syntax and expression errors; plain YAML validation does not understand Actions semantics.
 
 ```text
 actionlint
@@ -79,4 +79,4 @@ Keep expensive integration tests and full container runs outside the default fas
 
 ## Verify before handoff
 
-Run static checks and the relevant project scripts, then load [local rehearsal](github-actions-local.md) and use act for supported jobs. Exercise event-dependent conditions with representative payloads (PR/base branches, missing optional fields). Verify path-filter cases (source, docs-only, lockfile, workflow edits), fork permissions, cache misses/hits, timeouts, and cancellation on GitHub where local execution cannot establish behavior. Report unrun hosted checks explicitly under the linked validation guide.
+Run static checks locally, then push and verify the changed workflow on hosted runners under [CI-first checks](validation.md#ci-first-checks). Load [local rehearsal](github-actions-local.md) and use act for supported jobs only when hosted runs are unavailable. Exercise event-dependent conditions with representative payloads (PR/base branches, missing optional fields). Verify path-filter cases (source, docs-only, lockfile, workflow edits), fork permissions, cache misses/hits, timeouts, and cancellation on GitHub where local execution cannot establish behavior. Report unrun hosted checks explicitly under the linked validation guide.
