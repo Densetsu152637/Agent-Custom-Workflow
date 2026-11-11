@@ -35,7 +35,7 @@ The user selects `light`, `balanced`, or `heavy` (default **heavy**; lasts for t
 
 Pick from available models/roles using the user's tier mapping or the [host adapter](../guides/host-adapters.md); never infer capability, modality, or ranking from a model's name. A profile or workflow name alone selects no tier.
 
-Governing rule: choose the cheapest tier expected to produce high-quality work on the narrowed assignment, not merely passable output. Root's own model is never the default: start each assignment at Economy and move up only as the table below requires, then set that model explicitly on every dispatch wherever the host exposes a model control, because an omitted model may silently inherit root's.
+Governing rule: choose the cheapest tier expected to produce high-quality work on the narrowed assignment, not merely passable output, then clamp it to the [ceiling](#capability-ceilings). Root's own model plays no part in the choice; set the resulting model explicitly on every dispatch wherever the host exposes a model control, because an omitted model may silently inherit root's.
 
 | Assignment | Tier |
 | ---------- | ---- |
