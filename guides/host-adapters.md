@@ -26,8 +26,9 @@ Workflow term mapping:
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../workflows/root-dispatch.md#model-and-effort-selection) are the explicit instruction that permits setting it. |
 | Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
-| Plan and usage telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier); `plan.windows[]` carry `label` ("5-hour limit", "Weekly · all models", "Weekly · <model>"), `percentUsed`, `resetsAt`. `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: the status-line JSON `rate_limits` (`five_hour`, `seven_day` `used_percentage`) is user-visible only, not an agent tool, so treat telemetry as unavailable unless a mod relays it. Where the Hit The Ground Running mod is enabled, its `[Hit The Ground Running]` usage notes in context count as telemetry, and its `Agent` spawn denial is the usage gate's hard stop; a denied spawn stays queued. |
+| Plan telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier); `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: treat it as unavailable. |
 | Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
+| Usage gate | Enforced by the Hit The Ground Running mod where enabled: its `Agent` spawn denial means the usage gate is closed; see [agent pool](../workflows/root-dispatch.md#agent-pool). |
 | Completion celebration | None available; skip it. |
 
 Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`; map other aliases only from documented capability.
@@ -60,6 +61,6 @@ Workflow term mapping:
 - Cancellation: `close_agent`.
 - Tier mapping (Economy, Specialist, Frontier): none defined; use the user's mapping, else the models Codex exposes by documented capability.
 - Routing checkpoint / progress: inline text.
-- Plan and usage telemetry: unmapped; use `local-paths/plan.md` for the [agent pool](../workflows/root-dispatch.md#agent-pool) cap.
+- Plan telemetry: unmapped; use `local-paths/plan.md` for the [agent pool](../workflows/root-dispatch.md#agent-pool) cap.
 - Additional folders: unmapped; treat instructions in other directories as unloaded until read.
 - Completion celebration: `mcp__codex_app__fire_confetti`.

@@ -61,7 +61,7 @@ Root puts all of these in each brief, scaled to the goal's width, so the leaf ne
 
 ## Agent pool
 
-Plan-based subagent cap, staging and usage gates. Telemetry and control names: [host adapters](../guides/host-adapters.md).
+Plan-based subagent cap and staging. Telemetry and control names: [host adapters](../guides/host-adapters.md).
 
 - Session cap: root sets one cap at intake, re-checks it on root recovery, and states it in the routing checkpoint. Source order: the user's explicit cap in chat (it wins, even above the plan cap; state it); else the plan from host telemetry. Fill gaps from [`local-paths/plan.md`](../local-paths/plan.md) when telemetry is unavailable, not applicable (API key, gateway) or names a tier without its multiplier. If file and telemetry conflict, use the smaller cap and report the mismatch once.
 
@@ -78,9 +78,8 @@ Plan-based subagent cap, staging and usage gates. Telemetry and control names: [
 - The cap counts every running leaf. Only root's [review-gate critic](root-review.md#agent-pool) is excluded.
 - Staging: root queues ready assignments and spawns while a slot is free. When a leaf finishes, is stopped or is exhausted, its slot frees and root starts the next queued assignment. At the cap, wait for a completion notification; do not poll.
 - Prefer reusing a finished leaf for related follow-ups over a cold start. An idle reusable leaf holds no slot; reuse takes one while it runs.
-- Usage gate: immediately before each spawn, read the plan usage windows where telemetry exists. Do not spawn when the 5-hour window is at least 85% used or any applicable weekly window (all models, or the dispatched model's own) is at least 95% used. Running leaves finish their current assignment; queued work stays queued; nothing is cancelled for the gate. Root tells the user once which window tripped and when it resets, and resumes staging after the reset or below threshold. Without any telemetry, say so once and proceed under the cap alone.
-- Reuse is not a spawn but still consumes usage: near the gate, finish rather than start new work.
-- Usage Credits (signal: the user's statement, or usage information a plugin or mod puts in context, for example the Hit The Ground Running usage notes described in [host adapters](../guides/host-adapters.md#claude-code)): the usage gate is off and the cap is 2. Running leaves finish their current assignment; queued work starts under the new cap.
+- Usage limits: root applies no usage gate of its own; a host mod enforces it by denying spawns. When a spawn is denied for usage, root tells the user once that the usage gate is closed, keeps the assignment queued, lets running leaves finish, and never works around the denial. Root resumes staging when spawns succeed again.
+- Usage Credits (signal: the user's statement, or usage information a plugin or mod puts in context): the cap is 2. Running leaves finish their current assignment; queued work starts under the new cap.
 
 ## Budgets and scheduling
 
