@@ -35,7 +35,7 @@ The user selects `light`, `balanced`, or `heavy` (default **heavy**; lasts for t
 
 Pick from available models/roles using the user's tier mapping or the [host adapter](../guides/host-adapters.md); never infer capability, modality, or ranking from a model's name. A profile or workflow name alone selects no tier.
 
-Governing rule: choose the cheapest tier expected to produce high-quality work on the narrowed assignment, not merely passable output.
+Governing rule: choose the cheapest tier expected to produce high-quality work on the narrowed assignment, not merely passable output. Root's own model is never the default: start each assignment at Economy and move up only as the table below requires, then set that model explicitly on every dispatch wherever the host exposes a model control, because an omitted model may silently inherit root's.
 
 | Assignment | Tier |
 | ---------- | ---- |
@@ -45,7 +45,7 @@ Governing rule: choose the cheapest tier expected to produce high-quality work o
 
 - Escalate one tier on a demonstrated capability gap or a failed/low-quality attempt, not on importance, size, or the preset alone. A wide goal is not hard by width alone.
 - Split mixed assignments so only the hard part uses the stronger tier.
-- State the reason for each Frontier choice in the routing checkpoint, which reports the model.
+- State the reason for each Frontier choice, and for any leaf on the same model as root, in the routing checkpoint, which reports the model.
 - Workflow-specific model/effort rules override this table. When effort controls are exposed, use low for routine edits/extraction, medium for ordinary implementation/debugging, deeper for difficult uncertain analysis; honor explicit settings and host controls, using only documented controls.
 - Inherit model/effort only when it is the suitable choice; else use a fresh-context dispatch, or report blocked. Never invent a hidden model's ID or claim unobserved settings; prompts do not configure runtime.
 - Report the model used to the user. If the needed capability exceeds the ceiling, use the best within it and say so, or ask the user.

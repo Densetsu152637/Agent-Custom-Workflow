@@ -22,7 +22,7 @@ Workflow term mapping:
 | Cancellation | `TaskStop`. |
 | Depth limit | Three subagent layers below the main conversation by default (`CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH`). The workflow uses one: only root dispatches, and leaves never call `Agent`. |
 | Turn limit | No per-dispatch control; turn limits are monitored allowances. |
-| Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). |
+| Model selection | `Agent` `model` parameter (`haiku`, `sonnet`, `opus`, `fable`). Always pass it: an omitted `model` falls back to the agent definition's model, else inherits root's, which is how leaves end up on root's tier. `fork` ignores it and always runs on root's model. |
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../workflows/root-dispatch.md#model-and-effort-selection) are the explicit instruction that permits setting it. |
 | Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
