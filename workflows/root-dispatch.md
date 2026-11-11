@@ -73,13 +73,11 @@ Plan-based subagent cap and staging. Telemetry and control names: [host adapters
 | Max, multiplier unknown                 | 4                                                         |
 | Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 2 |
 | No plan known                           | 2                                                         |
-| Usage Credits                           | 2                                                         |
 
 - The cap counts every running leaf. Only root's [review-gate critic](root-review.md#agent-pool) is excluded.
 - Staging: root queues ready assignments and spawns while a slot is free. When a leaf finishes, is stopped or is exhausted, its slot frees and root starts the next queued assignment. At the cap, wait for a completion notification; do not poll.
 - Prefer reusing a finished leaf for related follow-ups over a cold start. An idle reusable leaf holds no slot; reuse takes one while it runs.
 - Usage limits: root applies no usage gate of its own; a host mod enforces it by denying spawns. When a spawn is denied for usage, root tells the user once that the usage gate is closed, keeps the assignment queued, lets running leaves finish, and never works around the denial. Root resumes staging when spawns succeed again.
-- Usage Credits (signal: the user's statement, or usage information a plugin or mod puts in context): the cap is 2. Running leaves finish their current assignment; queued work starts under the new cap.
 
 ## Budgets and scheduling
 
