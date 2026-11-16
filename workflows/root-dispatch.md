@@ -68,11 +68,11 @@ Plan-based subagent cap and staging. Telemetry and control names: [host adapters
 | Plan                                    | Cap                                                       |
 | --------------------------------------- | --------------------------------------------------------- |
 | Free                                    | 1                                                         |
-| Pro                                     | 2                                                         |
-| Max Nx                                  | 4N/5, rounded down                                        |
-| Max, multiplier unknown                 | 4                                                         |
-| Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 2 |
-| No plan known                           | 2                                                         |
+| Pro                                     | 1                                                         |
+| Max Nx                                  | 2N/5, rounded down, at least 1                            |
+| Max, multiplier unknown                 | 2                                                         |
+| Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 1 |
+| No plan known                           | 1                                                         |
 
 - The cap counts every running leaf. Only root's [review-gate critic](root-review.md#agent-pool) is excluded.
 - Staging: root queues ready assignments and spawns while a slot is free. When a leaf finishes, is stopped or is exhausted, its slot frees and root starts the next queued assignment. At the cap, wait for a completion notification; do not poll.
