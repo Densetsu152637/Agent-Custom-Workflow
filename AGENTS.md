@@ -22,10 +22,11 @@ Agents starting on `main` may commit and push validated work under [starting-on-
 - Count only text actually returned as loaded; truncated output is not a complete read. Recover missing text one file or smaller range at a time, and report covered ranges and gaps.
 - Apply skills/plugins to the actual requested workflow, not keyword overlap.
 
-## Editing and temporary artifacts
+## Editing, temporary artifacts and processes
 
 - Edit authoritative files in the assigned checkout. No ad hoc backup/draft trees or routine one-off installer/check scripts. Shadow drafts do not replace host authorization for protected targets.
 - Create scratch artifacts only for a concrete need, at an assigned temporary location separate from deliverables; clean them up and keep required handoff evidence.
+- <a id="process-cleanup"></a>**Process cleanup.** Every process you start (dev servers, watchers, test runners, background shells, browsers, emulators, containers, REPLs) is yours to stop. Prefer foreground or self-terminating commands, and record what you start in the background (its ID or PID). Stop it once its purpose is served, and always before ending your turn or handing off, including after failure, cancellation or timeout. Then check that nothing you started is still running, child processes included, and stop any leftovers. Stop only processes you can attribute to your own work; never kill pre-existing, user-started or other sessions' processes, and never kill by broad name match. A process that must outlive your turn is reported with its ID, purpose and who stops it.
 
 ## Execution defaults
 
