@@ -15,7 +15,7 @@ Root only: owns brief and manifest construction and worker reuse. Leaves do not 
 
 ## Context lifecycle
 
-- Reuse a leaf for related follow-ups with compact deltas, so it keeps its loaded owners; use fresh context for unrelated work.
+- Reuse a leaf for related follow-ups with compact deltas (including any new [known facts](../workflows/root-dispatch.md#context-handoff) root has learned since the last message), so it keeps its loaded owners; use fresh context for unrelated work.
 - When context or failed approaches impede work, replace or reset the worker through supported controls, preserving the result and artifacts.
 - Before compaction, handoff or a long pause, keep resumable state in the record or a compact checkpoint, separate from [durable lessons](../learning/README.md). Root recovery: [root context recovery](../workflows/root-recovery.md#context-recovery).
 - Keep decisive excerpts and artifact paths, not full logs; integrate results by changed decisions, not echoed reports.
