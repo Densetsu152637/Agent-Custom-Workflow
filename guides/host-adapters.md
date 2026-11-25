@@ -29,6 +29,7 @@ Workflow term mapping:
 | Plan telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier; "Ultra" is Max 10x); `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: treat it as unavailable. |
 | Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
 | Usage gate | Enforced by the Hit The Ground Running mod where enabled: its `Agent` spawn denial means the usage gate is closed; see [agent pool](../workflows/root-dispatch.md#agent-pool). |
+| Cross-session hardware coordination | `ListAgents` lists sessions; `SendMessage` with `to` set to a listed name asks and grants; replies arrive as messages, so do not poll. See [shared hardware tests](validation.md#shared-hardware-tests). |
 | Completion celebration | None available; skip it. |
 
 Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`; map other aliases only from documented capability.
