@@ -26,7 +26,7 @@ Workflow term mapping:
 | Effort | `Agent` `effort` parameter; this workflow's [effort defaults](../workflows/root-dispatch.md#model-and-effort-selection) are the explicit instruction that permits setting it. |
 | Parallel write isolation | `Agent` `isolation: "worktree"`, or `EnterWorktree`/`ExitWorktree` for the current session. The app syncs a worktree with its base through `sync_with_base_branch` where available. See managed worktrees below. |
 | Routing checkpoint / progress | Inline text; the desktop app's task list (`update_plan`) tracks root progress. |
-| Plan telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier); `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: treat it as unavailable. |
+| Plan telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier; "Ultra" is Max 10x); `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: treat it as unavailable. |
 | Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
 | Usage gate | Enforced by the Hit The Ground Running mod where enabled: its `Agent` spawn denial means the usage gate is closed; see [agent pool](../workflows/root-dispatch.md#agent-pool). |
 | Completion celebration | None available; skip it. |

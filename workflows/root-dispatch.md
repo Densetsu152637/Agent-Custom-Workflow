@@ -71,6 +71,7 @@ Plan-based subagent cap and staging. Telemetry and control names: [host adapters
 | Free                                    | 1                                                         |
 | Pro                                     | 1                                                         |
 | Max Nx                                  | 2N/5, rounded down, at least 1                            |
+| Ultra (same as Max 10x)                 | 4 (as Max 10x)                                            |
 | Max, multiplier unknown                 | 2                                                         |
 | Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 1 |
 | No plan known                           | 1                                                         |
