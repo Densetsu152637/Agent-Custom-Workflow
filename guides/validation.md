@@ -4,7 +4,7 @@ This guide owns common validation evidence. Discover applicable methods through 
 
 ## Shared validation rules
 
-- Run builds, tests and lints that the project's CI covers under [CI-first checks](#ci-first-checks).
+- Run builds, tests and lints that the project's CI covers under [CI-first checks](#ci-first-checks); with parallel workers apply [parallel CI](#parallel-ci).
 - Wait for the project's documented readiness condition before dependent checks. If healthchecks do not represent required readiness, use the documented application probe or relevant logs.
 - Discover required commands and expected outcomes from READMEs/configuration and the assignment brief. Use [coding standards](coding-standards.md#validation-and-completion) to decide code-test coverage.
 - Check the actual artifact/revision. Capture command/procedure, exit status, tested revision, and decisive evidence/log locator. Direct work may report concisely; delegated work uses the selected [result schema](../templates/subagent-result.md). Non-code review must identify the artifact checked.
@@ -23,6 +23,21 @@ Local builds and test suites (for example `cargo build`, `cargo test`, `cargo cl
 - Fall back to local runs only when CI is unavailable for the check: no CI configured, CI does not cover it, no remote or push path exists, hosted runs cannot start (outage, quota, billing, disabled Actions), or the user asks for a local run. Record the reason. Even then, run the narrowest command covering the change (one crate, package or test target, not the whole workspace), and do not run several heavy builds in parallel.
 - Fast, low-load checks that do not build the project (formatters, single-file linters, `actionlint`) may still run locally before committing.
 - Waiting on CI is not a pass: the check stays unverified until the hosted run for that revision completes.
+- With several workers on one repository, apply [parallel CI](#parallel-ci).
+
+## Parallel CI
+
+Applies when parallel leaves, worktrees or sessions share one repository's CI. It adds to [CI-first checks](#ci-first-checks).
+
+- Only root pushes during parallel work. Leaves commit in their worktree and report CI-covered checks as pending CI with the SHA, per CI-first checks.
+- Root integrates all streams of a stage first, then pushes the integrated revision once, so one run covers the combination that must be validated anyway. Do not push after each stream lands.
+- Exception: push a single stream's branch for its own CI only when a dependent stage needs that stream's hosted result before integration, or the stream is high-risk and isolating its failure is cheaper than bisecting the integrated run. Record the reason.
+- Avoid duplicate runs: do not push the same commits to several refs that trigger the same workflows, and do not open a PR while also push-triggering the same workflows for that branch when the repository's triggers would run both, unless required checks need both.
+- Before pushing, check for an in-flight run on the branch (`gh run list --branch <branch> --limit 5`). Batch further fixes into the next push instead of pushing while a run is pending. When the repository has no concurrency cancel group, cancel this task's own superseded run (`gh run cancel <id>`) after pushing a replacement. Never cancel runs this task did not start.
+- On failure, read the logs of every failed job (`gh run view <id> --log-failed`), fix all independent failures in one batch, then push once. Rerun only failed jobs (`gh run rerun <id> --failed`) for failures recorded as flaky or infrastructure, not after code changes.
+- For docs-only or non-code commits, use the repository's skip mechanism (such as `[skip ci]`) only when its convention allows it and no required check would be left pending.
+- Other sessions on the same repository share runner concurrency and Actions minutes. Self-hosted runners on the user's machine are shared hardware: apply [shared hardware tests](#shared-hardware-tests). Hosted runners need no further cross-session coordination beyond not pushing a branch another session is working on.
+- Wait on a run with the host's non-polling control ([host adapters](host-adapters.md)).
 
 ## Shared hardware tests
 

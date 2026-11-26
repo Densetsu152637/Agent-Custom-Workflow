@@ -38,7 +38,7 @@ States: `planned` (root, before creation) → `active` (root, once the porcelain
 1. Worker handoffs use the [coordination result contract](subagent-coordination.md#assignment-and-result-contracts) and [result schema](../templates/subagent-result.md), accepted only after the handoff gate, and include the assigned checkout/branch and commit SHA under [commit before ending work](git-usage.md#commit-before-ending-work). A scoped-patch handoff under a disclosed blocker is accepted through the recovery path (`preserved`), not the clean-status gate.
 2. One integration owner applies results in dependency order in the assigned integration checkout, using the repository's merge/cherry-pick convention; do not apply both a branch merge and its commits.
 3. Resolve conflicts by understanding both changes and their contracts; coordinate unclear intent with the responsible leaf through root. Do not accept all of one side or discard unrelated edits.
-4. Inspect the combined diff and apply [shared validation rules](validation.md#shared-validation-rules) to the integrated revision.
+4. Inspect the combined diff and apply [shared validation rules](validation.md#shared-validation-rules) to the integrated revision; push it once under [parallel CI](validation.md#parallel-ci).
 5. When blocked, pause only the dependent integration step; continue independent authorized work. Report unresolved conflicts and failing checks.
 
 ## Safe cleanup

@@ -30,6 +30,7 @@ Workflow term mapping:
 | Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
 | Usage gate | Enforced by the Hit The Ground Running mod where enabled: its `Agent` spawn denial means the usage gate is closed; see [agent pool](../workflows/root-dispatch.md#agent-pool). |
 | Cross-session hardware coordination | `ListAgents` lists sessions; `SendMessage` with `to` set to a listed name asks and grants; replies arrive as messages, so do not poll. See [shared hardware tests](validation.md#shared-hardware-tests). |
+| Wait for a CI run | `gh run watch <run-id> --exit-status` as a background Bash command (`run_in_background: true`), which notifies on exit; in the desktop app, for a bound PR, use the app's PR monitor (`ccd_pr` tools) instead. Do not poll with sleep loops or repeated `gh run list`. See [parallel CI](validation.md#parallel-ci). |
 | Completion celebration | None available; skip it. |
 
 Tier mapping, unless the user supplies another: Economy `haiku`, Specialist `sonnet`, Frontier `opus`; map other aliases only from documented capability.
