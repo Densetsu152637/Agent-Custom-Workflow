@@ -29,7 +29,7 @@ Workflow term mapping:
 | Plan telemetry | Desktop app `mcp__ccd_session_mgmt__get_usage` (deferred; load with ToolSearch `select:mcp__ccd_session_mgmt__get_usage`). `plan.plan` is the tier name (observed "Max", no multiplier; "Ultra" is Max 10x); `status` "not_applicable" means API key, Bedrock, Vertex or gateway; "unavailable" means retry per its note. CLI without the app: treat it as unavailable. |
 | Wait for a free agent-pool slot | Completion notifications from `Agent`; do not poll. |
 | Usage gate | Enforced by the Hit The Ground Running mod where enabled: its `Agent` spawn denial means the usage gate is closed; see [agent pool](../workflows/root-dispatch.md#agent-pool). |
-| Cross-session hardware coordination | `ListAgents` lists sessions; `SendMessage` with `to` set to a listed name asks and grants; replies arrive as messages, so do not poll. See [shared hardware tests](validation.md#shared-hardware-tests). |
+| Cross-session hardware coordination | `ListAgents` lists sessions; confirm each one's state with `mcp__ccd_session_mgmt__list_sessions` (or `get_session`) where available and ask only those working now, never idle ones (pinned or merely unarchived); `SendMessage` with `to` set to a listed name asks and grants; replies arrive as messages, so do not poll. See [shared hardware tests](validation.md#shared-hardware-tests). |
 | Wait for a CI run | `gh run watch <run-id> --exit-status` as a background Bash command (`run_in_background: true`), which notifies on exit; in the desktop app, for a bound PR, use the app's PR monitor (`ccd_pr` tools) instead. Do not poll with sleep loops or repeated `gh run list`. See [parallel CI](validation.md#parallel-ci). |
 | Completion celebration | None available; skip it. |
 
