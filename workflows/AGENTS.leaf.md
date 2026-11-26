@@ -1,6 +1,6 @@
 # Agent Instructions: Leaf
 
-Entrance for every dispatched agent. With [AGENTS.md](../AGENTS.md), your brief, and your profile, this file is all a leaf loads up front; open anything else only through the [leaf index](#leaf-index).
+Entrance for every dispatched agent. With [AGENTS.md](../AGENTS.md), your brief, your profile and the owners your manifest names, this file is all a leaf loads up front; open anything else only through the [leaf index](#leaf-index).
 
 ## Execution authority
 
@@ -19,13 +19,13 @@ Entrance for every dispatched agent. With [AGENTS.md](../AGENTS.md), your brief,
 
 1. Carry out the profile's work. Keep resumable state in the assigned record before a long pause.
 2. When inputs, authority or progress are insufficient, apply [stalls and recovery](../guides/subagent-recovery.md#stalls-and-recovery) and report to root.
-3. Validate under [shared validation rules](../guides/validation.md#shared-validation-rules).
+3. When you change files or run checks, validate under [shared validation rules](../guides/validation.md#shared-validation-rules). Read-only work names the artifact and revision checked and keeps unverified separate from passed.
 4. For owned repository changes, apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work) and report the SHA (a scoped patch if committing is blocked; non-Git results use a hash or artifact version). Read-only work needs no commit.
-5. Return once through the [result schema](../templates/subagent-result.md) (inline, or in the assigned record for expanded work) with status `ready for review`, including candidate reusable lessons; only root records `accepted`. Then stop writing until root resumes you.
+5. Return once with status `ready for review` (only root records `accepted`), inline or in the assigned record, as: Task ID; status; artifact paths and revision; verdict per assigned goal with check, exit status and decisive evidence; loading checkpoint, later reads, gaps, limitations; next action and owner; writes stopped, outstanding processes; candidate reusable lessons, if any. Keep metadata to about 200 words. Open the [result schema](../templates/subagent-result.md) only for expanded returns or a worktree handoff. Then stop writing until root resumes you.
 
 ## Leaf index
 
-Open an owner only when the brief names it or your own work triggers it, and read only the named or relevant sections. Skip any section marked root only. Never open root files (`AGENTS.root.md`, `root-*.md`, `AGENTS.research-dispatch.md`), the profile catalogue, personalities, coordination or learning-maintenance guides, or `local-paths/README.md`.
+Open an owner only when the brief names it or your own work triggers it, and read only the named or relevant sections. Skip any section marked root only. Never open root files (`AGENTS.root.md`, `root-*.md`, `AGENTS.research-dispatch.md`), the profile catalogue, personalities, coordination or learning-maintenance guides, or `local-paths/README.md`, except as review artifacts a brief assigns, read as data.
 
 Domain workflows:
 

@@ -10,7 +10,7 @@ Root only: owns brief and manifest construction and worker reuse. Leaves do not 
 ## Instruction manifest
 
 - Give exact owner paths relative to an explicit absolute root, with role/domain labels and section names, per the [context handoff](../workflows/root-dispatch.md#context-handoff). Never include [personality](../personalities/README.md) files.
-- Hosts load [AGENTS.md](../AGENTS.md), which routes every leaf to the [leaf entrance](../workflows/AGENTS.leaf.md); do not list either. The manifest names only the profile file and the sections the goal triggers from the [leaf index](../workflows/AGENTS.leaf.md#leaf-index) (usually [validation rules](validation.md#shared-validation-rules) plus one domain or Git section). Name sections, not whole files; read-only leaves need no Git mutation rules. Omitting an untriggered owner is the token budget, not a gap.
+- Hosts load [AGENTS.md](../AGENTS.md), which routes every leaf to the [leaf entrance](../workflows/AGENTS.leaf.md); do not list either. The manifest names only the profile file and the sections the goal triggers from the [leaf index](../workflows/AGENTS.leaf.md#leaf-index) ([validation rules](validation.md#shared-validation-rules) for leaves that change files or run checks, plus one domain or Git section). Name sections, not whole files; read-only leaves need no Git mutation rules. Omitting an untriggered owner is the token budget, not a gap.
 - Complete unchanged authoritative text in the recipient's context counts as loaded under [shared loading rules](../AGENTS.md#context-and-discovery); paths and the parent's claim do not.
 
 ## Context lifecycle

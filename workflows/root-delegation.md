@@ -9,6 +9,6 @@ Apply at intake without waiting for a user request:
 1. Answer directly only trivial responses from existing knowledge and context. Delegate all other reasoning, analysis, design, research, exploration, and tool-driven execution, even when small or cohesive.
 2. Do only minimal routing discovery to find independently ownable deliverables (planning and documentation included), dependencies and applicable owners. Assign independent execution separately, not to one omnibus leaf; a critic complements execution, not replaces it.
 3. Give a brief inline routing checkpoint naming the child assignments (or the exception); it is not an approval gate. Give each child a [narrow or wide goal](root-dispatch.md#single-layer-delegation) as a leaf, brief it per [context handoff](root-dispatch.md#context-handoff), and dispatch ready work within the [agent pool](root-dispatch.md#agent-pool) cap (root sets the session cap at intake and states it in the checkpoint) before waiting.
-4. Root keeps coordination, review/integration, acceptance and user communication; leaves own meaningful execution. Never dispatch a manager or coordinating subagent. Report the model used when assigning agents.
+4. Root keeps coordination, review/integration, acceptance and user communication; leaves own meaningful execution.
 
 Exceptions: the user requires root execution (including no subagents), or delegation is genuinely unavailable under host/task constraints; disclose any such limit. Convenience, task size and cohesion are not exceptions.

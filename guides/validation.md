@@ -23,7 +23,6 @@ Local builds and test suites (for example `cargo build`, `cargo test`, `cargo cl
 - Fall back to local runs only when CI is unavailable for the check: no CI configured, CI does not cover it, no remote or push path exists, hosted runs cannot start (outage, quota, billing, disabled Actions), or the user asks for a local run. Record the reason. Even then, run the narrowest command covering the change (one crate, package or test target, not the whole workspace), and do not run several heavy builds in parallel.
 - Fast, low-load checks that do not build the project (formatters, single-file linters, `actionlint`) may still run locally before committing.
 - Waiting on CI is not a pass: the check stays unverified until the hosted run for that revision completes.
-- With several workers on one repository, apply [parallel CI](#parallel-ci).
 
 ## Parallel CI
 

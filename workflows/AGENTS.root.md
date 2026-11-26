@@ -2,13 +2,13 @@
 
 ## Root responsibilities
 
-This file owns overall task responsibility and reporting. At intake, load the [delegation default](root-delegation.md#delegation-default). Load [implementation planning](root-planning.md) for substantial vague implementation, explicit multi-component planning, or implementation work in a project whose plan document covers the request; at intake for implementation work, check the project's plans location (established, else `docs/plans/`) for one and, if found, [pick it up](root-planning.md#pickup). Load [root review](root-review.md) before closing non-trivial implementation work and after writing a plan for it. Load [context recovery](root-recovery.md) before preparing handoff/context loss and on root recovery before substantive execution, dispatch or publication. Load [root dispatch](root-dispatch.md) before dispatching, assigning, redirecting or accepting subagents; role naming alone does not require it. Root is the only coordinator: it absorbs every manager duty, and all subagents are leaves.
+This file owns overall task responsibility and reporting. At intake, load the [delegation default](root-delegation.md#delegation-default). Load [implementation planning](root-planning.md) for substantial vague implementation, explicit multi-component planning, or implementation work in a project whose plan document covers the request; at intake for implementation work, check the project's plans location (established, else `docs/plans/`) for one and, if found, [pick it up](root-planning.md#pickup). Load [root review](root-review.md) before closing non-trivial implementation work and after writing a plan for it. Load [context recovery](root-recovery.md) before preparing handoff/context loss and on root recovery before substantive execution, dispatch or publication. Load [root dispatch](root-dispatch.md) before dispatching, assigning, redirecting or accepting subagents; role naming alone does not require it.
 
 As the top-level root, load the [personality index](../personalities/README.md) at intake, run its [selection](../personalities/README.md#selection) check, and load the selected personality, if any, before the first user-facing reply, for root's user-facing conversation only. Output styles and brevity never waive loading a selected personality, and every reply carries it at the [voice strength](../personalities/README.md#voice-strength) the index requires. Never pass a personality to subagents or use it to style deliverables. Personality never changes policy, authority, or task decisions.
 
 ## Owner index
 
-Root-only owners (leaves never open these):
+Root-only owners (leaves open only the sections the [leaf index](AGENTS.leaf.md#leaf-index) names):
 
 - Intake delegation: [delegation default](root-delegation.md#delegation-default); dispatch, briefs, models, agent pool, acceptance: [root dispatch](root-dispatch.md); research model selection: [research dispatch](AGENTS.research-dispatch.md).
 - Planning: [implementation planning](root-planning.md); review gates: [root review](root-review.md); compaction and handoff: [context recovery](root-recovery.md).
@@ -23,6 +23,7 @@ Shared owners: every entry in the [leaf index](AGENTS.leaf.md#leaf-index) (domai
 
 For any non-trivial task, before dispatching or editing, define a short set of boolean, measurable goals covering the user's outcome (not process steps).
 
+- A task is non-trivial when it produces or changes an artifact (code, docs, configuration, plan) beyond a mechanical edit the user fully specified, or needs more than one leaf.
 - Each goal is one yes/no statement verifiable by a named command, check, or observation, e.g. "`npm test` exits 0", "no file under docs/ links to removed.md", "endpoint X returns 200 with field Y". Reject vague goals ("code is clean").
 - State the goals to the user in the routing checkpoint or plan. Pass each leaf the relevant subset as its acceptance checks.
 - Revise goals only when evidence or the user changes scope, and say so when revising.
@@ -30,7 +31,6 @@ For any non-trivial task, before dispatching or editing, define a short set of b
 
 ## Execution and completion
 
-- At intake, determine the session's subagent cap per the [agent pool](root-dispatch.md#agent-pool).
 - Own scope, dependencies, integration, and user communication. Follow [shared execution defaults](../AGENTS.md#execution-defaults); keep related work together, pass leaves compact deltas, and use fresh context for unrelated assignments. Suggest a new chat when unrelated history materially impedes direct work, without creating one unless requested.
 - Apply [commit before ending work](../guides/git-usage.md#commit-before-ending-work) to root-owned changes and verify leaf commit evidence before closing. Close only after required integration, [process cleanup](../AGENTS.md#process-cleanup) of root's and every leaf's task-started processes, [validation](../guides/validation.md#shared-validation-rules), [reviews](root-review.md#gates), [worktree reconciliation](../guides/git-worktrees.md#safe-cleanup), and the [root session-end push](../guides/git-publication.md#root-session-end-push). Root pushes all commits on the working branch to that branch on `origin` under the linked rule, or reports its concrete blocker. A factual answer needs no Git cleanup.
 - Report resulting behavior, goal status, relevant evidence, and material blockers. For implementations/refactors, apply [documentation alignment](../guides/coding-standards.md#documentation-alignment), including its scoped research-paper rules.

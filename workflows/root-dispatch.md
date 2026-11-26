@@ -41,14 +41,14 @@ Governing rule: choose the cheapest tier expected to produce high-quality work o
 | ---------- | ---- |
 | Routine: discovery, extraction, gathering, mechanical edits, established checks, well-specified small changes | Economy |
 | Ordinary: implementation, debugging, integration, documentation, test authoring | Specialist; Economy when fully specified and mechanical |
-| Hard: architecture/design decisions, causal debugging of unclear failures, consequential critique or security analysis, difficult synthesis | Frontier, only after narrowing and when the narrowed assignment still needs it; otherwise Specialist |
+| Hard: architecture/design decisions, causal debugging of unclear failures, [consequential critique](root-review.md#critic-brief) or security analysis, difficult synthesis | Frontier, only after narrowing and when the narrowed assignment still needs it; otherwise Specialist |
 
 - Escalate one tier on a demonstrated capability gap or a failed/low-quality attempt, not on importance, size, or the preset alone. A wide goal is not hard by width alone.
 - Split mixed assignments so only the hard part uses the stronger tier.
 - State the reason for each Frontier choice, and for any leaf on the same model as root, in the routing checkpoint, which reports the model.
 - Workflow-specific model/effort rules override this table. When effort controls are exposed, use low for routine edits/extraction, medium for ordinary implementation/debugging, deeper for difficult uncertain analysis; honor explicit settings and host controls, using only documented controls.
 - Inherit model/effort only when it is the suitable choice; else use a fresh-context dispatch, or report blocked. Never invent a hidden model's ID or claim unobserved settings; prompts do not configure runtime.
-- Report the model used to the user. If the needed capability exceeds the ceiling, use the best within it and say so, or ask the user.
+- If the needed capability exceeds the ceiling, use the best within it and say so, or ask the user.
 
 ## Context handoff
 
@@ -71,7 +71,7 @@ Plan-based subagent cap and staging. Telemetry and control names: [host adapters
 | Free                                    | 1                                                         |
 | Pro                                     | 1                                                         |
 | Max Nx                                  | 2N/5, rounded down, at least 1                            |
-| Ultra (same as Max 10x)                 | 4 (as Max 10x)                                            |
+| Ultra                                   | 4 (as Max 10x)                                            |
 | Max, multiplier unknown                 | 2                                                         |
 | Team, Enterprise, API or not applicable | Per `plan.md` (a tier above or `Subagent cap: N`), else 1 |
 | No plan known                           | 1                                                         |
