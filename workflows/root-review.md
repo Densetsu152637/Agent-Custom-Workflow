@@ -4,7 +4,7 @@ Root only: load before closing non-trivial implementation or refactor work and a
 
 ## Gates
 
-- Plan gate: after root writes or materially revises a plan (a [plan document](root-planning.md#plan-document), or the plan and goals for any non-trivial implementation) and before dispatching implementation stages, dispatch an independent critic.
+- Plan gate: after root writes or materially revises a [plan document](root-planning.md#plan-document), or plans two or more dependent implementation leaves, and before dispatching implementation stages, dispatch an independent critic. Single-leaf work goes straight to the implementation gate.
 - Implementation gate: before acceptance of non-trivial implementation or refactor work, after integration and validation evidence exist and before commit/push close-out, dispatch a critic on the final diff against the goals and validation evidence.
 - Non-trivial is defined in [goals](AGENTS.root.md#goals); scale the critic's scope to the artifact.
 - Gates complement, not replace, [validation](../guides/validation.md#shared-validation-rules) and domain-mandated critique. Skip them for trivial direct answers and work with no plan or implementation artifact.
