@@ -32,7 +32,7 @@ The gate critic does not count toward the session subagent cap ([agent pool](roo
 
 ## Improvement pass
 
-- Starts only when a gate's triage stops on (a) convergence, never on no-progress or limits. Reuse the same critic. Skip it for mechanical or docs-only artifacts unless the user asks.
+- Starts only when a gate's triage stops on (a) convergence, never on no-progress or limits. Reuse the same critic. Skip it for mechanical edits and for docs-only artifacts that carry no behavioural rules (policy and instruction text does carry them) unless the user asks.
 - The critic returns at most 3 ranked in-scope improvements to the already-sound artifact (e.g. robustness, failure handling, simplicity, testability, risky assumptions, maintainability), each with expected benefit, cost, added risk, and smallest change and check. It lists out-of-scope suggestions separately, judged against the brief's scope and non-goals; they do not count toward the 3.
 - Root adopts in-scope suggestions whose benefit outweighs cost and declines the rest with a reason. Out-of-scope suggestions are never adopted; collect them for the user.
 - Apply adopted improvements: plan gate, into the plan document; implementation gate, implemented (by assignment where delegation applies) and re-validated. Then resubmit. Each round the critic first checks the revision for acceptance-changing defects (any found return to [Triage](#triage), and the pass resumes once triage converges again), then proposes the next improvements.
